@@ -8,10 +8,10 @@
 <body>
     <h2>Signup</h2>
     <form action="register.php" method="POST">
-        <label for="firstName">Username:</label><br>
+        <label for="firstName">First Name:</label><br>
         <input type="text" name="firstName" required><br><br>
 
-        <label for="lastName">Username:</label><br>
+        <label for="lastName">Last Name:</label><br>
         <input type="text" name="lastName" required><br><br>
         
         <label for="email">Email:</label><br>
@@ -19,8 +19,13 @@
         
         <label for="password">Password:</label><br>
         <input type="password" name="password" required><br><br>
+
+        <label for="password">Confirm Password:</label><br>
+        <input type="password" name="password" required><br><br>
         
         <button type="submit">Register</button>
     </form>
+
+    <a href="login.php">Login</a>
 </body>
 </html>
