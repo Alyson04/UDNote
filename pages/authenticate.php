@@ -1,6 +1,7 @@
 <?php
 $host = 'localhost';
-$dbname = 'UDNOTE';
+$dbname = 'udnote';
+// $dbname = 'UDNOTE';
 $username = 'root';
 $password = '';
 
