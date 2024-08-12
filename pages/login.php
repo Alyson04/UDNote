@@ -19,11 +19,11 @@
         <label for="password">PASSWORD</label><br>
         <input type="password" name="password" required><br>
 
-        <a href = "forgotpass.php"> Forgot Password?<br><br><br></a>
+        <a href = "forgotpass.php"> Forgot Password?<br><br><br><br></a>
         <button type="submit">SIGN IN</button>
     </div>
 
-    <div class = right-column>
+    <div class = right-column> 
     <h2>NEW HERE?</h2> 
     <h3>Why wait? Join us now and <br> experience the difference!</h3>
     <a href="signup.php"> SIGN UP </a>
