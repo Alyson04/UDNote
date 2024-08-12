@@ -1,11 +1,7 @@
 <?php
 $host = 'localhost';
-<<<<<<< HEAD
-$dbname = 'UDNOTE';
-=======
 $dbname = 'udnote';
 // $dbname = 'UDNOTE';
->>>>>>> d5e12abc834de80175700acc8c01ba5106c3fca7
 $username = 'root';
 $password = '';
 
