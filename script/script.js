@@ -1,3 +1,16 @@
+//THIS IS FOR TOAST NOTIFICATION
+document.addEventListener("DOMContentLoaded", function() {
+    const toasts = document.querySelectorAll('.toast');
+    toasts.forEach(toast => {
+        toast.style.display = 'block';
+        setTimeout(() => {
+            toast.style.display = 'none';
+        }, 3000); // Hide after 3 seconds
+    });
+});
+
+
+
 // THIS IS FOR NAV
 const navBar = document.getElementById("navBar");
 
@@ -22,20 +35,4 @@ function renderNav() {
 
 renderNav();
 
-//THIS IS FOR TOAST NOTIFICATION
-function showToast(message) {
-    var toast = document.createElement('div');
-    toast.className = 'toast';
-    toast.textContent = message;
-    var container = document.getElementById('toast-container');
-    container.appendChild(toast);
-    setTimeout(function() {
-        toast.classList.add('show');
-    }, 100);
-    setTimeout(function() {
-        toast.classList.remove('show');
-        setTimeout(function() {
-            container.removeChild(toast);
-        }, 500);
-    }, 3000);
-}
+

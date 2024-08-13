@@ -21,14 +21,10 @@ if (isset($_SESSION['ID'])) {
         echo($_SESSION['Error']);
         unset($_SESSION['Error']);
         }
-        ?>
-    </div>
 
-    <div class="toast-container" id="toast-container">
-        <?php
         if(isset($_SESSION['Success'])){
-        echo($_SESSION['Sucess']);
-        unset($_SESSION['Sucess']);
+            echo($_SESSION['Success']);
+            unset($_SESSION['Success']);
         }
         ?>
     </div>
