@@ -21,7 +21,7 @@ try {
 
         // Validate form inputs
         if (empty($email) || empty($pass)) {
-            echo "Please fill in both email and password.";
+            $_SESSION['Error'] = 'Fields are empty';
         } else {
             // Prepare the SQL statement
             $stmt = $conn->prepare("SELECT * FROM users WHERE email = :email");
@@ -31,19 +31,19 @@ try {
 
             // Verify the password
             if ($user && password_verify($pass, $user['password'])) {
-                echo "Login successful! Welcome, " . $user['firstName'] . " " . $user['lastName'];
-                
                 // Start a session and store user info (optional)
                 session_start();
                 $_SESSION['ID'] = $user['ID'];
                 $_SESSION['firstName'] = $user['firstName'];
                 $_SESSION['lastName'] = $user['lastName'];
+
+                $_SESSION['Success'] = 'Log in Success';
                 
                 // Redirect to a dashboard or another page (optional)
                 header("Location: index.php");
                 exit;
             } else {
-                echo "Invalid email or password!";
+                $_SESSION['Error'] = 'Invalid email or password!';
             }
         }
     }
