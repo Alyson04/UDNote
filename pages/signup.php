@@ -11,12 +11,13 @@ if (isset($_SESSION['ID'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/signup.css">
     <title>Signup</title>
 </head>
 <body>
     <div class="toast-container" id="toast-container"></div>
     
-
+    <div class="container">
     <h2>Signup</h2>
     <form action="register.php" method="POST">
         <label for="firstName">First Name:</label><br>
@@ -36,8 +37,9 @@ if (isset($_SESSION['ID'])) {
         
         <button type="submit">Register</button>
     </form>
-
     <a href="login.php">Login</a>
+    </div>
+    
 
 
     <script src="../script/script.js"></script>

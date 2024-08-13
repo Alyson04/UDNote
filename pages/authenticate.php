@@ -37,7 +37,7 @@ try {
                 $_SESSION['firstName'] = $user['firstName'];
                 $_SESSION['lastName'] = $user['lastName'];
 
-                $_SESSION['Success'] = 'Log in Success';
+                //$_SESSION['Success'] = 'Log in Success';
                 
                 // Redirect to a dashboard or another page (optional)
                 header("Location: index.php");
@@ -50,4 +50,4 @@ try {
 } catch(PDOException $e) {
     echo "Error: " . $e->getMessage();
 }
-?>
+
