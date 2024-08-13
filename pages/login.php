@@ -31,19 +31,18 @@ if (isset($_SESSION['ID'])) {
     
         <div class="container">
             <div class="left-column">
-                <h1> Welcome </h1>
+                <h1> WELCOME </h1>
                 <h3>Capture, organize, and access your <br> ideas effortlessly.</h3>
 
-                <h2>Login</h2>
                 <form action="authenticate.php" method="POST">
-                    <label for="email">Email:</label><br>
-                    <input autocomplete="on" type="email" name="email" required><br><br>
+                    <label for="email">Email:</label>
+                    <input autocomplete="on" type="email" name="email" required>
                     
-                    <label for="password">Password:</label><br>
-                    <input autocomplete="off" type="password" name="password" required><br><br>
+                    <label for="password">Password:</label>
+                    <input autocomplete="off" type="password" name="password" required>
                     
-                    <a href = "forgetpass.php"> Forgot Password?<br><br><br><br></a>
-                    <button type="submit">Login</button>
+                    <a href = "forgetpass.php"> Forgot Password?</a>
+                    <button type="submit">LOGIN</button>
                     </form>
             </div>
             <div class="right-column"> 
