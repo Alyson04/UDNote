@@ -29,18 +29,28 @@ if (isset($_SESSION['ID'])) {
         ?>
     </div>
     
-    <h2>Login</h2>
-    <form action="authenticate.php" method="POST">
-        <label for="email">Email:</label><br>
-        <input autocomplete="on" type="email" name="email" required><br><br>
-        
-        <label for="password">Password:</label><br>
-        <input autocomplete="off" type="password" name="password" required><br><br>
-        
-        <button type="submit">Login</button>
-    </form>
+        <div class="container">
+            <div class = left-column>
+                <h1> Welcome </h1>
+                <h3>Capture, organize, and access your <br> ideas effortlessly.</h3>
 
-    <a href="signup.php">Signup</a>
+                <h2>Login</h2>
+                <form action="authenticate.php" method="POST">
+                    <label for="email">Email:</label><br>
+                    <input autocomplete="on" type="email" name="email" required><br><br>
+                    
+                    <label for="password">Password:</label><br>
+                    <input autocomplete="off" type="password" name="password" required><br><br>
+                    
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+            <div class = right-column> 
+                <h2>NEW HERE?</h2> 
+                <h3>Why wait? Join us now and <br> experience the difference!</h3>
+                <a href="signup.php"> SIGN UP </a>
+            </div>
+        </div>
 
     <script src="../script/script.js"></script>
 </body>
