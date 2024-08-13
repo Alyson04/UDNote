@@ -23,7 +23,6 @@ body {
 }
 
 .left-column{
-  border: solid 1px red;
   width: 40%;
   height: auto;
   justify-content: center;
@@ -94,7 +93,10 @@ button:hover {
 }
   
 .right-column {
-    border: solid 1px red;
+    background-image: url(../assets/LOGINN.jpg);
+    background-size: cover; 
+    background-position: center;
+    box-shadow: 0 5px 5px rgba(0.5, 0.2, 0.2, 0.5);
     width: 30%;
     height: auto;
     justify-content: center;
