@@ -1,7 +1,10 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+
 $host = 'localhost';
-//$dbname = 'udnote';
-$dbname = 'UDNOTE';
+$dbname = 'udnote';
 $username = 'root'; // default MySQL user for XAMPP
 $password = ''; // leave empty by default
 
@@ -23,7 +26,11 @@ try {
         $stmt->bindParam(':password', $pass);
         $stmt->execute();
 
-        echo "Registration successful!";
+        echo "<script type='text/javascript'>
+        alert('Signup successful! You will be redirected to the login page.');
+        window.location.href = 'login.php';
+    </script>";
+    exit();
     }
 } catch(PDOException $e) {
     echo "Error: " . $e->getMessage();
