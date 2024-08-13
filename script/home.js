@@ -18,9 +18,17 @@ document.addEventListener('DOMContentLoaded', function() {
     let isUpdate = false, updateId;
 
     // Function to show notes
-    function showNotes() {
+    function showNotes(query = "") {
+        // Remove existing notes
         document.querySelectorAll(".note").forEach(li => li.remove());
-        notes.forEach((note, id) => {
+        // Filter notes based on the query
+        const filteredNotes = notes.filter(note =>
+            note.title.toLowerCase().includes(query.toLowerCase()) ||
+            note.description.toLowerCase().includes(query.toLowerCase())
+        );
+
+        // Add filtered notes to the DOM
+        filteredNotes.forEach((note, id) => {
             let filterDesc = note.description.replaceAll("\n", '<br/>');
             let liTag = `<li class="note">
                             <div class="details">
@@ -82,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 notes[updateId] = noteInfo;
             }
             localStorage.setItem("notes", JSON.stringify(notes));
-            showNotes();
+            showNotes(searchBox.value); // Refresh notes with the current search query
             closeIcon.click();
         }
     });
@@ -121,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (confirm("Are you sure you want to delete this note?")) {
             notes.splice(noteId, 1);
             localStorage.setItem("notes", JSON.stringify(notes));
-            showNotes();
+            showNotes(searchBox.value); // Refresh notes with the current search query
         }
     };
 
@@ -135,4 +143,9 @@ document.addEventListener('DOMContentLoaded', function() {
         popupTitle.innerText = "Update a Note";
         addBtn.innerText = "Update Note";
     };
+
+    // Search functionality
+    searchBox.addEventListener("input", function() {
+        showNotes(searchBox.value);
+    });
 });

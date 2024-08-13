@@ -32,11 +32,11 @@
             <nav class="dropdown-menu" id="dropdown-menu">
                 <!-- Links for dropdown menu items -->
                 <div class="icon"><i class="uil uil-pen"></i>
-                <a href="#edit-profile" class="nav-item">Edit Profile</a>
+                <a href="#edit-profile" class="nav-item"> Edit Profile</a>
                 </i></div>
                 <div class="icon"><i class="uil uil-signout">
-                <a href="#logout" class="nav-item">Log Out</a>
-                </i></div>
+                <a href="#logout" class="nav-item"> Log Out</a>
+                </i></div>  
             </nav>
         </div>  
     </div>
