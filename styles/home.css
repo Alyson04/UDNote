@@ -1,368 +1,417 @@
+/* Reset default margin, padding, and box-sizing for all elements */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Helvetica', Arial, sans-serif;
+    font-family: 'Helvetica', Arial, sans-serif; /* Set default font */
 }
 
+/* Styling for the header */
 header {
+    display: flex; /* Use flexbox for layout */
+    background-color: #DAD6CD; /* Background color for the header */
+    position: relative; /* Relative positioning for child elements */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-title {
+    flex: 1; /* Allow the title section to grow */
+    text-align: center; /* Center-aligns text horizontally */
+}
+
+.header-title h1{
+    margin: 0;
+    color: #333; /* Change the text color */
+    font-weight: bold; /* Make the font bold */
+}
+
+/* Container for the profile picture */
+.profile-container {
+    position: absolute; /* Position relative to the header */
+    left: 20px; /* Align to the left with some margin */
     display: flex;
-    align-items: center;
-    background-color: #DAD6CD;
-    border-bottom: 1px solid #ddd;
-    position: relative;
-    opacity: .37;
+    align-items: center; /* Center items vertically */
 }
 
-.sidebar {
-    width: 250px; /* Adjust width as needed */
-    background-color: #DAD6CD;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh; /* Full height of viewport */
-    position: fixed;
-    top: 0;
-    left: -250px; /* Hidden off-screen by default */
-    transition: left 0.3s ease;
-    z-index: 1000; /* Ensure it appears above other content */
-}
-
-.sidebar.show {
-    left: 0; /* Show sidebar */
-}
-
+/* Styling for the profile picture */
 .profile-pic {
-    width: 60px; /* Check size */
-    height: 60px; /* Check size */
-    border-radius: 50%;
-    border: 2px solid #fff;
-    margin: 20px 0;
-    cursor: pointer;
-    object-fit: cover;
+    width: 60px; /* Set width of the profile picture */
+    height: 60px; /* Set height of the profile picture */
+    border-radius: 50%; /* Make the profile picture circular */
+    margin: 20px; /* Add margin around the profile picture */
+    cursor: pointer; /* Show pointer cursor on hover */
+    object-fit: cover; /* Crop image to fit the dimensions */
+    transition: 0.3s; /* Smooth transition for changes */
 }
 
-.sidebar-nav {
-    margin-top: 20px; /* Space below profile picture */
+/* Dropdown menu styling */
+.dropdown-menu {
+    display: none; /* Hide by default */
+    position: absolute; /* Absolute positioning relative to the parent */
+    top: 70px; /* Position the dropdown menu below the profile picture */
+    right: 0; /* Align dropdown to the right edge */
+    background-color: #DAD6CD; /* Background color */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2); /* Shadow fo    r depth */
+    z-index: 1000; /* Ensure it's above other elements */
 }
 
-.nav-item {
+/* Show dropdown menu when 'show' class is added */
+.dropdown-menu.show {
     display: block;
-    color: #fff;
-    text-decoration: none;
-    padding: 10px;
-    text-align: center;
-    width: 100%;
 }
 
-.nav-item:hover {
-    background-color: #0056b3;
-}
-
+/* Header content styling */
 .header-content {
-    margin-left: 250px; /* Matches sidebar width to avoid overlap */
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    transition: margin-left 0.3s ease; /* Smooth transition */
+    margin-left: 80px; /* Adjust margin to accommodate the profile picture */
+    flex: 1; /* Allow header content to grow and fill available space */
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Distribute items evenly */
+    padding: 10px; /* Padding around content */
+    transition: margin-left 0.3s ease; /* Smooth transition for margin changes */
 }
 
+
+/* Styling for the body */
 body {
-    font-family: 'Helvetica', Arial, sans-serif;
-    background: #618cf8;
-    background: url(../assets/bg.jpg) no-repeat;
-    background-size: cover;
-    background-position: center;
+    font-family: 'Helvetica', Arial, sans-serif; /* Set default font */
+    background: url(../assets/bg.jpg) no-repeat; /* Background image */
+    background-size: cover; /* Cover entire body with background image */
+    background-position: center; /* Center the background image */
 }
 
+/* Styling for text selection */
 ::selection {
-    color: #C6C1B5;
-    background: #618cf8;
+    color: #C6C1B5; /* Text color when selected */
 }
 
+/* Styling for the search box */
 .search-box {
-    position: relative;
-    margin-bottom: 10px;
+    position: relative; /* Position relative to allow absolute positioning of child elements */
+    margin-bottom: 6px; /* Margin at the bottom */
 }
 
+/* Search box icon styling */
 .search-box .icon {
-    position: absolute;
-    top: 45%;
-    left: 15px;
-    font-size: 20px;
-    transform: translateY(-50%); /* Centers the icon vertically */
-    color: #999; /* Adjust the color to match your design */
+    position: absolute; /* Absolute positioning inside the search box */
+    top: 45%; /* Center vertically */
+    left: 15px; /* Position from the left */
+    font-size: 20px; /* Font size for the icon */
+    transform: translateY(-50%); /* Vertically center the icon */
+    color: #999; /* Icon color */
 }
 
+/* Styling for the search input */
 .search-box input {
-    width: 100%;
-    height: 50px;
-    padding: 0 15px 0 50px;
-    border-radius: 4px;
-    border: 1px solid #999;
-    font-size: 17px;
-    outline: none;
+    width: 100%; /* Full width */
+    height: 50px; /* Height of the input */
+    padding: 0 15px 0 50px; /* Padding inside the input */
+    border-radius: 4px; /* Rounded corners */
+    border: 1px solid #999; /* Border color */
+    font-size: 17px; /* Font size */
+    outline: none; /* Remove default outline */
 }
 
+/* Styling for focused search input */
 .search-box input:focus {
-    box-shadow: 0 2px 4px rgba(0,0,0,0.11);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.11); /* Add shadow on focus */
 }
 
+/* Wrapper for grid layout */
 .wrapper {
-    margin: 50px;
-    display: grid;
-    gap: 25px;
-    grid-template-columns: repeat(auto-fill, 265px);
+    margin: 50px; /* Margin around the grid */
+    display: grid; /* Use grid layout */
+    gap: 25px; /* Space between grid items */
+    grid-template-columns: repeat(auto-fill, 265px); /* Automatically fill columns */
 }
 
+/* Styling for list items in the grid */
 .wrapper li {
-    height: 250px;
-    list-style: none;
-    border-radius: 5px;
-    padding: 15px 20px 20px;
-    background: #fff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    margin-top: 10px;
+    height: 250px; /* Set height of list items */
+    list-style: none; /* Remove default list styling */
+    border-radius: 5px; /* Rounded corners */
+    padding: 15px 20px 20px; /* Padding inside list items */
+    background-color: #DAD6CD; /* Background color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: black groove; /* Border styling */
+    margin-top: 10px; /* Margin at the top */
 }
 
+/* Flexbox styling for various elements */
 .add-box, .icon, .bottom-content,
 .popup, header, .settings .menu li {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Distribute items evenly */
 }
 
+/* Styling for the add-box */
 .add-box {
-    cursor: pointer;
-    flex-direction: column;
-    justify-content: center;
+    cursor: pointer; /* Pointer cursor on hover */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center children vertically */
 }
 
+/* Add-box icon styling */
 .add-box .icon {
-    height: 78px;
-    width: 78px;
-    color: #88ABFF;
-    font-size: 40px;
-    border-radius: 50%;
-    justify-content: center;
-    border: 2px dashed #88ABFF;
+    height: 78px; /* Height of the icon */
+    width: 78px; /* Width of the icon */
+    color: #000000; /* Icon color */
+    font-size: 40px; /* Font size */
+    border-radius: 50%; /* Circular border */
+    justify-content: center; /* Center content inside */
+    border: 2px dashed #000000; /* Dashed border */
 }
 
+/* Text styling for add-box */
 .add-box p {
-    color: #88ABFF;
-    font-weight: 500;
-    margin-top: 20px;
+    color: #000000; /* Text color */
+    font-weight: 500; /* Medium font weight */
+    margin-top: 20px; /* Margin at the top */
 }
 
+/* Note component styling */
 .note {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: space-between; /* Space between children */
 }
 
+/* Details section of note with scroll handling */
 .note .details {
-    max-height: 165px;
-    overflow-y: auto;
+    max-height: 165px; /* Maximum height for scrolling */
+    overflow-y: auto; /* Enable vertical scrolling */
 }
 
+/* Hide scrollbar by default */
 .note .details::-webkit-scrollbar,
 .popup textarea::-webkit-scrollbar {
     width: 0;
 }
 
+/* Show scrollbar on hover */
 .note .details:hover::-webkit-scrollbar,
 .popup textarea:hover::-webkit-scrollbar {
-    width: 5px;
+    width: 5px; /* Width of scrollbar */
 }
 
+/* Scrollbar track styling */
 .note .details:hover::-webkit-scrollbar-track,
 .popup textarea:hover::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 25px;
+    background: #f1f1f1; /* Track background */
+    border-radius: 25px; /* Rounded track */
 }
 
+/* Scrollbar thumb styling */
 .note .details:hover::-webkit-scrollbar-thumb,
 .popup textarea:hover::-webkit-scrollbar-thumb {
-    background: #e6e6e6;
-    border-radius: 25px;
+    background: #e6e6e6; /* Thumb background */
+    border-radius: 25px; /* Rounded thumb */
 }
 
+/* Note paragraph styling */
 .note p {
-    font-size: 22px;
-    font-weight: 500;
+    font-size: 22px; /* Font size */
+    font-weight: 500; /* Medium font weight */
 }
 
+/* Note span styling */
 .note span {
-    display: block;
-    color: #575757;
-    font-size: 16px;
-    margin-top: 5px;
+    display: block; /* Block-level element */
+    color: #575757; /* Text color */
+    font-size: 16px; /* Font size */
+    margin-top: 5px; /* Margin at the top */
 }
 
+/* Bottom content section styling */
 .note .bottom-content {
-    padding-top: 10px;
-    border-top: 1px solid #ccc;
+    padding-top: 10px; /* Padding at the top */
+    border-top: 1px solid #ccc; /* Top border */
 }
 
+/* Bottom content span styling */
 .bottom-content span {
-    color: #6D6D6D;
-    font-size: 14px;
+    color: #6D6D6D; /* Text color */
+    font-size: 14px; /* Font size */
 }
 
+/* Settings menu styling */
 .bottom-content .settings {
-    position: relative;
+    position: relative; /* Position relative for absolute positioning of menu */
 }
 
+/* Settings menu icon styling */
 .bottom-content .settings i {
-    color: #6D6D6D;
-    cursor: pointer;
-    font-size: 15px;
+    color: #6D6D6D; /* Icon color */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 15px; /* Font size */
 }
 
+/* Settings menu styling */
 .settings .menu {
-    z-index: 1;
-    bottom: 0;
-    right: -5px;
-    padding: 5px 0;
-    background: #fff;
-    position: absolute;
-    border-radius: 4px;
-    transform: scale(0);
-    transform-origin: bottom right;
-    box-shadow: 0 0 6px rgba(0,0,0,0.15);
-    transition: transform 0.2s ease;
+    z-index: 1; /* Ensure it is above other content */
+    bottom: 0; /* Position at the bottom */
+    right: -5px; /* Position slightly off the right edge */
+    padding: 5px 0; /* Padding inside the menu */
+    background: #C6C1B5; /* Background color */
+    position: absolute; /* Absolute positioning */
+    border-radius: 4px; /* Rounded corners */
+    transform: scale(0); /* Initial scale (hidden) */
+    transform-origin: bottom right; /* Scale transformation origin */
+    box-shadow: 0 0 6px rgba(0,0,0,0.15); /* Shadow for depth */
+    transition: transform 0.2s ease; /* Smooth transition for scaling */
 }
 
+/* Show settings menu when 'show' class is added */
 .settings.show .menu {
     transform: scale(1);
 }
 
+/* Settings menu list item styling */
 .settings .menu li {
-    height: 25px;
-    font-size: 16px;
-    margin-bottom: 2px;
-    padding: 17px 15px;
-    cursor: pointer;
-    box-shadow: none;
-    border-radius: 0;
-    justify-content: flex-start;
+    height: 25px; /* Height of menu items */
+    font-size: 16px; /* Font size */
+    margin-bottom: 2px; /* Margin at the bottom */
+    padding: 17px 15px; /* Padding inside menu items */
+    cursor: pointer; /* Pointer cursor on hover */
+    box-shadow: none; /* Remove box-shadow */
+    border-radius: 0; /* No border-radius */
+    justify-content: flex-start; /* Align items to the start */
 }
 
+/* Remove bottom margin from last menu item */
 .menu li:last-child {
     margin-bottom: 0;
 }
 
+/* Hover effect for menu items */
 .menu li:hover {
-    background: #f5f5f5;
+    background: #f5f5f5; /* Background color on hover */
 }
 
+/* Icon inside menu item */
 .menu li i {
-    padding-right: 8px;
+    padding-right: 8px; /* Space between icon and text */
 }
 
+/* Popup box styling */
 .popup-box {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    height: 100%;
-    width: 100%;
-    background: rgba(0,0,0,0.4);
+    position: fixed; /* Fixed position to cover entire screen */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    z-index: 2; /* Ensure it is above other content */
+    height: 100%; /* Full height */
+    width: 100%; /* Full width */
+    background: rgba(0,0,0,0.4); /* Semi-transparent background */
 }
 
+/* Popup styling */
 .popup-box .popup {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 3;
-    width: 100%;
-    max-width: 400px;
-    justify-content: center;
-    transform: translate(-50%, -50%) scale(0.95);
+    position: absolute; /* Absolute positioning inside the popup box */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    z-index: 3; /* Ensure it is above popup box */
+    width: 100%; /* Full width */
+    max-width: 400px; /* Maximum width */
+    justify-content: center; /* Center content */
+    transform: translate(-50%, -50%) scale(0.95); /* Center and scale down */
 }
 
+/* Hide popup box and popup by default */
 .popup-box, .popup {
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.25s ease;
+    opacity: 0; /* Hidden */
+    pointer-events: none; /* Disable pointer events */
+    transition: all 0.25s ease; /* Smooth transition for all properties */
 }
 
+/* Show popup box and popup when 'show' class is added */
 .popup-box.show, .popup-box.show .popup {
-    opacity: 1;
-    pointer-events: auto;
+    opacity: 1; /* Show */
+    pointer-events: auto; /* Enable pointer events */
 }
 
+/* Popup scale transformation when 'show' class is added */
 .popup-box.show .popup {
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1); /* Scale to full size */
 }
 
+/* Popup content styling */
 .popup .content {
-    border-radius: 5px;
-    background: #fff;
-    width: calc(100% - 15px);
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    border-radius: 5px; /* Rounded corners */
+    background: #C6C1B5; /* Background color */
+    width: calc(100% - 15px); /* Full width minus padding */
+    box-shadow: 0 0 15px rgba(0,0,0,0.1); /* Shadow for depth */
 }
 
+/* Header inside popup content */
 .content header {
-    padding: 15px 25px;
-    border-bottom: 1px solid #ccc;
+    padding: 15px 25px; /* Padding inside header */
+    border-bottom: 1px solid #ccc; /* Bottom border */
 }
 
+/* Header text styling */
 .content header p {
-    font-size: 20px;
-    font-weight: 500;
+    font-size: 20px; /* Font size */
+    font-weight: 500; /* Medium font weight */
 }
 
+/* Close icon styling inside header */
 .content header i {
-    color: #8b8989;
-    cursor: pointer;
-    font-size: 23px;
+    color: #8b8989; /* Icon color */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 23px; /* Font size */
 }
 
+/* Form styling inside popup content */
 .content form {
-    margin: 15px 25px 35px;
+    margin: 15px 25px 35px; /* Margin around the form */
 }
 
+/* Row styling inside form */
 .content form .row {
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* Margin at the bottom of each row */
 }
 
+/* Label styling inside form */
 form .row label {
-    font-size: 18px;
-    display: block;
-    margin-bottom: 6px;
+    font-size: 18px; /* Font size */
+    display: block; /* Block-level element */
+    margin-bottom: 6px; /* Margin at the bottom */
 }
 
+/* Styling for input and textarea elements inside forms */
 form :where(input, textarea) {
-    height: 50px;
-    width: 100%;
-    outline: none;
-    font-size: 17px;
-    padding: 0 15px;
-    border-radius: 4px;
-    border: 1px solid #999;
+    height: 50px; /* Height */
+    width: 100%; /* Full width */
+    outline: none; /* Remove default outline */
+    font-size: 17px; /* Font size */
+    padding: 0 15px; /* Padding inside */
+    border-radius: 4px; /* Rounded corners */
+    border: 1px solid #999; /* Border color */
 }
 
+/* Styling for focused input and textarea */
 form :where(input, textarea):focus {
-    box-shadow: 0 2px 4px rgba(0,0,0,0.11);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.11); /* Add shadow on focus */
 }
 
+/* Styling for textarea inside form */
 form .row textarea {
-    height: 150px;
-    resize: none;
-    padding: 8px 15px;
+    height: 150px; /* Height */
+    resize: none; /* Disable resizing */
+    padding: 8px 15px; /* Padding inside */
 }
 
+/* Button styling inside form */
 form button {
-    width: 100%;
-    height: 50px;
-    color: #fff;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    font-size: 17px;
-    border-radius: 4px;
-    background: #6A93F8;
+    width: 100%; /* Full width */
+    height: 50px; /* Height */
+    color: #fff; /* Text color */
+    outline: none; /* Remove default outline */
+    border: none; /* Remove border */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 17px; /* Font size */
+    border-radius: 4px; /* Rounded corners */
+    background: #B66F30; /* Background color */
 }
