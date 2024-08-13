@@ -18,122 +18,97 @@ body {
   }
 
 .container {
+    height: 100%;
     display: flex;
     justify-content: center;
-    padding:120px;
+    align-items: center;
 }
-
 .left-column{
-  width: 60%;
-  height: auto;
-  justify-content: center;
-  text-align: center;
-  padding: 15px;
+    width: 40%;
+    height: 70%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
 }
-
-
 .left-column h1{
-    color: #000;
-    font-weight: bold;
-    font-size: 50px;
+    margin-top: 5%;
+    font-size: 3rem;
 }
-
 .left-column h3{
-    color: #000;
-    font-weight: lighter;
-    font-size: 12px;
     font-style: italic;
-    padding-bottom: 40px;
-}
-
-label{
-    color: #000;
-    font-size: 15px;
-    font-weight: lighter;
+    font-weight: normal;
     text-align: center;
 }
-
-input[type=email]{
-    width:60%;
+.left-column form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 10% 0;
+}
+.left-column label{
+    font-size: 1.3rem;
+    padding: 1.5%;
+}
+.left-column form input{
+    width: 100%;
     height: 35px;
     border: none;
     background-color: #fff;
     opacity: 0.5;
+    font-size: large;
 }
-
-input[type=password]{
-    width: 60%;
-    height: 35px;
-    border: none;
-    background-color: #fff;
-    opacity: 0.5;
-}
-
-.left-column a {
-    color: #000;
-    font-weight: lighter;
-    font-size: 12px;
-    font-style: italic;
+.left-column form a{
     text-decoration: none;
-    padding: 25%;
+    color: black;
+    font-style: italic;
+    font-size: .8rem;
+    padding: 3%;
 }
-
 button{
+    margin-top: 5%;
     background-color: #B66F30;
     color: #f2f2f2;
-    font-size: 15px;
-    width: 45%;
+    font-size: .9rem;
     height: 35px;
-    border-radius: 20px;
-    display: inline-block;
+    width: 100%;
+    border-radius: 15px;
     cursor: pointer;
+    border: none;
 }
-
 button:hover {
     background-color: #a04b00;
 }
-  
-.right-column {
+.right-column{
+    width: 30%;
+    height: 70%;
     background-image: url(../assets/LOGINN.jpg);
     background-size: cover; 
     background-position: center;
-    box-shadow: 0 5px 5px rgba(0.5, 0.2, 0.2, 0.5);
-    width: 30%;
-    height: auto;
-    justify-content: center;
-    text-align: center;
-    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
-
 .right-column h2{
-    padding: 5px;
-    color: #000;
-    font-size: 25px;
+    margin-top: 5%;
 }
-
 .right-column h3{
-    color: #000;
+    font-size: 1rem;
     font-weight: lighter;
-    font-size: 12px;
+    margin: 2% 0;
     font-style: italic;
-    padding-bottom: 30px;
 }
-
 .right-column a{
-    background-color: #B66F30;
     opacity: 0.8;
+    background-color: #B66F30;
+    text-decoration: none;
     color: #f2f2f2;
-    font-size: 15px;
+    border-radius: 15px;
     width: 35%;
     height: 35px;
-    border-radius: 20px;
-    display: inline-block;
-    cursor: pointer;
     text-align: center;
-    text-decoration: none;
-    padding-top: 7px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    font-size: .9rem;
 }
-
-.right-column a:hover {
-    background-color:#a04b00;
-  }
