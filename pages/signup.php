@@ -6,8 +6,9 @@
     <title>Signup</title>
 </head>
 <body>
+    <div class="container">
     <h2>Signup</h2>
-    <form action="register.php" method="POST">
+    <form action="signup.php" method="POST">
         <label for="firstName">First Name:</label><br>
         <input type="text" name="firstName" required><br><br>
 
@@ -21,11 +22,13 @@
         <input type="password" name="password" required><br><br>
 
         <label for="password">Confirm Password:</label><br>
-        <input type="password" name="password" required><br><br>
+        <input type="password" name="confirmPassword" required><br><br>
         
-        <button type="submit">Register</button>
+        <button type="submit" name="submit">Register</button>
     </form>
 
     <a href="login.php">Login</a>
+
+    </div>
 </body>
 </html>
