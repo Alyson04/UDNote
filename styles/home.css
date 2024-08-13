@@ -52,12 +52,12 @@ header {
     right: 0; /* Align dropdown to the right edge */
     background-color: #DAD6CD; /* Background color */
     border-radius: 5px; /* Rounded corners */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2); /* Shadow fo    r depth */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2); /* Shadow for depth */
     z-index: 1000; /* Ensure it's above other elements */
 }
 
 /* Show dropdown menu when 'show' class is added */
-.dropdown-menu.show {
+.dropdown-menu.show {   
     display: block;
 }
 
@@ -291,7 +291,7 @@ body {
 }
 
 /* Icon inside menu item */
-.menu li i {
+.menu li i {    
     padding-right: 8px; /* Space between icon and text */
 }
 
