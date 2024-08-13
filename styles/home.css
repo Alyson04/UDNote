@@ -32,14 +32,15 @@
   }
   
   .profile-pic {
-      width: 60px; /* Adjust size as needed */
-      height: 60px; /* Adjust size as needed */
-      border-radius: 50%;
-      border: 2px solid #fff; /* Optional: border to separate profile picture */
-      margin: 20px 0; /* Space from top */
-      cursor: pointer;
-      object-fit: cover; /* Ensure image fits within the circular shape */
-  }
+    width: 60px; /* Check size */
+    height: 60px; /* Check size */
+    border-radius: 50%;
+    border: 2px solid #fff;
+    margin: 20px 0;
+    cursor: pointer;
+    object-fit: cover;
+}
+
   
   .sidebar-nav {
       margin-top: 20px; /* Space below profile picture */
@@ -70,17 +71,18 @@
   
   body{
     font-family: 'Helvetica', Arial, sans-serif;
-    background: #88ABFF;
+    background: #618cf8;
   }
   
   ::selection{
-    color: #fff;
+    color: #C6C1B5;
     background: #618cf8;
   }
   
   .search-box {
     position: relative;
     margin-bottom: 10px;
+
   }
   
   .search-box .icon {
@@ -111,6 +113,7 @@
     display: grid;
     gap: 25px;
     grid-template-columns: repeat(auto-fill, 265px);
+;
   }
   
   .wrapper li{
