@@ -23,10 +23,9 @@ try {
         $stmt->bindParam(':password', $pass);
         $stmt->execute();
 
-        
-        echo "Registration successful!";
+        header("Location: login.php");
     }
 } catch(PDOException $e) {
     echo "Error: " . $e->getMessage();
 }
-?>
+
