@@ -21,7 +21,7 @@
                     header("Location: ./signup.php");
                     exit;
                 }
-
+                
                 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
                 $stmt = $conn->prepare("INSERT INTO users(fullName, username, email, password) VALUES (?,?,?,?)");
@@ -34,7 +34,7 @@
                 if ($stmt -> execute()) {
                     $_SESSION['success'] = "New record created successfully";
                 } else {
-                    echo "Error: " . $stmt ->error;
+                    $_SESSION['error'] = "Something went wrong";
                 }
 
                 $stmt->close();
@@ -44,4 +44,6 @@
                 header("Location: ./signup.php");
                 exit;
             }
+            header("Location: ./signup.php");
+            exit;
         }
