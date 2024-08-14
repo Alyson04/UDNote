@@ -110,14 +110,14 @@ button:hover {
     display: grid;
     place-items: center;
     cursor: pointer;
-    font-size: .22rem;
+    font-size: .9rem;
 }
 
-.toast-container{
+.toast-container .error{
     position: absolute;
-    top: 10%;
+    top: 5%;
     color:#f2f2f2;
-    background-color: #f2f2f2;
+    background-color: #ff4545;
     width: fit-content;
     height: 50px;
     display: flex;
@@ -129,9 +129,19 @@ button:hover {
     padding: 0 10px;
     z-index: 1000;
 }
-.toast-container .error{
-    background-color: #ff4545;
-}
 .toast-container .success{
+    position: absolute;
+    top: 5%;
+    color:#f2f2f2;
     background-color: #4caf50;
+    width: fit-content;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 0 10px;
+    z-index: 1000;
 }

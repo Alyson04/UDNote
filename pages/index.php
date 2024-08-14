@@ -20,8 +20,6 @@ if (!isset($_SESSION['user_id'])) {
 <body>
     
     <div id="navBar"></div>
-    
-    <div class="toast-container" id="toast-container"></div>
 
     <script src="../script/script.js"></script>
 </body>

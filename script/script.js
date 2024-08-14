@@ -17,7 +17,7 @@ function renderNav() {
                  <a href="#" id="about" class="nav-link">ABOUT</a>
                  <a href="#"  id="blog" class="nav-link">BLOG</a>
                  <a href="#"  id="dev" class="nav-link">DEVELOPERS</a>
-                 <a href="../pages/logout.php"  id="logout" class="nav-link">LOGOUT</a>
+                 <a href="../pages/_logout.php"  id="logout" class="nav-link">LOGOUT</a>
              </div>
         </div>
 `;
