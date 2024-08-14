@@ -15,33 +15,33 @@ if (isset($_SESSION['user_id'])) {
     <title>Login</title>
 </head>
 <body>
-<?php
+
+        <div class="container">
+        <?php
             if (isset($_SESSION['error'])) {
                 echo '
-                <div class="toast-container error">
-                    <p>' . $_SESSION['error'] . '</p>
+                <div class="toast-container">
+                    <p class = "error">' . $_SESSION['error'] . '</p>
                 </div>';
                 unset($_SESSION['error']);
             }
 
             if (isset($_SESSION['success'])) {
                 echo '
-                <div class="toast-container sucess">
-                    <p>' . $_SESSION['success'] . '</p>
+                <div class="toast-container">
+                    <p class = "sucess">' . $_SESSION['success'] . '</p>
                 </div>';
                 unset($_SESSION['success']);
             }
         ?>
-        <div class="container">
-        
    
             <div class="left-column">
                 <h1> WELCOME </h1>
                 <h3>Capture, organize, and access your <br> ideas effortlessly.</h3>
 
                 <form action="./_login.php" method="POST">
-                    <label for="email">Email:</label>
-                    <input autocomplete="on" type="email" name="email" required>
+                    <label for="user_input">Email:</label>
+                    <input autocomplete="on" type="text" name="user_input" required>
                     
                     <label for="password">Password:</label>
                     <input autocomplete="off" type="password" name="password" required>
@@ -58,6 +58,6 @@ if (isset($_SESSION['user_id'])) {
             
         </div>
 
-    <script src="../script/script.js"></script>
+    <script src="../script/login.js"></script>
 </body>
 </html>
