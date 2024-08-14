@@ -41,7 +41,6 @@ header {
     margin: 20px; /* Add margin around the profile picture */
     cursor: pointer; /* Show pointer cursor on hover */
     object-fit: cover; /* Crop image to fit the dimensions */
-    transition: 0.3s; /* Smooth transition for changes */
 }
 
 /* Dropdown menu styling */
@@ -81,7 +80,7 @@ body {
     background: url(../assets/bg.jpg) no-repeat; /* Background image */
     background-size: cover; /* Cover entire body with background image */
     background-position: center; /* Center the background image */
-
+    border: solid 1px;
 }
 
 /* Styling for text selection */
