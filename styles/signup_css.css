@@ -26,48 +26,31 @@ img{
   
 .container {
     display: block;
-    width: 60%;
+    margin-left: 4%;
+    width: 70%;
     height: auto;
-    border: solid 1px red;
     text-align: center;
 }
-
-.name{
-    display: flex;
-    gap: 6%;
-    width: 55%; 
-    margin: 0 auto;
-    border: solid 1px red;
-    justify-content:center ;
-  }
 
 h2{
     color: #000;
     font-weight: bold;
     font-size: 50px;
+    padding: 3.5%;
    }
-   
-label[for="firstName"]{
-    color: #000;
-    font-size: 15px;
-    font-weight: lighter;
-}
 
 label{
     color: #000;
     font-size: 15px;
     font-weight: lighter;
-    border: solid 1px red;
 }
 
 input[type=text]{
-    width:15.8em;
+    width:55%;
     height: 35px;
     border: none;
     background-color: #fff;
-    opacity: 0.5;
-    border: solid 1px red;
-    
+    opacity: 0.5;    
 }
 
 input[type=email]{
@@ -75,9 +58,7 @@ input[type=email]{
     height: 35px;
     border: none;
     background-color: #fff;
-    opacity: 0.5;
-    border: solid 1px red;
-}
+    opacity: 0.5;}
 
 input[type=password]{
     width: 55%;
@@ -85,23 +66,28 @@ input[type=password]{
     border: none;
     background-color: #fff;
     opacity: 0.5;
-    border: solid 1px red;
+    color: #000;
 }
 
 button{
+    margin: 2%;
     background-color: #B66F30;
     color: #f2f2f2;
     font-size: 15px;
-    width: 55%;
+    font-weight: bold;
+    width: 30%;
     height: 35px;
     border-radius: 20px;
     display: inline-block;
     cursor: pointer;
     justify-content: center;
+    border: none;
+    box-shadow: 0 3px 5px rgba(0.5, 0.2, 0.2, 0.5);
 }
 
 button:hover{
     background-color: #a04b00;
+    color: #000;
 }
 h3 {
     display: inline;

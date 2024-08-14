@@ -7,22 +7,17 @@
     <title>Signup</title>
 </head>
 <body>
-<img src="../assets/try.png">
+<img src="../assets/sign_up.png">
 <div class = "container"> 
     <h2>Welcome to U'D Note!</h2>
     <form action="register.php" method="POST">
 
-    <div class = "name">
-        <div> 
-        <label for="firstName">FIRST NAME</label><br>
+        <label for="fullName">FULL NAME</label><br>
         <input type="text" name="firstName" required><br><br>
-        </div>
-        <div>
-        <label for="lastName">LAST NAME</label><br>
-        <input type="text" name="lastName" required><br><br>
-        </div>
-        </div>
 
+        <label for="username">USERNAME</label><br>
+        <input type="text" name="username" required><br><br>
+        
         <label for="email">EMAIL</label><br>
         <input type="email" name="email" required><br><br>
         
