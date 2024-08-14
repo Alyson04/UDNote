@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include './_dbconn.php';
     
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -22,6 +23,24 @@
                     exit;
                 }
                 
+                $check_sql = "SELECT id FROM users WHERE email = ? OR username = ?";
+        $stmt = $conn->prepare($check_sql);
+        if ($stmt === false) {
+            die('Prepare failed: ' . htmlspecialchars($conn->error));
+        }
+
+        $stmt->bind_param("ss", $email, $username);
+        $stmt->execute();
+        $stmt->store_result();
+
+        if ($stmt->num_rows > 0) {
+            $_SESSION['error'] = "Email or Username already exists";
+            header("Location: ./signup.php");
+            exit();
+        }
+
+        $stmt->close();
+
                 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
                 $stmt = $conn->prepare("INSERT INTO users(fullName, username, email, password) VALUES (?,?,?,?)");
@@ -33,6 +52,9 @@
 
                 if ($stmt -> execute()) {
                     $_SESSION['success'] = "New record created successfully";
+                    header("Location: ./signup.php?redirect=true");
+                    exit;
+                    
                 } else {
                     $_SESSION['error'] = "Something went wrong";
                 }
@@ -44,6 +66,4 @@
                 header("Location: ./signup.php");
                 exit;
             }
-            header("Location: ./signup.php");
-            exit;
         }

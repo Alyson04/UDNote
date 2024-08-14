@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['username'] = $row['username'];
             $_SESSION['success'] = "Login successful!";
             // Redirect to a protected page or dashboard
-            header("Location: login.php");
+            header("Location: login.php?redirect=true");
             exit();
         } else {
             $_SESSION['error'] = "Invalid password";
