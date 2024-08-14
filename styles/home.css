@@ -52,15 +52,49 @@ header {
     border-radius: 5px; /* Rounded corners */
     box-shadow: 0 2px 10px rgba(0,0,0,0.2); /* Shadow for depth */
     z-index: 1000; /* Ensure it's above other elements */
-    width: 100px; /* Full width of the parent element */
+    width: 160px; /* Full width of the parent element */
     right: auto; 
-    
 }
 
-/* Show dropdown menu when 'show' class is added */
-.dropdown-menu.show {   
-    display: block;
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
 }
+
+.dropdown-item i {
+    margin-right: 10px; /* Space between icon and text */
+    font-size: 20px; /* Icon size */
+    color: #333; /* Icon color */
+}
+
+.nav-item {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Hover and active states for dropdown items */
+.dropdown-item:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdown-item:active i {
+    color: #B66F30; /* Change icon color on click */
+}
+
+.dropdown-item:active {
+    background-color: #e0e0e0; /* Change background color on click */
+}
+
+/*for showing the dropdown menu */
+.dropdown-menu.show {
+    display: block; /* Show the dropdown menu */
+}
+
 
 /* Header content styling */
 .header-content {
@@ -70,7 +104,6 @@ header {
     align-items: center; /* Center items vertically */
     justify-content: space-between; /* Distribute items evenly */
     padding: 10px; /* Padding around content */
-    border: solid 1px red;
 }
 
 
@@ -80,7 +113,6 @@ body {
     background: url(../assets/bg.jpg) no-repeat; /* Background image */
     background-size: cover; /* Cover entire body with background image */
     background-position: center; /* Center the background image */
-    border: solid 1px;
 }
 
 /* Styling for text selection */
@@ -230,7 +262,7 @@ body {
 .note .bottom-content {
     padding-top: 10px; /* Padding at the top */
     border-top: 1px solid #ccc; /* Top border */
-}
+}   
 
 /* Bottom content span styling */
 .bottom-content span {
@@ -256,12 +288,10 @@ body {
     bottom: 0; /* Position at the bottom */
     right: -5px; /* Position slightly off the right edge */
     padding: 5px 0; /* Padding inside the menu */
-    background: #C6C1B5; /* Background color */
     position: absolute; /* Absolute positioning */
     border-radius: 4px; /* Rounded corners */
     transform: scale(0); /* Initial scale (hidden) */
     transform-origin: bottom right; /* Scale transformation origin */
-    box-shadow: 0 0 6px rgba(0,0,0,0.15); /* Shadow for depth */
     transition: transform 0.2s ease; /* Smooth transition for scaling */
 }
 
