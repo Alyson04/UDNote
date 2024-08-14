@@ -21,20 +21,21 @@ if (isset($_SESSION['user_id'])) {
     <?php
             if (isset($_SESSION['error'])) {
                 echo '
-                <div class="toast-container error">
-                    <p>' . $_SESSION['error'] . '</p>
+                <div class="toast-container">
+                    <p class="error">' . $_SESSION['error'] . '</p>
                 </div>';
                 unset($_SESSION['error']);
             }
 
             if (isset($_SESSION['success'])) {
                 echo '
-                <div class="toast-container sucess">
-                    <p>' . $_SESSION['success'] . '</p>
+                <div class="toast-container">
+                    <p class="success">' . $_SESSION['success'] . '</p>
                 </div>';
                 unset($_SESSION['success']);
             }
         ?>
+
 
     <h2>Signup</h2>
     <form action="./_signup.php" method="POST">
@@ -60,6 +61,6 @@ if (isset($_SESSION['user_id'])) {
     
 
 
-    <script src="../script/script.js"></script>
+    <script src="../script/signup.js"></script>
 </body>
 </html>
