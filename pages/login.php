@@ -1,10 +1,6 @@
 <?php
 session_start();
 
-if (isset($_SESSION['user_id'])) {
-    header("Location: index.php");
-    exit;
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +17,7 @@ if (isset($_SESSION['user_id'])) {
             if (isset($_SESSION['error'])) {
                 echo '
                 <div class="toast-container">
-                    <p class = "error">' . $_SESSION['error'] . '</p>
+                    <p class="error">' . $_SESSION['error'] . '</p>
                 </div>';
                 unset($_SESSION['error']);
             }
@@ -29,8 +25,9 @@ if (isset($_SESSION['user_id'])) {
             if (isset($_SESSION['success'])) {
                 echo '
                 <div class="toast-container">
-                    <p class = "sucess">' . $_SESSION['success'] . '</p>
+                    <p class="success">' . $_SESSION['success'] . '</p>
                 </div>';
+
                 unset($_SESSION['success']);
             }
         ?>

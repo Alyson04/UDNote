@@ -36,7 +36,6 @@ if (isset($_SESSION['user_id'])) {
             }
         ?>
 
-
     <h2>Signup</h2>
     <form action="./_signup.php" method="POST">
         <label for="fullName">Full Name:</label><br>
