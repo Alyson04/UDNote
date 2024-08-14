@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset($_SESSION['ID'])) {
+if (isset($_SESSION['user_id'])) {
     header("Location: index.php");
     exit;
 }
@@ -15,26 +15,31 @@ if (isset($_SESSION['ID'])) {
     <title>Login</title>
 </head>
 <body>
-    <div class="toast-container" id="toast-container">
-        <?php
-        if(isset($_SESSION['Error'])){
-        echo($_SESSION['Error']);
-        unset($_SESSION['Error']);
-        }
+<?php
+            if (isset($_SESSION['error'])) {
+                echo '
+                <div class="toast-container error">
+                    <p>' . $_SESSION['error'] . '</p>
+                </div>';
+                unset($_SESSION['error']);
+            }
 
-        if(isset($_SESSION['Success'])){
-            echo($_SESSION['Success']);
-            unset($_SESSION['Success']);
-        }
+            if (isset($_SESSION['success'])) {
+                echo '
+                <div class="toast-container sucess">
+                    <p>' . $_SESSION['success'] . '</p>
+                </div>';
+                unset($_SESSION['success']);
+            }
         ?>
-    </div>
-    
         <div class="container">
+        
+   
             <div class="left-column">
                 <h1> WELCOME </h1>
                 <h3>Capture, organize, and access your <br> ideas effortlessly.</h3>
 
-                <form action="authenticate.php" method="POST">
+                <form action="./_login.php" method="POST">
                     <label for="email">Email:</label>
                     <input autocomplete="on" type="email" name="email" required>
                     

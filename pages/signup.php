@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset($_SESSION['ID'])) {
+if (isset($_SESSION['user_id'])) {
     header("Location: index.php");
     exit;
 }
@@ -11,29 +11,47 @@ if (isset($_SESSION['ID'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/signup.css">
+    <link rel="stylesheet" href="../styles/signup_css.css">
     <title>Signup</title>
 </head>
 <body>
-    <div class="toast-container" id="toast-container"></div>
+
     
     <div class="container">
-    <h2>Signup</h2>
-    <form action="register.php" method="POST">
-        <label for="firstName">First Name:</label><br>
-        <input autocomplete="off" type="text" name="firstName" required><br><br>
+    <?php
+            if (isset($_SESSION['error'])) {
+                echo '
+                <div class="toast-container error">
+                    <p>' . $_SESSION['error'] . '</p>
+                </div>';
+                unset($_SESSION['error']);
+            }
 
-        <label for="lastName">Last Name:</label><br>
-        <input autocomplete="off" type="text" name="lastName" required><br><br>
+            if (isset($_SESSION['success'])) {
+                echo '
+                <div class="toast-container sucess">
+                    <p>' . $_SESSION['success'] . '</p>
+                </div>';
+                unset($_SESSION['success']);
+            }
+        ?>
+
+    <h2>Signup</h2>
+    <form action="./_signup.php" method="POST">
+        <label for="fullName">Full Name:</label><br>
+        <input autocomplete="off" type="text" name="fullName"><br><br>
+
+        <label for="username">Username:</label><br>
+        <input autocomplete="off" type="text" name="username"><br><br>
         
         <label for="email">Email:</label><br>
-        <input autocomplete="off" type="email" name="email" required><br><br>
+        <input autocomplete="off" type="email" name="email"><br><br>
         
         <label for="password">Password:</label><br>
-        <input autocomplete="off" type="password" name="password" minlength="8" required><br><br>
+        <input autocomplete="off" type="password" name="password" minlength="8"><br><br>
 
         <label for="password">Confirm Password:</label><br>
-        <input autocomplete="off" type="password" name="password" minlength="8" required><br><br>
+        <input autocomplete="off" type="password" name="confirmPassword" minlength="8"><br><br>
         
         <button type="submit">Register</button>
     </form>
