@@ -1,12 +1,11 @@
-/* Reset default margin, padding, and box-sizing for all elements */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Helvetica', Arial, sans-serif; /* Set default font */
+    font-family: 'Helvetica', Arial, sans-serif; 
 }
 
-/* Styling for the header */
+/*Header styling */
 header {
     display: flex; /* Use flexbox for layout */
     background-color: #DAD6CD; /* Background color for the header */
@@ -25,7 +24,7 @@ header {
     font-weight: bold; /* Make the font bold */
 }
 
-/* Container for the profile picture */
+/* Container for the pp*/
 .profile-container {
     position: absolute; /* Position relative to the header */
     left: 20px; /* Align to the left with some margin */
@@ -33,7 +32,7 @@ header {
     align-items: center; /* Center items vertically */
 }
 
-/* Styling for the profile picture */
+/* Styling for the pp*/
 .profile-pic {
     width: 60px; /* Set width of the profile picture */
     height: 60px; /* Set height of the profile picture */
@@ -77,7 +76,7 @@ header {
     text-decoration: none;
 }
 
-/* Hover and active states for dropdown items */
+/* Hover for dropdown items */
 .dropdown-item:hover {
     background-color: #f0f0f0;
 }
