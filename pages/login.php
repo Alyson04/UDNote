@@ -50,7 +50,7 @@ if (isset($_SESSION['user_id'])) {
                     <label for="password">Password:</label>
                     <input autocomplete="off" type="password" name="password" required>
                     
-                    <a href = "forgetpass.php"> Forgot Password?</a>
+                    <a href = "forgotpass.php"> Forgot Password?</a>
                     <button type="submit">LOGIN</button>
                     </form>
             </div>
