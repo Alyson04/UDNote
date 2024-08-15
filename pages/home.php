@@ -26,7 +26,7 @@
                 </div>
                 <div class="dropdown-item">
                     <i class="uil uil-signout"></i>
-                    <a href="#logout" class="nav-item"> Log Out</a>
+                    <a href="logout.php" class="nav-item"> Log Out</a>
                 </div>  
             </nav>
         </div>  
