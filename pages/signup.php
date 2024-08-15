@@ -36,29 +36,30 @@ if (isset($_SESSION['user_id'])) {
             }
         ?>
 
+    
+    <div class="form-control">
     <h2>Welcome to U'D Note!</h2>
-    <form action="./_signup.php" method="POST">
-        <label for="fullName">FULL NAME</label><br>
-        <input autocomplete="off" type="text" name="fullName"><br><br>
+    <form action="./_signup.php" method="POST" autocomplete="off">
+        <label for="fullName">FULL NAME</label>
+        <input type="text" name="fullName">
 
-        <label for="username">USERNAME</label><br>
-        <input autocomplete="off" type="text" name="username"><br><br>
+        <label for="username">USERNAME</label>
+        <input type="text" name="username">
         
-        <label for="email">EMAIL</label><br>
-        <input autocomplete="off" type="email" name="email"><br><br>
+        <label for="email">EMAIL</label>
+        <input type="email" name="email">
         
-        <label for="password">PASSWORD</label><br>
-        <input autocomplete="off" type="password" name="password" minlength="8"><br><br>
+        <label for="password">PASSWORD</label>
+        <input type="password" name="password" minlength="8">
 
-        <label for="password">CONFIRM PASSWORD</label><br>
-        <input autocomplete="off" type="password" name="confirmPassword" minlength="8"><br><br>
+        <label for="password">CONFIRM PASSWORD</label>
+        <input type="password" name="confirmPassword" minlength="8">
         
         <button type="submit">CREATE ACCOUNT</button>
-    
-    
     </form>
-    <h3> Already have an account? </h3>
+    <h3> Already have an account?</h3>
     <a href="login.php">Sign In</a>
+    </div>
     </div>
     
 

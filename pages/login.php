@@ -44,7 +44,7 @@ if (isset($_SESSION['user_id'])) {
                 <h3>Capture, organize, and access your <br> ideas effortlessly.</h3>
 
                 <form action="./_login.php" method="POST">
-                    <label for="user_input">Email:</label>
+                    <label for="user_input">Email or Username:</label>
                     <input autocomplete="on" type="text" name="user_input" required>
                     
                     <label for="password">Password:</label>
