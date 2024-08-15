@@ -24,6 +24,7 @@ body {
     align-items: center;
     background-image: url(../assets/try.png);
     background-repeat: no-repeat;
+    background-size: cover;
     
 }
 .container form{

@@ -1,6 +1,13 @@
 <?php
 session_start();
 
+if (isset($_SESSION['user_id'])) {
+    // If the user is logged in, add a flag to the page for JS redirection
+    echo '<script> var isLoggedIn = true; </script>';
+} else {
+    echo '<script> var isLoggedIn = false; </script>';
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
