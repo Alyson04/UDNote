@@ -16,7 +16,7 @@ if (isset($_SESSION['user_id'])) {
 </head>
 <body>
 
-    
+    <img src="../assets/try.png" alt="background pic">
     <div class="container">
     <?php
             if (isset($_SESSION['error'])) {
