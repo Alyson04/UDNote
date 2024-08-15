@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </div>
                             </div>
                         </li>`;
-            addBox.insertAdjacentHTML("afterend", liTag);
+            document.querySelector(".notes-list").insertAdjacentHTML("beforeend", liTag);
         });
     }
 
@@ -86,8 +86,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!isUpdate) {
                 notes.push(noteInfo);
             } else {
-                isUpdate = false;
                 notes[updateId] = noteInfo;
+                isUpdate = false;
             }
             localStorage.setItem("notes", JSON.stringify(notes));
             showNotes(searchBox.value); // Refresh notes with the current search query
@@ -102,7 +102,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function toggleDropdown() {
         if (dropdownMenu) {
-            console.log('Dropdown toggled'); // Check if this is logged
             dropdownMenu.classList.toggle('show');
         }
     }
@@ -147,5 +146,5 @@ document.addEventListener('DOMContentLoaded', function() {
     // Search functionality
     searchBox.addEventListener("input", function() {
         showNotes(searchBox.value);
-    });
+    }); 
 });
