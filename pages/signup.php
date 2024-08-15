@@ -56,9 +56,9 @@ if (isset($_SESSION['user_id'])) {
         <input type="password" name="confirmPassword" minlength="8">
         
         <button type="submit">CREATE ACCOUNT</button>
+        <h3>Already have an account? <a href="login.php">Sign In</a></h3>
+        
     </form>
-    <h3> Already have an account?</h3>
-    <a href="login.php">Sign In</a>
     </div>
     </div>
     
