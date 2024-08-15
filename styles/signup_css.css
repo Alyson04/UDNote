@@ -32,10 +32,8 @@ body {
     align-items: start;
     background-repeat: no-repeat;
     background-size: cover;
-    border: 1px solid red;
 }
 .form-control{
-    border: 1px solid green;
     width: 70%;
     height: auto;
     display: flex;
@@ -67,6 +65,7 @@ body {
     color: #000;
     font-size: 15px;
     font-weight: lighter;
+    margin: 2%;
 }
 .form-control input{
     width:100%;
@@ -76,9 +75,9 @@ body {
     opacity: 0.5;    
 }
 .form-control a{
-    display: inline;
+    cursor: pointer;
     color: #000;
-    font-size: 12px;
+    font-size: .9rem;
     font-weight: bold;
     font-style: normal;
 }
