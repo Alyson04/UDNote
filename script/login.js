@@ -16,13 +16,22 @@ setTimeout(function() {
         toast.style.display = 'none';
     }
 }, 3000); // 3 seconds
+
+
 //Redirector
-document.addEventListener("DOMContentLoaded", function() {
-    // Check if the URL contains the redirect query parameter
-    const params = new URLSearchParams(window.location.search);
-    if (params.has('redirect')) {
-        setTimeout(function() {
-            window.location.href = 'index.php';
-        }, 4000); // Redirect after 5 seconds
-    }
-});
+// document.addEventListener("DOMContentLoaded", function() {
+//     // Check if the URL contains the redirect query parameter
+//     const params = new URLSearchParams(window.location.search);
+//     if (params.has('redirect')) {
+//         setTimeout(function() {
+//             window.location.href = 'index.php';
+//         }, 4000); // Redirect after 5 seconds
+//     }
+// });
+
+//for logging in
+if (isLoggedIn) {
+    setTimeout(function() {
+        window.location.href = 'index.php'; // Redirect to index or dashboard
+    }, 3000); // Redirect after 3 seconds to allow the toast message to be displayed
+}
