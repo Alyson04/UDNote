@@ -10,13 +10,15 @@ document.addEventListener('DOMContentLoaded', function() {
           searchBox = document.querySelector("#search"),
           profilePic = document.querySelector('.profile-pic'),
           dropdownMenu = document.getElementById('dropdown-menu');
-
+ 
+ 
     // Constants
     const months = ["January", "February", "March", "April", "May", "June", "July",
                      "August", "September", "October", "November", "December"];
     let notes = JSON.parse(localStorage.getItem("notes") || "[]");
     let isUpdate = false, updateId;
-
+ 
+ 
     // Function to show notes
     function showNotes(query = "") {
         // Remove existing notes
@@ -26,7 +28,8 @@ document.addEventListener('DOMContentLoaded', function() {
             note.title.toLowerCase().includes(query.toLowerCase()) ||
             note.description.toLowerCase().includes(query.toLowerCase())
         );
-
+ 
+ 
         // Add filtered notes to the DOM
         filteredNotes.forEach((note, id) => {
             let filterDesc = note.description.replaceAll("\n", '<br/>');
@@ -49,10 +52,12 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector(".notes-list").insertAdjacentHTML("beforeend", liTag);
         });
     }
-
+ 
+ 
     // Initial call to display notes
     showNotes();
-
+ 
+ 
     // Add note event
     addBox.addEventListener("click", () => {
         popupTitle.innerText = "Add a new Note";
@@ -61,7 +66,8 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = "hidden";
         if (window.innerWidth > 660) titleTag.focus();
     });
-
+ 
+ 
     // Close popup event
     closeIcon.addEventListener("click", () => {
         isUpdate = false;
@@ -69,19 +75,22 @@ document.addEventListener('DOMContentLoaded', function() {
         popupBox.classList.remove("show");
         document.body.style.overflow = "auto";
     });
-
+ 
+ 
     // Add or update note event
     addBtn.addEventListener("click", e => {
         e.preventDefault();
         let title = titleTag.value.trim(),
             description = descTag.value.trim();
-
+ 
+ 
         if (title || description) {
             let currentDate = new Date(),
                 month = months[currentDate.getMonth()],
                 day = currentDate.getDate(),
                 year = currentDate.getFullYear();
-
+ 
+ 
             let noteInfo = { title, description, date: `${month} ${day}, ${year}` };
             if (!isUpdate) {
                 notes.push(noteInfo);
@@ -94,25 +103,29 @@ document.addEventListener('DOMContentLoaded', function() {
             closeIcon.click();
         }
     });
-
+ 
+ 
     // Toggle dropdown menu
     if (profilePic) {
         profilePic.addEventListener('click', toggleDropdown);
     }
-
+ 
+ 
     function toggleDropdown() {
         if (dropdownMenu) {
             dropdownMenu.classList.toggle('show');
         }
     }
-
+ 
+ 
     // Close dropdown menu if clicking outside
     window.addEventListener('click', (event) => {
         if (dropdownMenu && profilePic && !profilePic.contains(event.target) && !dropdownMenu.contains(event.target)) {
             dropdownMenu.classList.remove('show');
         }
     });
-
+ 
+ 
     // Make the `showMenu`, `deleteNote`, and `updateNote` functions globally accessible
     window.showMenu = function(elem) {
         elem.parentElement.classList.add("show");
@@ -123,7 +136,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     };
-
+ 
+ 
     window.deleteNote = function(noteId) {
         if (confirm("Are you sure you want to delete this note?")) {
             notes.splice(noteId, 1);
@@ -131,7 +145,8 @@ document.addEventListener('DOMContentLoaded', function() {
             showNotes(searchBox.value); // Refresh notes with the current search query
         }
     };
-
+ 
+ 
     window.updateNote = function(noteId, title, filterDesc) {
         let description = filterDesc.replaceAll('<br/>', '\r\n');
         updateId = noteId;
@@ -142,9 +157,10 @@ document.addEventListener('DOMContentLoaded', function() {
         popupTitle.innerText = "Update a Note";
         addBtn.innerText = "Update Note";
     };
-
+ 
+ 
     // Search functionality
     searchBox.addEventListener("input", function() {
         showNotes(searchBox.value);
-    }); 
-});
+    });
+ }); 
