@@ -19,17 +19,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Function to show notes
     function showNotes(query = "") {
-        // Remove existing notes
         document.querySelectorAll(".note").forEach(li => li.remove());
-        // Filter notes based on the query
         const filteredNotes = notes.filter(note =>
             note.title.toLowerCase().includes(query.toLowerCase()) ||
             note.description.toLowerCase().includes(query.toLowerCase())
         );
 
-        // Add filtered notes to the DOM
         filteredNotes.forEach((note, id) => {
-            let filterDesc = note.description.replaceAll("\n", '<br/>');
+            let filterDesc = note.description.replace(/\n/g, '<br/>');
             let liTag = `<li class="note">
                             <div class="details">
                                 <p>${note.title}</p>
@@ -46,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </div>
                             </div>
                         </li>`;
-            document.querySelector(".notes-list").insertAdjacentHTML("beforeend", liTag);
+            document.querySelector(".wrapper").insertAdjacentHTML("beforeend", liTag);
         });
     }
 
@@ -90,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 isUpdate = false;
             }
             localStorage.setItem("notes", JSON.stringify(notes));
-            showNotes(searchBox.value); // Refresh notes with the current search query
+            showNotes(searchBox.value);
             closeIcon.click();
         }
     });
@@ -119,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.addEventListener("click", function handler(e) {
             if (e.target.tagName !== "I" || e.target !== elem) {
                 elem.parentElement.classList.remove("show");
-                document.removeEventListener("click", handler); // Clean up event listener
+                document.removeEventListener("click", handler);
             }
         });
     };
@@ -128,12 +125,12 @@ document.addEventListener('DOMContentLoaded', function() {
         if (confirm("Are you sure you want to delete this note?")) {
             notes.splice(noteId, 1);
             localStorage.setItem("notes", JSON.stringify(notes));
-            showNotes(searchBox.value); // Refresh notes with the current search query
+            showNotes(searchBox.value);
         }
     };
 
     window.updateNote = function(noteId, title, filterDesc) {
-        let description = filterDesc.replaceAll('<br/>', '\r\n');
+        let description = filterDesc.replace(/<br\/>/g, '\n');
         updateId = noteId;
         isUpdate = true;
         addBox.click();
