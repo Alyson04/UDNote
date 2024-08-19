@@ -439,7 +439,7 @@ form button {
     width: 100%; /* Full width */
     height: 50px; /* Height */
     color: #fff; /* Text color */
-    outline: none; /* Remove default outline */
+    outline: none; /* Remove defau  lt outline */
     border: none; /* Remove border */
     cursor: pointer; /* Pointer cursor on hover */
     font-size: 17px; /* Font size */

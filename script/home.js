@@ -18,33 +18,36 @@ document.addEventListener('DOMContentLoaded', function() {
     let isUpdate = false, updateId;
 
     // Function to show notes
-    function showNotes(query = "") {
+    async function showNotes(query = "") {
         document.querySelectorAll(".note").forEach(li => li.remove());
-        const filteredNotes = notes.filter(note =>
-            note.title.toLowerCase().includes(query.toLowerCase()) ||
-            note.description.toLowerCase().includes(query.toLowerCase())
-        );
-
-        filteredNotes.forEach((note, id) => {
-            let filterDesc = note.description.replace(/\n/g, '<br/>');
-            let liTag = `<li class="note">
-                            <div class="details">
-                                <p>${note.title}</p>
-                                <span>${filterDesc}</span>
-                            </div>
-                            <div class="bottom-content">
-                                <span>${note.date}</span>
-                                <div class="settings">
-                                    <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
-                                    <ul class="menu">
-                                        <li onclick="updateNote(${id}, '${note.title}', '${filterDesc}')"><i class="uil uil-pen"></i>Edit</li>
-                                        <li onclick="deleteNote(${id})"><i class="uil uil-trash"></i>Delete</li>
-                                    </ul>
+    
+        // Fetch notes from the PHP backend
+        let response = await fetch(`getNotes.php?query=${query}`);
+        if (response.ok) {
+            notes = await response.json();
+            notes.forEach((note, id) => {
+                let filterDesc = note.description.replace(/\n/g, '<br/>');
+                let liTag = `<li class="note">
+                                <div class="details">
+                                    <p>${note.title}</p>
+                                    <span>${filterDesc}</span>
                                 </div>
-                            </div>
-                        </li>`;
-            document.querySelector(".wrapper").insertAdjacentHTML("beforeend", liTag);
-        });
+                                <div class="bottom-content">
+                                    <span>${note.date}</span>
+                                    <div class="settings">
+                                        <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
+                                        <ul class="menu">
+                                            <li onclick="updateNote(${id}, '${note.title}', '${filterDesc}')"><i class="uil uil-pen"></i>Edit</li>
+                                            <li onclick="deleteNote(${id})"><i class="uil uil-trash"></i>Delete</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>`;
+                document.querySelector(".wrapper").insertAdjacentHTML("beforeend", liTag);
+            });
+        } else {
+            console.error("Failed to fetch notes");
+        }
     }
 
     // Initial call to display notes
@@ -68,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Add or update note event
-    addBtn.addEventListener("click", e => {
+    addBtn.addEventListener("click", async e => {
         e.preventDefault();
         let title = titleTag.value.trim(),
             description = descTag.value.trim();
@@ -80,15 +83,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 year = currentDate.getFullYear();
 
             let noteInfo = { title, description, date: `${month} ${day}, ${year}` };
-            if (!isUpdate) {
-                notes.push(noteInfo);
-            } else {
-                notes[updateId] = noteInfo;
+
+            // Send data to the PHP backend
+            let url = isUpdate ? `updateNote.php` : 'addNote.php';
+            let response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ note: noteInfo, id: updateId })
+            });
+
+            if (response.ok) {
+                showNotes(searchBox.value);
+                closeIcon.click();
                 isUpdate = false;
+            } else {
+                console.error("Failed to save/update the note");
             }
-            localStorage.setItem("notes", JSON.stringify(notes));
-            showNotes(searchBox.value);
-            closeIcon.click();
         }
     });
 
@@ -121,11 +133,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
 
-    window.deleteNote = function(noteId) {
+    window.deleteNote = async function(noteId) {
         if (confirm("Are you sure you want to delete this note?")) {
-            notes.splice(noteId, 1);
-            localStorage.setItem("notes", JSON.stringify(notes));
-            showNotes(searchBox.value);
+            let response = await fetch('deleteNote.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ id: noteId })
+            });
+
+            if (response.ok) {
+                showNotes(searchBox.value);
+            } else {
+                console.error("Failed to delete the note");
+            }
         }
     };
 
@@ -143,5 +165,5 @@ document.addEventListener('DOMContentLoaded', function() {
     // Search functionality
     searchBox.addEventListener("input", function() {
         showNotes(searchBox.value);
-    }); 
+    });
 });
