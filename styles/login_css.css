@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    transition: 0.2s linear;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin:0;
+    width: 100vw;
+    height: 100vh;
+    background: #DAD6CD;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+  }
+
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.left-column{
+    width: 40%;
+    height: 70%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+}
+.left-column h1{
+    margin-top: 5%;
+    font-size: 3rem;
+}
+.left-column h3{
+    font-style: italic;
+    font-weight: normal;
+    text-align: center;
+}
+.left-column form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 10% 0;
+}
+.left-column label{
+    font-size: 1.3rem;
+    padding: 1.5%;
+}
+.left-column form input{
+    width: 100%;
+    height: 35px;
+    border: none;
+    background-color: #fff;
+    opacity: 0.5;
+    font-size: large;
+}
+.left-column form a{
+    text-decoration: none;
+    color: black;
+    font-style: italic;
+    font-size: .8rem;
+    padding: 3%;
+}
+button{
+    margin-top: 5%;
+    background-color: #B66F30;
+    color: #f2f2f2;
+    font-size: .9rem;
+    height: 35px;
+    width: 100%;
+    border-radius: 15px;
+    cursor: pointer;
+    border: none;
+}
+button:hover {
+    background-color: #a04b00;
+}
+.right-column{
+    width: 30%;
+    height: 70%;
+    background-image: url(../assets/LOGINN.jpg);
+    background-size: cover; 
+    background-position: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.right-column h2{
+    margin-top: 5%;
+}
+.right-column h3{
+    font-size: 1rem;
+    font-weight: lighter;
+    margin: 2% 0;
+    font-style: italic;
+}
+.right-column a{
+    opacity: 0.8;
+    background-color: #B66F30;
+    text-decoration: none;
+    color: #f2f2f2;
+    border-radius: 15px;
+    width: 35%;
+    height: 35px;
+    text-align: center;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    font-size: .9rem;
+}
+
+.toast-container .error{
+    position: absolute;
+    top: 5%;
+    color:#f2f2f2;
+    background-color: #ff4545;
+    width: fit-content;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 0 10px;
+    z-index: 1000;
+}
+.toast-container .success{
+    position: absolute;
+    top: 5%;
+    color:#f2f2f2;
+    background-color: #4caf50;
+    width: fit-content;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 0 10px;
+    z-index: 1000;
+}
