@@ -50,16 +50,16 @@ if (!isset($_SESSION['user_id'])) {
                 <p></p>
                 <i class="uil uil-times"></i>
             </header>
-            <form action="#">
+            <form id="noteForm">
                 <div class="row title">
                     <label>Title</label>
-                    <input type="text" spellcheck="false">
+                    <input type="text" id="noteTitle" spellcheck="false">
                 </div>
                 <div class="row description">
                     <label>Description</label>
-                    <textarea spellcheck="false"></textarea>
+                    <textarea id="noteDesc" spellcheck="false"></textarea>
                 </div>
-                <button></button>
+                <button type="submit" id="addNoteBtn">Add Note</button>
             </form>
         </div>  
     </div>
