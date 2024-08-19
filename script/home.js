@@ -136,16 +136,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Toggle dropdown menu
-    if (profilePic) {
-        profilePic.addEventListener('click', toggleDropdown);
-    }
-
+    // Define the toggleDropdown function
     function toggleDropdown() {
         console.log('Profile picture clicked.');
         if (dropdownMenu) {
             dropdownMenu.classList.toggle('show');
         }
+    }
+
+    // Toggle dropdown menu
+    if (profilePic) {
+        profilePic.addEventListener('click', toggleDropdown);
     }
 
     // Close dropdown menu if clicking outside

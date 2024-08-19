@@ -40,19 +40,19 @@ if (isset($_SESSION['user_id'])) {
     <div class="form-control">
     <h2>Welcome to U'D Note!</h2>
     <form action="./_signup.php" method="POST" autocomplete="off">
-        <label for="fullName">FULL NAME</label>
+        <label>FULL NAME</label>
         <input type="text" name="fullName">
 
-        <label for="username">USERNAME</label>
+        <label>USERNAME</label>
         <input type="text" name="username">
         
-        <label for="email">EMAIL</label>
+        <label>EMAIL</label>
         <input type="email" name="email">
         
-        <label for="password">PASSWORD</label>
+        <label>PASSWORD</label>
         <input type="password" name="password" minlength="8">
 
-        <label for="password">CONFIRM PASSWORD</label>
+        <label>CONFIRM PASSWORD</label>
         <input type="password" name="confirmPassword" minlength="8">
         
         <button type="submit">CREATE ACCOUNT</button>
