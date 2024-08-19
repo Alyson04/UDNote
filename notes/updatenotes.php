@@ -2,22 +2,38 @@
 session_start();
 include '../pages/_dbconn.php';
 
+// Check if the user is logged in
 if (!isset($_SESSION['user_id'])) {
     echo json_encode(['message' => 'User not logged in']);
     exit();
 }
 
-
+// Decode input
 $input = json_decode(file_get_contents('php://input'), true);
+
+if (!isset($input['note']['id']) || !isset($input['note']['title']) || !isset($input['note']['description'])) {
+    echo json_encode(['message' => 'Invalid input']);
+    exit();
+}
+
 $id = intval($input['note']['id']);
 $title = $conn->real_escape_string($input['note']['title']);
 $description = $conn->real_escape_string($input['note']['description']);
 
-// Update existing note
+// Get the user ID from session
 $user_id = $_SESSION['user_id'];
+
+// Prepare and execute the update statement
 $sql = "UPDATE notes SET title = ?, description = ?, date = NOW() WHERE id = ? AND user_id = ?";
 $stmt = $conn->prepare($sql);
+
+if (!$stmt) {
+    echo json_encode(['message' => 'Failed to prepare statement']);
+    exit();
+}
+
 $stmt->bind_param("ssii", $title, $description, $id, $user_id);
+
 if ($stmt->execute()) {
     echo json_encode(['message' => 'Note updated successfully']);
 } else {
@@ -26,6 +42,7 @@ if ($stmt->execute()) {
 
 $stmt->close();
 $conn->close();
+
 
 
 
