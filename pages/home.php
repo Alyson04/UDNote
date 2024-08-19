@@ -28,7 +28,7 @@ if (!isset($_SESSION['user_id'])) {
             <input type="text" id="search" placeholder="Search">
         </div>
         <div class="profile-container">
-            <img src="../assets/jk.jpg" alt="Profile Picture" class="profile-pic" onclick="toggleDropdown()">
+            <img src="../assets/jk.jpg" alt="Profile Picture" class="profile-pic">
             <nav class="dropdown-menu" id="dropdown-menu">
                 <div class="dropdown-item">
                     <i class="uil uil-pen"></i>
