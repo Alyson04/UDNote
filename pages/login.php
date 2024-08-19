@@ -45,10 +45,10 @@ if (isset($_SESSION['user_id'])) {
 
                 <form action="./_login.php" method="POST">
                     <label for="user_input">Email or Username:</label>
-                    <input autocomplete="on" type="text" name="user_input" required>
+                    <input autocomplete="on" type="text" name="user_input">
                     
                     <label for="password">Password:</label>
-                    <input autocomplete="off" type="password" name="password" required>
+                    <input autocomplete="off" type="password" name="password">
                     
                     <a href = "forgotpass.php"> Forgot Password?</a>
                     <button type="submit">LOGIN</button>

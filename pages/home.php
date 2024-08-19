@@ -50,18 +50,17 @@ if (!isset($_SESSION['user_id'])) {
                 <p></p>
                 <i class="uil uil-times"></i>
             </header>
-            <form action="#" method="post">
-                 <div class="row title">
-                    <label for="note-title">Title</label>
-                    <input type="text" id="note-title" spellcheck="false" required>
+            <form id="noteForm">
+                <div class="row title">
+                    <label>Title</label>
+                    <input type="text" id="noteTitle" spellcheck="false">
                 </div>
                 <div class="row description">
-                    <label for="note-description">Description</label>
-                    <textarea id="note-description" spellcheck="false" required></textarea>
+                    <label>Description</label>
+                    <textarea id="noteDesc" spellcheck="false"></textarea>
                 </div>
-                <button type="submit">Add Note</button>
+                <button type="submit" id="addNoteBtn">Add Note</button>
             </form>
-
         </div>  
     </div>
 </div>
