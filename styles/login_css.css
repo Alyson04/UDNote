@@ -115,7 +115,7 @@ button:hover {
 
 .toast-container .error{
     position: absolute;
-    top: 5%;
+    top: 2%;
     color:#f2f2f2;
     background-color: #ff4545;
     width: fit-content;
@@ -131,7 +131,7 @@ button:hover {
 }
 .toast-container .success{
     position: absolute;
-    top: 5%;
+    top: 2%;
     color:#f2f2f2;
     background-color: #4caf50;
     width: fit-content;
