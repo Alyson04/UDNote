@@ -19,6 +19,7 @@ if (!isset($_SESSION['user_id'])) {
 </head>
 <body>
 <header>
+    
     <div class="header-content">
         <div class="header-title">
             <h1>U'D NOTE</h1>
@@ -28,11 +29,11 @@ if (!isset($_SESSION['user_id'])) {
             <input type="text" id="search" placeholder="Search">
         </div>
         <div class="profile-container">
-            <img src="../assets/jk.jpg" alt="Profile Picture" class="profile-pic" onclick="toggleDropdown()">
+            <img src="../assets/jk.jpg" alt="Profile Picture" class="profile-pic">
             <nav class="dropdown-menu" id="dropdown-menu">
                 <div class="dropdown-item">
                     <i class="uil uil-pen"></i>
-                    <a href="#edit-profile" class="nav-item"> Edit Profile</a>
+                    <a href="./editprofile.php" class="nav-item"> Edit Profile</a>
                 </div>
                 <div class="dropdown-item">
                     <i class="uil uil-signout"></i>
