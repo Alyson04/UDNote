@@ -10,50 +10,46 @@
 <body>
 
     <div class="container">
-    <header>
-    <a href="./home.php">back to home</a>
-    <h1>EDIT PROFILE</h1>
-    </header>
-        <form action="" method="post" enctype="multipart/form-data">
+        <header>
+            <a href="./home.php">Home</a>
+            <h1>EDIT PROFILE</h1>
+        </header>
+        <div class="form-control">
             <div class="photo-frame">
-                <img src="../assets/jk.jpg" alt="Profile Photo" class="profile-pic" id="profile-photo">
-                <input type="file" name="profile-photo"
-                id="upload-photo" accept="image/*">
-                <!-- <div style ='font:21px/21px Goblin One; color:#000000'>Update Photo</div> -->
-                <div>Update Photo</div>
+                <form action="" method="POST">
+                    <img src="../assets/jk.jpg" alt="Profile Photo" class="profile-pic" id="profile-photo">
+                    <input type="file" name="profile-photo"
+                    id="upload-photo" accept="image/*">
+                    <!-- <div style ='font:21px/21px Goblin One; color:#000000'>Update Photo</div> -->
+                    <h3>Update Photo</h3>
+                </form>
             </div>
             <div class="profile-details">
-                <label for="full_name">Full Name:</label>
-                <input type="text" name="full_name" id="full name" required>
+                <form action="" method="POST">
+                    <label>Full Name:</label>
+                    <input type="text" name="fullName" id="full name" required>
 
-                <label for="username">Username:</label>
-                <input type="text" name="username" id="username" required>
+                    <label>Username:</label>
+                    <input type="text" name="username" id="username" required>
 
-                <label for="email">Email:</label>
-                <input type="email" name="name" id="name" required>
+                    <label>Email:</label>
+                    <input type="email" name="name" id="name" required>
 
-                <label for="password">Change Password:</label>
+                    <label>Change Password:</label>
+                    <input type="password" name="password" id="password">
 
-                <label for="password" id="password">
+                    <label>Confirm Password:</label>
+                    <input type="password" name="confirmPassword" id="confirm_password">
 
-                <input type="password" name="password" id="password">
-
-                <label for="confirm_password">Confirm Password:</label>
-                <input type="password" name="confirm_password" id="confirm_password">
-
-                <div class="button-container">
-                    <button type="reset" class="reset-btn">Cancel</button>
-                    <button type="submit" class="submit=btn">Save</button>
-                </div>
-
-            </div>
-          
-        </form>
+                    <div class="button-container">
+                        <button type="reset" class="reset-btn">Cancel</button>
+                        <button type="submit" class="submit=btn">Save</button>
+                    </div>
+                </form>
+            </div>  
+        </div>
     </div>
-<script src="script.js.1"></script>
-
-
-    
+    <script src="script.js.1"></script>
 </body>
 </html>
 
