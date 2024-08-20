@@ -19,6 +19,7 @@ if (!isset($_SESSION['user_id'])) {
 </head>
 <body>
 <header>
+    
     <div class="header-content">
         <div class="header-title">
             <h1>U'D NOTE</h1>
@@ -32,7 +33,7 @@ if (!isset($_SESSION['user_id'])) {
             <nav class="dropdown-menu" id="dropdown-menu">
                 <div class="dropdown-item">
                     <i class="uil uil-pen"></i>
-                    <a href="#edit-profile" class="nav-item"> Edit Profile</a>
+                    <a href="./editprofile.php" class="nav-item"> Edit Profile</a>
                 </div>
                 <div class="dropdown-item">
                     <i class="uil uil-signout"></i>
@@ -53,7 +54,7 @@ if (!isset($_SESSION['user_id'])) {
             <form id="noteForm">
                 <div class="row title">
                     <label>Title</label>
-                    <input type="text" id="noteTitle" spellcheck="false">
+                    <input type="text" id="noteTitle" spellcheck="false" autocomplete="off">
                 </div>
                 <div class="row description">
                     <label>Description</label>
