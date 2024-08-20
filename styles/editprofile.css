@@ -11,11 +11,27 @@ body {
     margin:0;
     width: 100vw;
     height: 100vh;
-    background: #DAD6CD;
+    background-image: url('../assets/bg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
 }
-
+/* for header */
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+header a {
+    padding: 5px;
+    text-decoration: none;
+    color: #020202;
+}
+header h1{
+    font-size: 4rem;
+}
+/* this is for the profile picture */
 .profile-pic {
     width: 200px;
     height: 200px;
@@ -24,22 +40,55 @@ body {
     cursor: pointer;
     object-fit: cover; 
 }
+/* this is to contain the elements */
 .container {
     border: 1px solid red;
     height: 100%;
-}
-header {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction: row;
+    align-items: center;
+    flex-direction: column;
+    
+}
+/* this is to control the elements inside the container and make it seem like a box */
+.form-control {
+    height: 80%;
+    width: 90%;
+    display: flex;
     justify-content: center;
+    flex-direction: row;
+}
+/* this is for profile picture */
+.photo-frame{
+    border: 1px solid green;
+    width: 30%;
+}
+.photo-frame form {
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
-
-header a {
-    text-decoration: none;
-    color: #020202;
+/* this is for profile details */
+.profile-details {
+    width: 70%;
+    border: 1px solid yellow;
 }
+.profile-details form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+.profile-details label {
+    font-size: 1.3rem;
+    padding: 1.5%;
+}
+.profile-details form input {
+    width: 60%;
+    border-radius: 5px;
+    height: 30px;
+}
+
 
 
 
