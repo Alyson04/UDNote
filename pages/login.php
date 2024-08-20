@@ -2,12 +2,10 @@
 session_start();
 
 if (isset($_SESSION['user_id'])) {
-    // If the user is logged in, add a flag to the page for JS redirection
     echo '<script> var isLoggedIn = true; </script>';
 } else {
     echo '<script> var isLoggedIn = false; </script>';
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,8 +16,7 @@ if (isset($_SESSION['user_id'])) {
     <title>Login</title>
 </head>
 <body>
-
-        <div class="container">
+    <div class="container">
         <?php
             if (isset($_SESSION['error'])) {
                 echo '
@@ -38,29 +35,31 @@ if (isset($_SESSION['user_id'])) {
                 unset($_SESSION['success']);
             }
         ?>
-   
-            <div class="left-column">
-                <h1> WELCOME </h1>
-                <h3>Capture, organize, and access your <br> ideas effortlessly.</h3>
 
-                <form action="./_login.php" method="POST">
-                    <label>EMAIL or USERNAME:</label>
-                    <input autocomplete="on" type="text" name="user_input">
-                    
-                    <label>PASSWORD:</label>
-                    <input autocomplete="off" type="password" name="password">
-                    
-                    <a href = "forgotpass.php"> Forgot Password?</a>
-                    <button type="submit">LOGIN</button>
-                    </form>
+        <div class="left-column">
+            <h1> WELCOME </h1>
+            <h3>Capture, organize, and access your <br> ideas effortlessly.</h3>
+
+            <form action="./_login.php" method="POST">
+            <div class="entryarea">
+                <input type="text" class="input" name="user_input" required>
+                <div class="labelline">Email or Username</div>            
+                
+                <input autocomplete="off" type="password" name="password">
+                <div class="labelline">Password</div>
             </div>
-            <div class="right-column"> 
-                <h2>NEW HERE?</h2> 
-                <h3>Why wait? Join us now and <br> experience the difference!</h3>
-                <a href="signup.php"> SIGN UP </a>
-            </div>
-            
+
+                
+                <a href="forgotpass.php"> Forgot Password?</a>
+                <button type="submit">LOGIN</button>
+            </form>
         </div>
+        <div class="right-column">
+            <h2>NEW HERE?</h2>
+            <h3>Why wait? Join us now and <br> experience the difference!</h3>
+            <a href="signup.php"> SIGN UP </a>
+        </div>
+    </div>
 
     <script src="../script/login.js"></script>
 </body>
