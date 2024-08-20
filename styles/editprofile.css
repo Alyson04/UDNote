@@ -73,9 +73,10 @@ header h1{
     border: 1px solid yellow;
 }
 .profile-details form {
+    margin-top: 2%;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
     width: 100%;
 }
@@ -88,7 +89,22 @@ header h1{
     border-radius: 5px;
     height: 30px;
 }
-
+.button-container {
+    margin-top: 3%;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    width: 100%;
+}
+.button-container button {
+    width: 120px;
+    height: 40px;
+    background-color: #B66F30;
+    color: #f2f2f2;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+}
 
 
 
