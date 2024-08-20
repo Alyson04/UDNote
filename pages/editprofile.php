@@ -4,67 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profile</title>
-    <!-- Link to external stylesheet for custom styles -->
     <link rel="stylesheet" href="../styles/editprofile.css">
-    <!-- Link to external icon library -->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <!-- Link to home page -->
-            <a href="./home.php">
-                <div class="icon">
-                    <!-- Home icon from the icon library -->
-                    <i class="uil uil-home"></i>
-                </div>
-            </a>
-            <div class="title-container">
-                <!-- Page title -->
-                <h1>EDIT PROFILE</h1>
-            </div>
+            <h1>EDIT PROFILE</h1>
         </header>
-
-        <!-- Form for editing profile -->
-        <form action="" method="post" enctype="multipart/form-data">
+        <div class="form-control">
             <div class="photo-frame">
-                <!-- Profile photo display -->
+                <form action="" method="POST">
                 <img src="../assets/jk.jpg" alt="Profile Photo" class="profile-pic" id="profile-photo">
-                <!-- File input for uploading new profile photo -->
-                <input type="file" name="profile-photo" id="upload-photo" accept="image/*">
-                <!-- Label for photo update -->
-                <div>Update Photo</div>
+                <input type="file" name="profile-photo" id="upload-photo" accept="image/*" style="display: none;">
+                <button type="button" class="update-photo-btn">Update Photo</button>
+                </form>
             </div>
             <div class="profile-details">
-                <!-- Full name input -->
-                <label for="full_name">Full Name:</label>
-                <input type="text" name="full_name" id="full_name" required>
+                <form action="" method="POST">
+                    <label>Full Name:</label>
+                    <input type="text" name="fullName" id="full-name" required>
 
-                <!-- Username input -->
-                <label for="username">Username:</label>
-                <input type="text" name="username" id="username" required>
+                    <label>Username:</label>
+                    <input type="text" name="username" id="username" required>
 
-                <!-- Email input -->
-                <label for="email">Email:</label>
-                <input type="email" name="email" id="email" required>
+                    <label>Email:</label>
+                    <input type="email" name="email" id="email" required>
 
-                <!-- Password change input -->
-                <label for="password">Change Password:</label>
-                <input type="password" name="password" id="password">
+                    <label>Change Password:</label>
+                    <input type="password" name="password" id="password">
 
-                <!-- Confirm password input -->
-                <label for="confirm_password">Confirm Password:</label>
-                <input type="password" name="confirm_password" id="confirm_password">
+                    <label>Confirm Password:</label>
+                    <input type="password" name="confirmPassword" id="confirm_password">
 
-                <!-- Button container with Cancel and Save buttons -->
-                <div class="button-container">
-                    <button type="reset" class="reset-btn">Cancel</button>
-                    <button type="submit" class="submit-btn">Save</button>
-                </div>
-            </div>
-        </form>
+                    <div class="button-container">
+                        <button type="reset" class="reset-btn">Cancel</button>
+                        <button type="submit" class="submit-btn">Save</button>
+                    </div>
+                </form>
+            </div>  
+        </div>
     </div>
-    <!-- Link to external JavaScript file -->
-    <script src="script.js.1"></script>
 </body>
 </html>
