@@ -1,55 +1,52 @@
+/* Apply general styles to all elements */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     outline: none;
-    transition: 0.2s linear;
+    transition: 0.2s linear; /* Smooth transition for state changes */
 }
 
+/* Style for the body, including background and font settings */
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin:0;
+    margin: 0;
     width: 100vw;
     height: 100vh;
-    background-image: url('../assets/bg.jpg');
-    background-size: cover;
+    background-image: url('../assets/bg.jpg'); /* Background image */
+    background-size: cover; /* Cover the entire background area */
     background-repeat: no-repeat;
     background-position: center;
 }
-/* for header */
+
+/* Style for the header, centering the title */
 header {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
-}
-header a {
-    padding: 5px;
-    text-decoration: none;
-    color: #020202;
-}
-header h1{
-    font-size: 4rem;
-}
-/* this is for the profile picture */
+    justify-content: center;
+    width: 100%;
+    font-size: 2rem;
+}   
+
+/* Style for the profile picture */
 .profile-pic {
     width: 200px;
     height: 200px;
-    border-radius: 50%; 
+    border-radius: 50%; /* Circular profile picture */
     margin: 20px;
-    cursor: pointer;
-    object-fit: cover; 
+    object-fit: cover; /* Crop image to fit the frame */
+    cursor: default; /* Default cursor */
 }
-/* this is to contain the elements */
+
+/* Container for the main content */
 .container {
-    border: 1px solid red;
     height: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
-    
 }
-/* this is to control the elements inside the container and make it seem like a box */
+
+/* Style for the form control section */
 .form-control {
     height: 80%;
     width: 90%;
@@ -57,21 +54,42 @@ header h1{
     justify-content: center;
     flex-direction: row;
 }
-/* this is for profile picture */
-.photo-frame{
-    border: 1px solid green;
+
+/* Style for the photo frame section */
+.photo-frame {
     width: 30%;
 }
+
+/* Style for the form within the photo frame */
 .photo-frame form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-/* this is for profile details */
+
+/* Style for the update photo button */
+.update-photo-btn {
+    background-color: #B66F30; /* Button background color */
+    color: #f2f2f2; /* Button text color */
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin-top: 10px;
+    cursor: pointer; /* Pointer cursor for button */
+}
+
+/* Hover effect for the update photo button */
+.update-photo-btn:hover {
+    background-color: #a55d28; /* Darker background on hover */
+}
+
+/* Style for the profile details section */
 .profile-details {
     width: 70%;
-    border: 1px solid yellow;
 }
+
+/* Style for the form within the profile details section */
 .profile-details form {
     margin-top: 2%;
     display: flex;
@@ -80,157 +98,43 @@ header h1{
     flex-direction: column;
     width: 100%;
 }
+
+/* Style for labels in the profile details form */
 .profile-details label {
     font-size: 1.3rem;
     padding: 1.5%;
 }
+
+/* Style for input fields in the profile details form */
 .profile-details form input {
     width: 60%;
     border-radius: 5px;
     height: 30px;
 }
+
+/* Container for buttons */
 .button-container {
     margin-top: 3%;
     display: flex;
     justify-content: space-evenly;
     align-content: center;
     width: 100%;
+    cursor: pointer; /* Pointer cursor for buttons */
 }
+
+/* Style for buttons in the button container */
 .button-container button {
     width: 120px;
     height: 40px;
-    background-color: #B66F30;
-    color: #f2f2f2;
+    background-color: #B66F30; /* Button background color */
+    color: #f2f2f2; /* Button text color */
     border-radius: 10px;
-    cursor: pointer;
     border: none;
+    cursor: pointer; /* Pointer cursor for button */
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* body {
-    font-family: Helvetica, Arial, sans-serif;
-    background-color:#f4f4f4;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url(../assets/bg.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.container {
-    width: 80vw;
-    height: 80vh;
-    background-color: #c6c1b5;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    
-}
-
-.profile-section {
-    display: flex;
-    flex-direction: row;
-}
-
-.photo-frame {
-    flex: 1;
-    text-align: left;
-    width: 100vw;
-    height: 100vh;
-}
-
-#profile-photo {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 10px;
-
-}
-
-#upload-photo {
-    display: block;
-    margin: 10px auto;
-}
-
-.profile-details {
-    flex: 2;
-    padding-left: 20px;
-}
-
-.profile-details label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-.profile-details input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.button-container {
-    width: 100px;
-    pad: 5px;
-    color: #B66F30;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 20px;
-    margin-right: 10px;
-    
-}
-
+/* Hover effect for the submit button */
 .submit-btn:hover {
-    cursor: pointer;;
-    background-color: #B66F30;
+    background-color: #a55d28; /* Darker background on hover */
+    cursor: pointer; /* Pointer cursor for button */
 }
- */
