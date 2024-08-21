@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+include '_greet.php';
+
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit;
@@ -32,6 +34,9 @@ if (!isset($_SESSION['user_id'])) {
             <img src="../assets/jk.jpg" alt="Profile Picture" class="profile-pic">
             <nav class="dropdown-menu" id="dropdown-menu">
                 <div class="dropdown-item">
+                    <p class="nav-item">Hello, <?php echo htmlspecialchars($username); ?>!</p>
+                </div>
+                <div class="dropdown-item">
                     <i class="uil uil-pen"></i>
                     <a href="./editprofile.php" class="nav-item"> Edit Profile</a>
                 </div>
@@ -54,7 +59,7 @@ if (!isset($_SESSION['user_id'])) {
             <form id="noteForm">
                 <div class="row title">
                     <label>Title</label>
-                    <input type="text" id="noteTitle" spellcheck="false" autocomplete="off">
+                    <input type="text" id="noteTitle" spellcheck="false">
                 </div>
                 <div class="row description">
                     <label>Description</label>

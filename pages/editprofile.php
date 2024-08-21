@@ -32,23 +32,18 @@
                     <!-- Input for full name -->
                     <label>Full Name:</label>
                     <input type="text" name="fullName" id="full-name" required>
-
                     <!-- Input for username -->
                     <label>Username:</label>
                     <input type="text" name="username" id="username" required>
-
                     <!-- Input for email address -->
                     <label>Email:</label>
                     <input type="email" name="email" id="email" required>
-
                     <!-- Input for changing password -->
                     <label>Change Password:</label>
                     <input type="password" name="password" id="password">
-
                     <!-- Input for confirming new password -->
                     <label>Confirm Password:</label>
                     <input type="password" name="confirmPassword" id="confirm_password">
-
                     <div class="button-container">
                         <!-- Button to cancel changes and navigate to the home page -->
                         <button type="button" class="reset-btn" onclick="goToHomePage()">Cancel</button>
@@ -59,7 +54,6 @@
             </div>  
         </div>
     </div>
-
     <!-- Link to external JavaScript file for interactive functionality -->
     <script src="../script/editprofile.js"></script>
 </body>
