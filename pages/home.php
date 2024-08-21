@@ -1,13 +1,12 @@
 <?php
 session_start();
+include './_greet.php';
 
-include '_greet.php';
-
+// Redirect to login if user is not logged in
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit;
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +20,6 @@ if (!isset($_SESSION['user_id'])) {
 </head>
 <body>
 <header>
-    
     <div class="header-content">
         <div class="header-title">
             <h1>U'D NOTE</h1>
@@ -31,7 +29,11 @@ if (!isset($_SESSION['user_id'])) {
             <input type="text" id="search" placeholder="Search">
         </div>
         <div class="profile-container">
-            <img src="../assets/jk.jpg" alt="Profile Picture" class="profile-pic">
+            <?php if (!empty($profile_picture)): ?>
+                <img src="<?php echo htmlspecialchars($profile_picture); ?>" alt="Profile Picture" class="profile-pic" width="150px" height="150px">
+            <?php else: ?>
+                <img src="../assets/profile-icon.jpg" alt="Profile Picture" class="profile-pic" width="150px" height="150px">
+            <?php endif; ?>
             <nav class="dropdown-menu" id="dropdown-menu">
                 <div class="dropdown-item">
                     <p class="nav-item">Hello, <?php echo htmlspecialchars($username); ?></p>
