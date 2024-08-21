@@ -1,6 +1,14 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
  session_start();
+ include '_dbconn.php';
  include '_editprofile.php';
+
+ $user_id = $_SESSION['user_id'];
+ $query = "SELECT * FROM users WHERE ID = $user_id";
+ $result = mysqli_query($conn, $query);
+ $user = mysqli_fetch_assoc($result);
 
 // if (!isset($_SESSION['user_id'])) {
 //     header("Location: login.php");
@@ -27,13 +35,14 @@
         <div class="form-control">
             <!-- Section for updating profile photo -->
             <div class="photo-frame">
-                <form action="" method="POST">
-                    <!-- Display current profile photo -->
-                    <img src="../assets/jk.jpg" alt="Profile Photo" class="profile-pic" id="profile-photo">
-                    <!-- Hidden file input for selecting new profile photo -->
-                    <input type="file" name="profile-photo" id="upload-photo" accept="image/*" style="display: none;">
-                    <!-- Button to trigger photo upload -->
-                    <button type="button" class="update-photo-btn">Update Photo</button>
+                <form action="_uploadimage.php" method="POST" enctype="multipart/form-data">
+                <?php if (!empty($user['profile_picture'])): ?>
+    <img src="<?php echo htmlspecialchars($user['profile_picture']); ?>" alt="Profile Picture" width="150px" height="150px">
+<?php else: ?>
+    <p>No profile picture available</p>
+<?php endif; ?>
+                    <input type="file" name="profile_picture" id="upload-photo">
+                    <button type="submit" class="update-photo-btn">Update Photo</button>
                 </form>
             </div>
             <!-- Section for editing profile details -->
@@ -104,5 +113,12 @@
     </div>
     <!-- Link to external JavaScript file for interactive functionality -->
     <script src="../script/editprofile.js"></script>
+
+<?php 
+$stmt->close();
+$conn->close();
+
+?>
+
 </body>
 </html>
