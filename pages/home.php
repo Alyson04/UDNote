@@ -59,7 +59,7 @@ if (!isset($_SESSION['user_id'])) {
             <form id="noteForm">
                 <div class="row title">
                     <label>Title</label>
-                    <input type="text" id="noteTitle" spellcheck="false">
+                    <input type="text" id="noteTitle" spellcheck="false" autocomplete="off">
                 </div>
                 <div class="row description">
                     <label>Description</label>
