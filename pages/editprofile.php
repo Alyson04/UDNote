@@ -37,9 +37,9 @@ ini_set('display_errors', 1);
             <div class="photo-frame">
                 <form action="_uploadimage.php" method="POST" enctype="multipart/form-data">
                 <?php if (!empty($user['profile_picture'])): ?>
-    <img src="<?php echo htmlspecialchars($user['profile_picture']); ?>" alt="Profile Picture" width="150px" height="150px">
+    <img src="<?php echo htmlspecialchars($user['profile_picture']); ?>" alt="Profile Picture" class="profile-pic" width="150px" height="150px">
 <?php else: ?>
-    <img src="../assets/profile-icon.jpg" alt="Profile Picture" width="150px" height="150px">
+    <img src="../assets/profile-icon.jpg" alt="Profile Picture" class="profile-pic" width="150px" height="150px">
 <?php endif; ?>
                     <input type="file" name="profile_picture" id="upload-photo">
                     <button type="submit" class="update-photo-btn">Update Photo</button>
