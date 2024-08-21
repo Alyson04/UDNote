@@ -17,6 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->execute();
 
         $_SESSION['success'] = "Changed Successfully!";
+        header("Location: home.php");
+        exit;
     }
 
     
