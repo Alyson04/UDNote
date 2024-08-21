@@ -53,8 +53,7 @@ body {
 .input-group {
     position: relative;
     margin-bottom: 40px;
-    width: 100%;
-}
+  }
 
 .input {
     width: 100%;
@@ -72,7 +71,7 @@ body {
     top: 50%;
     left: 15px;
     font-size: 1.2em;
-    color: #f0ffff;
+    color: #B66F30;
     transform: translateY(-50%);
     padding: 0 5px;
     transition: 0.3s ease;
@@ -81,16 +80,15 @@ body {
 
 .input:focus,
 .input:valid {
-    border-color: #66ff00;
+    border-color: #B66F30;
 }
 
 .input:focus + .labelline,
 .input:valid + .labelline {
-    color: #66ff00;
-    top: -10px;
+    color: #B66F30;
+    top: -1px;
     font-size: 1em;
     padding: 0 5px;
-    background: #1c2841;
 }
 
 .left-column label {
