@@ -25,7 +25,10 @@ header {
     align-items: center;
     justify-content: center;
     width: 100%;
-    font-size: 2rem;
+    height: 12%;
+    font-size: .9rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #DAD6CD; /* Background color for the header */
 }   
 
 /* Style for the profile picture */
@@ -50,6 +53,7 @@ header {
 .form-control {
     height: 80%;
     width: 90%;
+    margin-top: 2%;
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -70,7 +74,7 @@ header {
 /* Style for the update photo button */
 .update-photo-btn {
     background-color: #B66F30; /* Button background color */
-    color: #f2f2f2; /* Button text color */
+    color: #000; /* Button text color */
     border: none;
     border-radius: 10px;
     padding: 10px 20px;
@@ -86,7 +90,10 @@ header {
 
 /* Style for the profile details section */
 .profile-details {
-    width: 70%;
+    width: 65%;
+    height: 80%;
+    background: #DAD6CD; /*add */
+    margin-top:2%; /*add */
 }
 
 /* Style for the form within the profile details section */
@@ -101,15 +108,18 @@ header {
 
 /* Style for labels in the profile details form */
 .profile-details label {
-    font-size: 1.3rem;
-    padding: 1.5%;
+    font-size: 1rem;
+    padding: 1%;
 }
 
 /* Style for input fields in the profile details form */
 .profile-details form input {
-    width: 60%;
-    border-radius: 5px;
-    height: 30px;
+    width: 70%; /*CHANGE 60*/
+    height: 35px; /*CHANGE 30*/
+    font-size: .9rem;
+    border: none;
+    background-color: #f2f2f2;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Container for buttons */
@@ -127,7 +137,7 @@ header {
     height: 40px;
     background-color: #B66F30; /* Button background color */
     color: #f2f2f2; /* Button text color */
-    border-radius: 10px;
+    border-radius: 50px;
     border: none;
     cursor: pointer; /* Pointer cursor for button */
 }
@@ -137,15 +147,20 @@ header {
     background-color: #a55d28; /* Darker background on hover */
     cursor: pointer; /* Pointer cursor for button */
 }
+
+.reset-btn:hover {
+    background-color: #a55d28; /* Darker background on hover */
+    cursor: pointer; /* Pointer cursor for button */
+}
 .button-container1 {
-    margin-top: 3%;
+    margin-top: 4%;
     display: flex;
     justify-content: space-evenly;
     align-content: center;
     width: 100%;
 }
 .button-container1 button {
-    width: 120px;
+    width: 50%; /*CHANGE 120PX*/
     height: 40px;
     background-color: #B66F30; /* Button background color */
     color: #f2f2f2; /* Button text color */
@@ -153,6 +168,7 @@ header {
     border: none;
     cursor: pointer; /* Pointer cursor for button */
 }
+
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -164,28 +180,138 @@ header {
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    background-color: #DAD6CD;
+    margin: 10% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    height: 50%;
+    width: 70%; /* Could be more or less, depending on screen size */
+}
+             
+.modal-content form div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.modal-content h2{
+    font-size: 2rem;
+    color: #0e0e0e;
+    text-align: center;
+    padding: 1.5%;
+}
+
+.modal-content label {
+    font-size: 1.1rem;
+    width: 25%;
+    text-align: center;
+    }
+
+/* Style for input fields in the profile details form */
+.modal-content form input {
+    width: 35%; /*CHANGE 60*/
+    height: 35px; /*CHANGE 30*/
+    font-size: 1rem;
+    border: none;
+    background-color: #f2f2f2;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content button {
+    position: relative;
+    width: 20%; /*CHANGE 120PX*/
+    height: 40px;
+    background-color: #B66F30; /* Button background color */
+    color: #f2f2f2; /* Button text color */
+    border-radius: 50px;
+    border: none;
+    cursor: pointer; /* Pointer cursor for button */
+    left: 20%;
+}
+
+.modal-content button:hover {
+    background-color: #a55d28; /* Darker background on hover */
+    cursor: pointer; /* Pointer cursor for button */
 }
 
 /* The Close Button */
 .close {
     color: #aaa;
-    float: right;
+    float: left;
     font-size: 28px;
     font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* CONFIRMATION MODAL */
+
+/* Modal Content/Box */
+.confirmmodal-content {
+    background-color: #DAD6CD;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 8px;
+    border: 1px solid #888;
+    height: 25%;
+    width: 30%; /* Could be more or less, depending on screen size */
+}
+
+.confirmmodal-content h3{
+    font-size: 1.5rem;
+    text-align: center;
+    padding-top: 5%;
+}
+
+
+/* Button Container */
+.confirmation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 5%;
+}
+
+/* Buttons */
+.confirm-btn, .cancel-btn {
+    width: 40%;
+    height: 40px;
+    border-radius: 50px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+    background-color: #B66F30;
+    color: #f2f2f2;
+}
+
+.confirm-btn:hover {
+    background-color: #a55d28;
+}
+
+.cancel-btn:hover {
+    background-color: #a55d28;
+}
+
+/* The Close Button */
+.close-confirmation {
+    color: #aaa;
+    float: left;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.close-confirmation:hover,
+.close-confirmation:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;

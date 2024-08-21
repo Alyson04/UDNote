@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    transition: 0.2s linear;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin:0;
+    width: 100vw;
+    height: 100vh;
+    background: #DAD6CD;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+.container {
+    display: flex;
+    justify-content: center;
+    padding:120px;
+}
+
+.left-column{
+  width: 40%;
+  height: auto;
+  justify-content: center;
+  text-align: center;
+  padding: 15px;
+}
+
+
+.left-column h1{
+    color: #000;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.left-column h3{
+    color: #000;
+    font-weight: lighter;
+    font-size: 12px;
+    font-style: italic;
+    padding-bottom: 40px;
+}
+
+label{
+    color: #000;
+    font-size: 15px;
+    font-weight: lighter;
+    text-align: center;
+}
+
+input[type=email]{
+    width:60%;
+    height: 35px;
+    border: none;
+    background-color: #fff;
+    opacity: 0.5;
+}
+
+input[type=password]{
+    width: 60%;
+    height: 35px;
+    border: none;
+    background-color: #fff;
+    opacity: 0.5;
+}
+
+.left-column a {
+    color: #000;
+    font-weight: lighter;
+    font-size: 12px;
+    font-style: italic;
+    text-decoration: none;
+    padding: 25%;
+}
+
+button{
+    background-color: #B66F30;
+    color: #f2f2f2;
+    font-size: 15px;
+    width: 45%;
+    height: 35px;
+    border-radius: 20px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #a04b00;
+}
+  
+.right-column {
+    background-image: url(../assets/LOGINN.jpg);
+    background-size: cover; 
+    background-position: center;
+    box-shadow: 0 5px 5px rgba(0.5, 0.2, 0.2, 0.5);
+    width: 30%;
+    height: auto;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.right-column h2{
+    padding: 5px;
+    color: #000;
+    font-size: 25px;
+}
+
+.right-column h3{
+    color: #000;
+    font-weight: lighter;
+    font-size: 12px;
+    font-style: italic;
+    padding-bottom: 30px;
+}
+
+.right-column a{
+    background-color: #B66F30;
+    opacity: 0.8;
+    color: #f2f2f2;
+    font-size: 15px;
+    width: 35%;
+    height: 35px;
+    border-radius: 20px;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    padding-top: 7px;
+}
+
+.right-column a:hover {
+    background-color:#a04b00;
+  }

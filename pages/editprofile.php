@@ -40,24 +40,24 @@
             <div class="profile-details">
                 <form action="_updateprofile.php" method="POST" autocomplete="off" id="profile-form">
                     <!-- Input for full name -->
-                    <label>Full Name:</label>
+                    <label>FULL NAME</label>
                     <input type="text" name="fullName" id="full-name" value="<?php echo $fullname; ?>" required>
                     <!-- Input for username -->
-                    <label>Username:</label>
+                    <label>USERNAME</label>
                     <input type="text" name="username" id="username" value="<?php echo $username; ?>" required>
                     <!-- Input for email address -->
-                    <label>Email:</label>
+                    <label>EMAIL</label>
                     <input type="email" name="email" id="email" value="<?php echo $email; ?>" required>
                     
                     <div class="button-container1">
-                        <button type="button" id="changePasswordBtn">Change Password</button>
+                        <button type="button" id="changePasswordBtn">CHANGE PASSWORD</button>
                     </div>
 
                     <div class="button-container">
                         <!-- Button to cancel changes and navigate to the home page -->
-                        <button type="button" class="reset-btn" onclick="goToHomePage()">Cancel</button>
+                        <button type="button" class="reset-btn" onclick="goToHomePage()">CANCEL</button>
                         <!-- Button to submit form and save changes -->
-                        <button type="submit" class="submit-btn">Save</button>
+                        <button type="submit" class="submit-btn">SAVE</button>
                     </div>
                 </form>
             </div>  
@@ -81,7 +81,7 @@
                 <input type="password" id="confirm_password" name="confirm_password" required>
             </div>
             <div>
-                <button type="submit">Change Password</button>
+                <button type="submit">UPDATE</button>
             </div>
         </form>
     </div>
@@ -89,13 +89,12 @@
 
 <!-- Confirmation Modal -->
 <div id="confirmationModal" class="modal">
-            <div class="modal-content">
+            <div class="confirmmodal-content">
                 <span class="close-confirmation">&times;</span>
-                <h2>Confirm Changes</h2>
-                <p>Are you sure you want to save the changes?</p>
+                <h3>Confirm Changes?</h3>
                 <div class="confirmation-buttons">
-                    <button id="confirmSave" class="confirm-btn">Yes, Save</button>
-                    <button id="cancelSave" class="cancel-btn">Cancel</button>
+                    <button id="confirmSave" class="confirm-btn">ACCEPT</button>
+                    <button id="cancelSave" class="cancel-btn">CANCEL</button>
                 </div>
             </div>
         </div>
