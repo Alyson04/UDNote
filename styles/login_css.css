@@ -30,6 +30,7 @@ body {
     justify-content: start;
     align-items: center;
     flex-direction: column;
+    border: 1px solid green;
 }
 
 .left-column h1 {
@@ -52,7 +53,7 @@ body {
 
 .input-group {
     position: relative;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
 
 .input {
@@ -60,9 +61,6 @@ body {
     outline: none;
     font-size: 2em;
     padding: 10px 15px;
-    border-radius: 5px;
-    border: 2px solid #f0ffff;
-    background: transparent;
     transition: 0.3s ease;
 }
 
@@ -71,7 +69,7 @@ body {
     top: 50%;
     left: 15px;
     font-size: 1.2em;
-    color: #B66F30;
+    color: #000000;
     transform: translateY(-50%);
     padding: 0 5px;
     transition: 0.3s ease;
@@ -87,21 +85,23 @@ body {
 .input:valid + .labelline {
     color: #B66F30;
     top: -1px;
-    font-size: 1em;
+    font-size: 2.5vh;
     padding: 0 5px;
+    background-color: #DAD6CD;
 }
 
 .left-column label {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     padding: 1.5%;
 }
 
 .left-column form input {
-    height: 35px;
-    border: none;
-    background-color: #fff;
+    height: 40px;
     opacity: 0.5;
     font-size: large;
+    border: 2px solid #000000;
+    padding: 20px 20px;
+    background: transparent;
 }
 
 .left-column form a {
