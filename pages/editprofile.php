@@ -38,7 +38,7 @@
             </div>
             <!-- Section for editing profile details -->
             <div class="profile-details">
-                <form action="_updateprofile.php" method="POST" autocomplete="off">
+                <form action="_updateprofile.php" method="POST" autocomplete="off" id="profile-form">
                     <!-- Input for full name -->
                     <label>Full Name:</label>
                     <input type="text" name="fullName" id="full-name" value="<?php echo $fullname; ?>" required>
@@ -86,6 +86,21 @@
         </form>
     </div>
 </div>
+
+<!-- Confirmation Modal -->
+<div id="confirmationModal" class="modal">
+            <div class="modal-content">
+                <span class="close-confirmation">&times;</span>
+                <h2>Confirm Changes</h2>
+                <p>Are you sure you want to save the changes?</p>
+                <div class="confirmation-buttons">
+                    <button id="confirmSave" class="confirm-btn">Yes, Save</button>
+                    <button id="cancelSave" class="cancel-btn">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     </div>
     <!-- Link to external JavaScript file for interactive functionality -->
     <script src="../script/editprofile.js"></script>
