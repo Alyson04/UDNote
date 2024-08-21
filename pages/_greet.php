@@ -1,6 +1,4 @@
 <?php
-// Start the session
-session_start();
 
 // Include your database connection file
 include'./_dbconn.php';
@@ -19,7 +17,7 @@ if (isset($_SESSION['user_id'])) {
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        $username = $row['username'];
+        $username = ucwords(strtolower(htmlspecialchars($row['username'])));
     } else {
         $username = "Guest"; // Fallback if username not found
     }
@@ -32,4 +30,4 @@ if (isset($_SESSION['user_id'])) {
 
 // Close the database connection
 $conn->close();
-?>
+
