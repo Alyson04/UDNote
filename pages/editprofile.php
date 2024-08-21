@@ -1,3 +1,13 @@
+<?php
+ session_start();
+ include '_editprofile.php';
+
+// if (!isset($_SESSION['user_id'])) {
+//     header("Location: login.php");
+//     exit;
+// }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,22 +38,21 @@
             </div>
             <!-- Section for editing profile details -->
             <div class="profile-details">
-                <form action="" method="POST">
+                <form action="_updateprofile.php" method="POST" autocomplete="off" id="profile-form">
                     <!-- Input for full name -->
                     <label>Full Name:</label>
-                    <input type="text" name="fullName" id="full-name" required>
+                    <input type="text" name="fullName" id="full-name" value="<?php echo $fullname; ?>" required>
                     <!-- Input for username -->
                     <label>Username:</label>
-                    <input type="text" name="username" id="username" required>
+                    <input type="text" name="username" id="username" value="<?php echo $username; ?>" required>
                     <!-- Input for email address -->
                     <label>Email:</label>
-                    <input type="email" name="email" id="email" required>
-                    <!-- Input for changing password -->
-                    <label>Change Password:</label>
-                    <input type="password" name="password" id="password">
-                    <!-- Input for confirming new password -->
-                    <label>Confirm Password:</label>
-                    <input type="password" name="confirmPassword" id="confirm_password">
+                    <input type="email" name="email" id="email" value="<?php echo $email; ?>" required>
+                    
+                    <div class="button-container1">
+                        <button type="button" id="changePasswordBtn">Change Password</button>
+                    </div>
+
                     <div class="button-container">
                         <!-- Button to cancel changes and navigate to the home page -->
                         <button type="button" class="reset-btn" onclick="goToHomePage()">Cancel</button>
@@ -53,6 +62,45 @@
                 </form>
             </div>  
         </div>
+            <!-- Change Password Modal -->
+<div id="changePasswordModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Change Password</h2>
+        <form action="_changepassword.php" method="post">
+            <div>
+                <label for="old_password">Old Password:</label>
+                <input type="password" id="old_password" name="old_password" required>
+            </div>
+            <div>
+                <label for="new_password">New Password:</label>
+                <input type="password" id="new_password" name="new_password" required>
+            </div>
+            <div>
+                <label for="confirm_password">Confirm New Password:</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+            </div>
+            <div>
+                <button type="submit">Change Password</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Confirmation Modal -->
+<div id="confirmationModal" class="modal">
+            <div class="modal-content">
+                <span class="close-confirmation">&times;</span>
+                <h2>Confirm Changes</h2>
+                <p>Are you sure you want to save the changes?</p>
+                <div class="confirmation-buttons">
+                    <button id="confirmSave" class="confirm-btn">Yes, Save</button>
+                    <button id="cancelSave" class="cancel-btn">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     </div>
     <!-- Link to external JavaScript file for interactive functionality -->
     <script src="../script/editprofile.js"></script>
