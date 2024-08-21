@@ -137,14 +137,14 @@ header {
     background-color: #a55d28; /* Darker background on hover */
     cursor: pointer; /* Pointer cursor for button */
 }
-.changePassBtn-container {
+.button-container1 {
     margin-top: 3%;
     display: flex;
     justify-content: space-evenly;
     align-content: center;
     width: 100%;
 }
-.changePassBtn-container button {
+.button-container1 button {
     width: 120px;
     height: 40px;
     background-color: #B66F30; /* Button background color */
