@@ -1,5 +1,5 @@
 <?php
-session_start(); // Start the session to access session variables
+
 include '_dbconn.php'; // Include the database connection
 
 // Assuming the user ID is stored in a session variable
