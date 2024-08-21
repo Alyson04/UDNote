@@ -38,7 +38,7 @@
             </div>
             <!-- Section for editing profile details -->
             <div class="profile-details">
-                <form action="" method="POST" autocomplete="off">
+                <form action="_updateprofile.php" method="POST" autocomplete="off">
                     <!-- Input for full name -->
                     <label>Full Name:</label>
                     <input type="text" name="fullName" id="full-name" value="<?php echo $fullname; ?>" required>
@@ -49,7 +49,7 @@
                     <label>Email:</label>
                     <input type="email" name="email" id="email" value="<?php echo $email; ?>" required>
                     
-                    <div class="changePassBtn-container">
+                    <div class="button-container1">
                         <button type="button" id="changePasswordBtn">Change Password</button>
                     </div>
 

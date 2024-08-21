@@ -6,7 +6,7 @@ include '_dbconn.php'; // Include the database connection
 $userId = $_SESSION['user_id']; 
 
 // Prepare and execute the query
-$query = "SELECT username, email, fullname FROM users WHERE id = ?";
+$query = "SELECT username, email, fullName FROM users WHERE id = ?";
 $stmt = $conn->prepare($query);
 $stmt->bind_param("i", $userId);
 $stmt->execute();
@@ -17,7 +17,7 @@ $user = $result->fetch_assoc();
 if ($user) {
     $username = ucwords(strtolower(htmlspecialchars($user['username'])));
     $email = ucwords(strtolower(htmlspecialchars($user['email'])));
-    $fullname = ucwords(strtolower(htmlspecialchars($user['fullname'])));
+    $fullname = ucwords(strtolower(htmlspecialchars($user['fullName'])));
 } else {
     $username = $email = $fullname = "Not Available";
 }
