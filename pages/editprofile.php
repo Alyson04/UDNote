@@ -39,7 +39,7 @@ ini_set('display_errors', 1);
                 <?php if (!empty($user['profile_picture'])): ?>
     <img src="<?php echo htmlspecialchars($user['profile_picture']); ?>" alt="Profile Picture" width="150px" height="150px">
 <?php else: ?>
-    <p>No profile picture available</p>
+    <img src="../assets/profile-icon.jpg" alt="Profile Picture" width="150px" height="150px">
 <?php endif; ?>
                     <input type="file" name="profile_picture" id="upload-photo">
                     <button type="submit" class="update-photo-btn">Update Photo</button>
