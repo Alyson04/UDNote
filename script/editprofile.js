@@ -49,7 +49,6 @@ saveButton.onclick = function(event) {
 // When the user clicks confirm, submit the profile form
 confirmSave.onclick = function() {
     profileForm.submit(); // Submit the form
-    window.location.href = '../pages/home.php';
 }
 
 // When the user clicks cancel or close, close the confirmation modal
