@@ -32,4 +32,4 @@ if (isset($_SESSION['user_id'])) {
 
 // Close the database connection
 $conn->close();
-?>
+
