@@ -67,7 +67,7 @@
     <div class="modal-content">
         <span class="close">&times;</span>
         <h2>Change Password</h2>
-        <form action="change_password.php" method="post">
+        <form action="_changepassword.php" method="post">
             <div>
                 <label for="old_password">Old Password:</label>
                 <input type="password" id="old_password" name="old_password" required>
