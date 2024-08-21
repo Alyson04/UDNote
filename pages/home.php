@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+include '_greet.php';
+
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit;
@@ -19,6 +21,7 @@ if (!isset($_SESSION['user_id'])) {
 </head>
 <body>
 <header>
+    
     <div class="header-content">
         <div class="header-title">
             <h1>U'D NOTE</h1>
@@ -28,8 +31,11 @@ if (!isset($_SESSION['user_id'])) {
             <input type="text" id="search" placeholder="Search">
         </div>
         <div class="profile-container">
-            <img src="../assets/jk.jpg" alt="Profile Picture" class="profile-pic" onclick="toggleDropdown()">
+            <img src="../assets/jk.jpg" alt="Profile Picture" class="profile-pic">
             <nav class="dropdown-menu" id="dropdown-menu">
+                <div class="dropdown-item">
+                    <p class="nav-item">Hello, <?php echo htmlspecialchars($username); ?></p>
+                </div>
                 <div class="dropdown-item">
                     <i class="uil uil-pen"></i>
                     <a href="./editprofile.php" class="nav-item"> Edit Profile</a>
@@ -50,16 +56,16 @@ if (!isset($_SESSION['user_id'])) {
                 <p></p>
                 <i class="uil uil-times"></i>
             </header>
-            <form action="#">
+            <form id="noteForm">
                 <div class="row title">
                     <label>Title</label>
-                    <input type="text" spellcheck="false">
+                    <input type="text" id="noteTitle" spellcheck="false">
                 </div>
                 <div class="row description">
                     <label>Description</label>
-                    <textarea spellcheck="false"></textarea>
+                    <textarea id="noteDesc" spellcheck="false"></textarea>
                 </div>
-                <button></button>
+                <button type="submit" id="addNoteBtn">Add Note</button>
             </form>
         </div>  
     </div>

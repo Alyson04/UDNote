@@ -44,11 +44,11 @@ if (isset($_SESSION['user_id'])) {
                 <h3>Capture, organize, and access your <br> ideas effortlessly.</h3>
 
                 <form action="./_login.php" method="POST">
-                    <label for="user_input">Email or Username:</label>
-                    <input autocomplete="on" type="text" name="user_input" required>
+                    <label>EMAIL or USERNAME:</label>
+                    <input autocomplete="on" type="text" name="user_input">
                     
-                    <label for="password">Password:</label>
-                    <input autocomplete="off" type="password" name="password" required>
+                    <label>PASSWORD:</label>
+                    <input autocomplete="off" type="password" name="password">
                     
                     <a href = "forgotpass.php"> Forgot Password?</a>
                     <button type="submit">LOGIN</button>
