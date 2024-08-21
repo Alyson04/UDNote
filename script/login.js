@@ -15,7 +15,7 @@ setTimeout(function() {
     if (toast) {
         toast.style.display = 'none';
     }
-}, 3000); // 3 seconds
+}, 2000); // 3 seconds
 
 
 //Redirector
@@ -33,5 +33,5 @@ setTimeout(function() {
 if (isLoggedIn) {
     setTimeout(function() {
         window.location.href = 'home.php'; // Redirect to index or dashboard
-    }, 3000); // Redirect after 3 seconds to allow the toast message to be displayed
+    }, 2000); // Redirect after 3 seconds to allow the toast message to be displayed
 }
