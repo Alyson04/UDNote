@@ -1,6 +1,6 @@
 <?php
 session_start();
-include './_greet.php';
+include './_greet.php'; 
 
 // Redirect to login if user is not logged in
 if (!isset($_SESSION['user_id'])) {
@@ -50,35 +50,52 @@ if (!isset($_SESSION['user_id'])) {
         </div>  
     </div>
 </header>
+<?php
+            if (isset($_SESSION['error'])) {
+                echo '
+                <div class="toast-container">
+                    <p class="error">' . $_SESSION['error'] . '</p>
+                </div>';
+                unset($_SESSION['error']);
+            }
 
-<div class="popup-box">
-    <div class="popup">
-        <div class="content">
-            <header>
-                <p></p>
-                <i class="uil uil-times"></i>
-            </header>
-            <form id="noteForm">
-                <div class="row title">
-                    <label>Title</label>
-                    <input type="text" id="noteTitle" spellcheck="false">
-                </div>
-                <div class="row description">
-                    <label>Description</label>
-                    <textarea id="noteDesc" spellcheck="false"></textarea>
-                </div>
-                <button type="submit" id="addNoteBtn">Add Note</button>
-            </form>
-        </div>  
+            if (isset($_SESSION['success'])) {
+                echo '
+                <div class="toast-container">
+                    <p class="success">' . $_SESSION['success'] . '</p>
+                </div>';
+
+                unset($_SESSION['success']);
+            }
+        ?>
+    <div class="popup-box">
+        <div class="popup">
+            <div class="content">
+                <header>
+                    <p></p>
+                    <i class="uil uil-times"></i>
+                </header>
+                <form id="noteForm">
+                    <div class="row title">
+                        <label>Title</label>
+                        <input type="text" id="noteTitle" spellcheck="false">
+                    </div>
+                    <div class="row description">
+                        <label>Description</label>
+                        <textarea id="noteDesc" spellcheck="false"></textarea>
+                    </div>
+                    <button type="submit" id="addNoteBtn">Add Note</button>
+                </form>
+            </div>  
+        </div>
     </div>
-</div>
 
-<div class="wrapper">
-    <li class="add-box">
-        <div class="icon"><i class="uil uil-plus"></i></div>
-        <p>Add new note</p>
-    </li>
-</div>
+    <div class="wrapper">
+        <li class="add-box">
+            <div class="icon"><i class="uil uil-plus"></i></div>
+            <p>Add new note</p>
+        </li>
+    </div>
 
 <script src="../script/home.js"></script>
 
