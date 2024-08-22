@@ -41,6 +41,15 @@ header {
     cursor: default; /* Default cursor */
 }
 
+/* For changing the profile */
+
+#upload-photo i{
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+}
+
+
 /* Container for the main content */
 .container {
     height: 100%;

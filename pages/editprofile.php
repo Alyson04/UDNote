@@ -21,6 +21,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profile</title>
     <link rel="stylesheet" href="../styles/editprofile.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 </head>
 <body>
     <div class="container">
@@ -56,7 +57,8 @@
                     <?php else: ?>
                         <img src="../assets/profile-icon.jpg" alt="Profile Picture" class="profile-pic" width="150px" height="150px">
                     <?php endif; ?>
-                    <input type="file" name="profile_picture" id="upload-photo">
+                    <i class="uil uil-camera" id="camera-icon"></i>
+                    <input type="file" name="profile_picture" id="upload-photo" style="display: none;">
                     <button type="submit" class="update-photo-btn">Update Photo</button>
                 </form>
             </div>
