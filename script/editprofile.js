@@ -75,3 +75,6 @@ function goToHomePage() {
             window.location.href = '../pages/home.php'; 
         }
 
+document.getElementById('camera-icon').addEventListener('click', function () {
+    document.getElementById('upload-photo').click();
+});        
