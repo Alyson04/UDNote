@@ -94,7 +94,7 @@
 
 <!-- Confirmation Modal -->
         <div id="confirmationModal" class="modal">
-            <div class="modal-content">
+            <div class="confirmmodal-content">
                 <span class="close-confirmation">&times;</span>
                 <h3>Confirm Changes?</h3>
                 <div class="confirmation-buttons">
