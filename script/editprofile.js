@@ -78,3 +78,11 @@ function goToHomePage() {
 document.getElementById('camera-icon').addEventListener('click', function () {
     document.getElementById('upload-photo').click();
 });        
+
+document.getElementById('upload-photo').addEventListener('change', function (event) {
+    const reader = new FileReader();
+    reader.onload = function () {
+        document.querySelector('.profile-pic').src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+});
