@@ -11,16 +11,16 @@ body {
     margin: 0;
     width: 100vw;
     height: 100vh;
-    background: #DAD6CD;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background: url(../assets/bg.jpg) no-repeat; 
+    background-size: cover; 
+    background-position: center; 
 }
 
 .container {
     height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center;    
 }
 
 .left-column {
@@ -29,7 +29,8 @@ body {
     display: flex;
     justify-content: start;
     align-items: center;
-    flex-direction: column;
+    flex-direction: column;  
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 10px 10px 10px rgba(0,0,0,0.22);
 }
 
 .left-column h1 {
