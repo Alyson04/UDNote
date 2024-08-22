@@ -30,7 +30,7 @@ body {
     justify-content: start;
     align-items: center;
     flex-direction: column;
-    border: 1px solid green;
+    border: 1px solid red;
 }
 
 .left-column h1 {
