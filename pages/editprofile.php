@@ -99,7 +99,7 @@
                 <h3>Confirm Changes?</h3>
                 <div class="confirmation-buttons">
                     <button id="confirmSave" class="confirm-btn">ACCEPT</button>
-                    <button id="cancelSave" class="cancel-btn">CANCEL</button>
+                    <button id="cancelSave" class="cancel-btn" onclick="goToHomePage()">CANCEL</button>
                 </div>
             </div>
         </div>
