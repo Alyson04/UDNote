@@ -46,25 +46,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $stmt->bind_param("si", $dest_path, $user_id);
 
                 if ($stmt->execute()) {
+                    $_SESSION['success'] = "Profile picture updated successfully";
                     echo "Profile picture updated successfully.";
                     header("Location: home.php");
                     exit;
                 } else {
+                    $_SESSION['error'] = "Error updating profile picture: " . $stmt->error;
                     echo "Error updating profile picture: " . $stmt->error;
                 }
             } else {
+                $_SESSION['error'] = "Error moving the file";
                 echo "Error moving the file.";
             }
         } else {
+            $_SESSION['error'] = "Invalid file type";
             echo "Invalid file type.";
         }
     } else {
+        $_SESSION['error'] = "No file uploaded or upload error";
         echo "No file uploaded or upload error.";
     }
 } else {
+    $_SESSION['error'] = "Invalid request";
     echo "Invalid request.";
 }
+header("Location: editprofile.php");
+exit;
 
-$stmt->close();
-$conn->close();
 

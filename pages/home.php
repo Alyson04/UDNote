@@ -50,7 +50,24 @@ if (!isset($_SESSION['user_id'])) {
         </div>  
     </div>
 </header>
+<?php
+            if (isset($_SESSION['error'])) {
+                echo '
+                <div class="toast-container">
+                    <p class="error">' . $_SESSION['error'] . '</p>
+                </div>';
+                unset($_SESSION['error']);
+            }
 
+            if (isset($_SESSION['success'])) {
+                echo '
+                <div class="toast-container">
+                    <p class="success">' . $_SESSION['success'] . '</p>
+                </div>';
+
+                unset($_SESSION['success']);
+            }
+        ?>
     <div class="popup-box">
         <div class="popup">
             <div class="content">

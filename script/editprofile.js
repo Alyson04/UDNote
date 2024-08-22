@@ -1,3 +1,11 @@
+//Toast notification
+setTimeout(function() {
+    var toast = document.querySelector('.toast-container');
+    if (toast) {
+        toast.style.display = 'none';
+    }
+}, 2000); // 3 seconds
+
 // Get the modal
 var modal = document.getElementById("changePasswordModal");
 
@@ -66,3 +74,4 @@ window.onclick = function(event) {
 function goToHomePage() {
             window.location.href = '../pages/home.php'; 
         }
+

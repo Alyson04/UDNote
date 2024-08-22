@@ -27,6 +27,25 @@
         <header>
             <h1>EDIT PROFILE</h1>
         </header>
+
+        <?php
+            if (isset($_SESSION['error'])) {
+                echo '
+                <div class="toast-container">
+                    <p class="error">' . $_SESSION['error'] . '</p>
+                </div>';
+                unset($_SESSION['error']);
+            }
+
+            if (isset($_SESSION['success'])) {
+                echo '
+                <div class="toast-container">
+                    <p class="success">' . $_SESSION['success'] . '</p>
+                </div>';
+
+                unset($_SESSION['success']);
+            }
+        ?>
         
         <div class="form-control">
             <!-- Section for updating profile photo -->
@@ -98,8 +117,8 @@
                 <span class="close-confirmation">&times;</span>
                 <h3>Confirm Changes?</h3>
                 <div class="confirmation-buttons">
-                    <button id="confirmSave" class="confirm-btn">ACCEPT</button>
                     <button id="cancelSave" class="cancel-btn" onclick="goToHomePage()">CANCEL</button>
+                    <button id="confirmSave" class="confirm-btn">ACCEPT</button>
                 </div>
             </div>
         </div>
