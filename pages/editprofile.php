@@ -50,11 +50,11 @@
         ?>
         
         <!-- Section for updating profile photo -->
-        <form action="_updateprofile.php" method="POST" autocomplete="off" id="profile-form" enctype="multipart/form-data">
+        <form action="_uploadimage.php" method="POST" autocomplete="off" id="profile-form" enctype="multipart/form-data">
             <div class="form-control">
                 <div class="photo-frame">
                     <?php if (!empty($user['profile_picture'])): ?>
-                        <img src="<?php echo htmlspecialchars($user['profile_picture']); ?>" alt="Profile Picture" class="profile-pic" width="150px" height="150px">
+                        <img src="<?php echo htmlspecialchars($user['profile_picture']); ?>?v=<?php echo time(); ?>" alt="Profile Picture" class="profile-pic" width="150" height="150">
                     <?php else: ?>
                         <img src="../assets/profile-icon.jpg" alt="Profile Picture" class="profile-pic" width="150px" height="150px">
                     <?php endif; ?>
