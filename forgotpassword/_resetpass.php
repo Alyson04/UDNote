@@ -5,6 +5,7 @@ error_reporting(E_ALL);
 require '../pages/_dbconn.php'; // Your database connection file
 date_default_timezone_set('Asia/Manila');
 
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $token = $_POST['token'];
     $newPassword = password_hash($_POST['password'], PASSWORD_BCRYPT);
