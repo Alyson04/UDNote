@@ -42,12 +42,12 @@ body {
     align-items: center;
 }
 .form-control h2{
-    color: #000;
+    color: #e00000;
     font-weight: bold;
     font-size: 3.3rem;
     padding: 2.5%;
-    border: 1px solid red;
 }
+
 .form-control h3{
     display: inline;
     color: #000;
