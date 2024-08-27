@@ -30,6 +30,7 @@ body {
     justify-content: start;
     align-items: center;
     flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .left-column h1 {
