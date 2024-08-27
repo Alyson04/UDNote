@@ -48,7 +48,7 @@ header {
     border: 1px solid black;
     width: 30px;
     height: 30px;
-    font-size: 20px;
+    font-size: 1.4rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,7 +60,6 @@ header {
 
 /* Container for the main content */
 .container {
-    border: 1px solid red;
     height: 100%;
     display: flex;
     align-items: center;
@@ -68,76 +67,58 @@ header {
 }
 
 /* Style for the form control section */
-.form-control {
+#profile-form {
     height: 80%;
     width: 90%;
     margin-top: 2%;
     display: flex;
     justify-content: center;
-    flex-direction: row;
+}
+
+.form-control {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 /* Style for the photo frame section */
-.photo-frame {
-    width: 30%;
-}
-
-/* Style for the form within the photo frame */
-.photo-frame form {
+.photo-frame{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    width: 30%;
 }
 
-/* Style for the update photo button */
-.update-photo-btn {
-    background-color: #B66F30; /* Button background color */
-    color: #000; /* Button text color */
-    border: none;
-    border-radius: 10px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    margin-top: 10px;
-    cursor: pointer; /* Pointer cursor for button */
-}
-
-/* Hover effect for the update photo button */
-.update-photo-btn:hover {
-    background-color: #a55d28; /* Darker background on hover */
+.photo-frame img {
+    border: 1px solid #0e0e0e;
 }
 
 /* Style for the profile details section */
 .profile-details {
-    width: 65%;
-    height: 80%;
-    background: #DAD6CD; /*add */
-    margin-top:2%; /*add */
-}
-
-/* Style for the form within the profile details section */
-.profile-details form {
-    margin-top: 2%;
+    background: #DAD6CD;
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
-    width: 100%;
+    justify-content: center;
+    width: 70%;
 }
 
 /* Style for labels in the profile details form */
-.profile-details label {
-    font-size: 1rem;
+#profile-form label {
+    font-size: 1.3rem;
     padding: 1%;
 }
 
 /* Style for input fields in the profile details form */
-.profile-details form input {
+#profile-form input {
     width: 70%; /*CHANGE 60*/
     height: 35px; /*CHANGE 30*/
-    font-size: .9rem;
+    font-size: 1.2rem;
     border: none;
     background-color: #f2f2f2;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 /* Container for buttons */
