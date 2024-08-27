@@ -7,7 +7,8 @@
 </head>
 <body>
     <!-- forgot_password.html -->
-<form action="send_reset_link.php" method="post">
+
+<form action="_sendresetlink.php" method="post">
     <label for="email">Enter your email address:</label>
     <input type="email" id="email" name="email" required>
     <button type="submit">Submit</button>
