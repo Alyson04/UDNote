@@ -1,0 +1,369 @@
+/* Apply general styles to all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    transition: 0.2s linear; /* Smooth transition for state changes */
+}
+
+/* Style for the body, including background and font settings */
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../assets/bg.jpg'); /* Background image */
+    background-size: cover; /* Cover the entire background area */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Style for the header, centering the title */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 12%;
+    font-size: .9rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #DAD6CD; /* Background color for the header */
+}   
+
+/* Style for the profile picture */
+.profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* Circular profile picture */
+    margin: 20px;
+    object-fit: cover; /* Crop image to fit the frame */
+    cursor: default; /* Default cursor */
+}
+
+/* For changing the profile */
+
+#camera-icon{
+    cursor: pointer;
+    border: 1px solid black;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: lightblue;
+    color: black;
+}
+
+
+/* Container for the main content */
+.container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Style for the form control section */
+.form-control {
+    height: 80%;
+    width: 90%;
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+/* Style for the photo frame section */
+.photo-frame {
+    width: 30%;
+}
+
+/* Style for the form within the photo frame */
+.photo-frame form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Style for the update photo button */
+.update-photo-btn {
+    background-color: #B66F30; /* Button background color */
+    color: #000; /* Button text color */
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin-top: 10px;
+    cursor: pointer; /* Pointer cursor for button */
+}
+
+/* Hover effect for the update photo button */
+.update-photo-btn:hover {
+    background-color: #a55d28; /* Darker background on hover */
+}
+
+/* Style for the profile details section */
+.profile-details {
+    width: 65%;
+    height: 80%;
+    background: #DAD6CD; /*add */
+    margin-top:2%; /*add */
+}
+
+/* Style for the form within the profile details section */
+.profile-details form {
+    margin-top: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Style for labels in the profile details form */
+.profile-details label {
+    font-size: 1rem;
+    padding: 1%;
+}
+
+/* Style for input fields in the profile details form */
+.profile-details form input {
+    width: 70%; /*CHANGE 60*/
+    height: 35px; /*CHANGE 30*/
+    font-size: .9rem;
+    border: none;
+    background-color: #f2f2f2;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Container for buttons */
+.button-container {
+    margin-top: 3%;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    width: 100%;
+}
+
+/* Style for buttons in the button container */
+.button-container button {
+    width: 120px;
+    height: 40px;
+    background-color: #B66F30; /* Button background color */
+    color: #f2f2f2; /* Button text color */
+    border-radius: 50px;
+    border: none;
+    cursor: pointer; /* Pointer cursor for button */
+}
+
+/* Hover effect for the submit button */
+.submit-btn:hover {
+    background-color: #a55d28; /* Darker background on hover */
+    cursor: pointer; /* Pointer cursor for button */
+}
+
+.reset-btn:hover {
+    background-color: #a55d28; /* Darker background on hover */
+    cursor: pointer; /* Pointer cursor for button */
+}
+.button-container1 {
+    margin-top: 4%;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    width: 100%;
+}
+.button-container1 button {
+    width: 50%; /*CHANGE 120PX*/
+    height: 40px;
+    background-color: #B66F30; /* Button background color */
+    color: #f2f2f2; /* Button text color */
+    border-radius: 10px;
+    border: none;
+    cursor: pointer; /* Pointer cursor for button */
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #DAD6CD;
+    margin: 10% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    height: 50%;
+    width: 70%; /* Could be more or less, depending on screen size */
+}
+             
+.modal-content form div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.modal-content h2{
+    font-size: 2rem;
+    color: #0e0e0e;
+    text-align: center;
+    padding: 1.5%;
+}
+
+.modal-content label {
+    font-size: 1.1rem;
+    width: 25%;
+    text-align: center;
+    }
+
+/* Style for input fields in the profile details form */
+.modal-content form input {
+    width: 35%; /*CHANGE 60*/
+    height: 35px; /*CHANGE 30*/
+    font-size: 1rem;
+    border: none;
+    background-color: #f2f2f2;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content button {
+    position: relative;
+    width: 20%; /*CHANGE 120PX*/
+    height: 40px;
+    background-color: #B66F30; /* Button background color */
+    color: #f2f2f2; /* Button text color */
+    border-radius: 50px;
+    border: none;
+    cursor: pointer; /* Pointer cursor for button */
+    left: 20%;
+}
+
+.modal-content button:hover {
+    background-color: #a55d28; /* Darker background on hover */
+    cursor: pointer; /* Pointer cursor for button */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: left;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* CONFIRMATION MODAL */
+
+/* Modal Content/Box */
+.confirmmodal-content {
+    background-color: #DAD6CD;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 8px;
+    border: 1px solid #888;
+    height: 25%;
+    width: 30%; /* Could be more or less, depending on screen size */
+}
+
+.confirmmodal-content h3{
+    font-size: 1.5rem;
+    text-align: center;
+    padding-top: 5%;
+}
+
+
+/* Button Container */
+.confirmation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 5%;
+}
+
+/* Buttons */
+.confirm-btn, .cancel-btn {
+    width: 40%;
+    height: 40px;
+    border-radius: 50px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+    background-color: #B66F30;
+    color: #f2f2f2;
+}
+
+.confirm-btn:hover {
+    background-color: #a55d28;
+}
+
+.cancel-btn:hover {
+    background-color: #a55d28;
+}
+
+/* The Close Button */
+.close-confirmation {
+    color: #aaa;
+    float: left;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.close-confirmation:hover,
+.close-confirmation:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* This is for toast notification */
+.toast-container .error{
+    position: absolute;
+    top: 12%;
+    color:#f2f2f2;
+    background-color: #ff4545;
+    width: fit-content;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 0 10px;
+    z-index: 1000;
+}
+.toast-container .success{
+    position: absolute;
+    top: 12%;
+    color:#f2f2f2;
+    background-color: #4caf50;
+    width: fit-content;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 0 10px;
+    z-index: 1000;
+}

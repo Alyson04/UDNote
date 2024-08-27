@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <span>${filterDesc}</span>
                                 </div>
                                 <div class="bottom-content">
-                                    <span>${note.date}</span>
+                                    <p>Last Updated: </p>
                                     <div class="settings">
                                         <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
                                         <ul class="menu">
@@ -47,6 +47,14 @@ document.addEventListener('DOMContentLoaded', function() {
             logError(error); // Log error details if needed
         });
     }
+
+    //Toast notification
+setTimeout(function() {
+    var toast = document.querySelector('.toast-container');
+    if (toast) {
+        toast.style.display = 'none';
+    }
+}, 2000); // 3 seconds
 
     // Initial call to display notes
     showNotes();
