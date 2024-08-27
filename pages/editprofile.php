@@ -1,7 +1,8 @@
 <?php
+
  session_start();
  include '_dbconn.php';
- include '_editprofile.php';
+ include '_displayprofile.php';
 
  $user_id = $_SESSION['user_id'];
  $query = "SELECT * FROM users WHERE ID = $user_id";
@@ -48,9 +49,9 @@
             }
         ?>
         
-        <div class="form-control">
-            <!-- Section for updating profile photo -->
-            <form action="_uploadimage.php" method="POST" autocomplete="off" id="profile-form" enctype="multipart/form-data">
+        <!-- Section for updating profile photo -->
+        <form action="_updateprofile.php" method="POST" autocomplete="off" id="profile-form" enctype="multipart/form-data">
+            <div class="form-control">
                 <div class="photo-frame">
                     <?php if (!empty($user['profile_picture'])): ?>
                         <img src="<?php echo htmlspecialchars($user['profile_picture']); ?>" alt="Profile Picture" class="profile-pic" width="150px" height="150px">
@@ -81,8 +82,8 @@
                         <button type="submit" class="submit-btn">SAVE</button>
                     </div>
                 </div>  
-            </form>
-        </div>
+            </div>
+        </form>
             <!-- Change Password Modal -->
         <div id="changePasswordModal" class="modal">
             <div class="modal-content">
