@@ -42,6 +42,7 @@ body {
     font-style: italic;
     font-weight: normal;
     text-align: center;
+    border: 1px solid red;
 }
 
 .left-column form {

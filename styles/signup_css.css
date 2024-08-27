@@ -40,13 +40,15 @@ body {
     flex-direction: column;
     justify-content: start;
     align-items: center;
+
 }
 .form-control h2{
-    color: #000;
+    color: #000000;
     font-weight: bold;
     font-size: 3.3rem;
     padding: 2.5%;
 }
+
 .form-control h3{
     display: inline;
     color: #000;
