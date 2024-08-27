@@ -30,7 +30,7 @@ if (!isset($_SESSION['user_id'])) {
         </div>
         <div class="profile-container">
             <?php if (!empty($profile_picture)): ?>
-                <img src="<?php echo htmlspecialchars($profile_picture); ?>" alt="Profile Picture" class="profile-pic" width="150px" height="150px">
+                <img src="<?php echo htmlspecialchars($profile_picture); ?>?v=<?php echo time(); ?>" alt="Profile Picture" class="profile-pic" width="150px" height="150px">
             <?php else: ?>
                 <img src="../assets/profile-icon.jpg" alt="Profile Picture" class="profile-pic" width="150px" height="150px">
             <?php endif; ?>
