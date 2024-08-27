@@ -1,6 +1,6 @@
 <?php
 session_start();
-include './_greet.php'; 
+include './_greet.php';
 
 // Redirect to login if user is not logged in
 if (!isset($_SESSION['user_id'])) {
@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id'])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
     <title>U'D NOTE</title>

@@ -18,7 +18,8 @@ if (isset($_SESSION['user_id'])) {
     <title>Login</title>
 </head>
 <body>
-    <div class="container">
+
+        <div class="container">
         <?php
             if (isset($_SESSION['error'])) {
                 echo '
@@ -33,33 +34,35 @@ if (isset($_SESSION['user_id'])) {
                 <div class="toast-container">
                     <p class="success">' . $_SESSION['success'] . '</p>
                 </div>';
+
                 unset($_SESSION['success']);
             }
         ?>
+   
+            <div class="left-column">
+                <h1> WELCOME </h1>
+                <h3>Capture, organize, and access your <br> ideas effortlessly.</h3>
 
-        <div class="left-column">
-            <h1>WELCOME</h1>
-            <h3>Capture, organize, and access your <br> ideas effortlessly.</h3>
-
-            <form action="./_login.php" method="POST">
-                <div class="input-group">
-                    <input type="text" id="email" name="user_input" class="input" required>
-                    <label for="email" class="labelline">Email or Username</label>
-                </div>
-                <div class="input-group">
-                    <input type="password" id="password" name="password" class="input" required>
-                    <label for="password" class="labelline">Password</label>
-                </div>
-                <a href="forgotpass.php">Forgot Password?</a>
-                <button type="submit">LOGIN</button>
-            </form>
+                <form action="./_login.php" method="POST">
+                    <div class="input-group">
+                        <input type="text" id="email" name="user_input" class="input" required>
+                        <label for="email" class="labelline">Email or Username</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="password" name="password" class="input" required>
+                        <label for="password" class="labelline">Password</label>
+                    </div>
+                    <a href="forgotpass.php">Forgot Password?</a>
+                    <button type="submit">LOGIN</button>
+                </form>
+            </div>
+            <div class="right-column"> 
+                <h2>NEW HERE?</h2> 
+                <h3>Why wait? Join us now and <br> experience the difference!</h3>
+                <a href="signup.php"> SIGN UP </a>
+            </div>
+            
         </div>
-        <div class="right-column">
-            <h2>NEW HERE?</h2>
-            <h3>Why wait? Join us now and <br> experience the difference!</h3>
-            <a href="signup.php">SIGN UP</a>
-        </div>
-    </div>
 
     <script src="../script/login.js"></script>
 </body>

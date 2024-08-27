@@ -1,3 +1,11 @@
+//Toast notification
+setTimeout(function() {
+    var toast = document.querySelector('.toast-container');
+    if (toast) {
+        toast.style.display = 'none';
+    }
+}, 2000); // 3 seconds
+
 // Get the modal
 var modal = document.getElementById("changePasswordModal");
 
@@ -66,3 +74,15 @@ window.onclick = function(event) {
 function goToHomePage() {
             window.location.href = '../pages/home.php'; 
         }
+
+document.getElementById('camera-icon').addEventListener('click', function () {
+    document.getElementById('upload-photo').click();
+});        
+
+document.getElementById('upload-photo').addEventListener('change', function (event) {
+    const reader = new FileReader();
+    reader.onload = function () {
+        document.querySelector('.profile-pic').src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+});

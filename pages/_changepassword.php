@@ -26,16 +26,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt->execute();
 
             // Redirect with success message
-            header("Location: editprofile.php?message=Password changed successfully");
+            $_SESSION['success'] = "Password changed successful!";
+            header("Location: editprofile.php");
             exit();
         } else {
             // Passwords do not match
-            header("Location: editprofile.php?error=New passwords do not match");
+            $_SESSION['error'] = "Password does not match";
+            header("Location: editprofile.php");
             exit();
         }
     } else {
         // Old password is incorrect
-        header("Location: editprofile.php?error=Old password is incorrect");
+        $_SESSION['error'] = "Old password is incorrect";
+        header("Location: editprofile.php");
         exit();
     }
 }

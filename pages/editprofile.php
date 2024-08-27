@@ -21,12 +21,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profile</title>
     <link rel="stylesheet" href="../styles/editprofile.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 </head>
 <body>
     <div class="container">
         <header>
             <h1>EDIT PROFILE</h1>
         </header>
+
+        <?php
+            if (isset($_SESSION['error'])) {
+                echo '
+                <div class="toast-container">
+                    <p class="error">' . $_SESSION['error'] . '</p>
+                </div>';
+                unset($_SESSION['error']);
+            }
+
+            if (isset($_SESSION['success'])) {
+                echo '
+                <div class="toast-container">
+                    <p class="success">' . $_SESSION['success'] . '</p>
+                </div>';
+
+                unset($_SESSION['success']);
+            }
+        ?>
         
         <div class="form-control">
             <!-- Section for updating profile photo -->
@@ -37,7 +57,8 @@
                     <?php else: ?>
                         <img src="../assets/profile-icon.jpg" alt="Profile Picture" class="profile-pic" width="150px" height="150px">
                     <?php endif; ?>
-                    <input type="file" name="profile_picture" id="upload-photo">
+                    <i class="uil uil-camera" id="camera-icon"></i>
+                    <input type="file" name="profile_picture" id="upload-photo" style="display: none;">
                     <button type="submit" class="update-photo-btn">Update Photo</button>
                 </form>
             </div>
@@ -94,12 +115,12 @@
 
 <!-- Confirmation Modal -->
         <div id="confirmationModal" class="modal">
-            <div class="modal-content">
+            <div class="confirmmodal-content">
                 <span class="close-confirmation">&times;</span>
                 <h3>Confirm Changes?</h3>
                 <div class="confirmation-buttons">
+                    <button id="cancelSave" class="cancel-btn" onclick="goToHomePage()">CANCEL</button>
                     <button id="confirmSave" class="confirm-btn">ACCEPT</button>
-                    <button id="cancelSave" class="cancel-btn">CANCEL</button>
                 </div>
             </div>
         </div>
