@@ -50,8 +50,8 @@
         
         <div class="form-control">
             <!-- Section for updating profile photo -->
-            <div class="photo-frame">
-                <form action="_uploadimage.php" method="POST" enctype="multipart/form-data">
+            <form action="_uploadimage.php" method="POST" autocomplete="off" id="profile-form" enctype="multipart/form-data">
+                <div class="photo-frame">
                     <?php if (!empty($user['profile_picture'])): ?>
                         <img src="<?php echo htmlspecialchars($user['profile_picture']); ?>" alt="Profile Picture" class="profile-pic" width="150px" height="150px">
                     <?php else: ?>
@@ -59,12 +59,9 @@
                     <?php endif; ?>
                     <i class="uil uil-camera" id="camera-icon"></i>
                     <input type="file" name="profile_picture" id="upload-photo" style="display: none;">
-                    <button type="submit" class="update-photo-btn">Update Photo</button>
-                </form>
-            </div>
+                </div>
             <!-- Section for editing profile details -->
-            <div class="profile-details">
-                <form action="_updateprofile.php" method="POST" autocomplete="off" id="profile-form">
+                <div class="profile-details">
                     <!-- Input for full name -->
                     <label>Full Name:</label>
                     <input type="text" name="fullName" id="full-name" value="<?php echo $fullname; ?>" required>
@@ -74,19 +71,17 @@
                     <!-- Input for email address -->
                     <label>Email:</label>
                     <input type="email" name="email" id="email" value="<?php echo $email; ?>" required>
-                    
                     <div class="button-container1">
                         <button type="button" id="changePasswordBtn">CHANGE PASSWORD</button>
                     </div>
-
                     <div class="button-container">
                         <!-- Button to cancel changes and navigate to the home page -->
                         <button type="button" class="reset-btn" onclick="goToHomePage()">CANCEL</button>
                         <!-- Button to submit form and save changes -->
                         <button type="submit" class="submit-btn">SAVE</button>
                     </div>
-                </form>
-            </div>  
+                </div>  
+            </form>
         </div>
             <!-- Change Password Modal -->
         <div id="changePasswordModal" class="modal">
