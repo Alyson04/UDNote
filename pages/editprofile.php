@@ -50,7 +50,7 @@
         ?>
         
         <!-- Section for updating profile photo -->
-        <form action="_uploadimage.php" method="POST" autocomplete="off" id="profile-form" enctype="multipart/form-data">
+        <form action="_updateprofile.php" method="POST" autocomplete="off" id="profile-form" enctype="multipart/form-data">
             <div class="form-control">
                 <div class="photo-frame">
                     <?php if (!empty($user['profile_picture'])): ?>

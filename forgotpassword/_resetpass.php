@@ -1,12 +1,16 @@
 <?php
-require '_dbconn.php'; // Your database connection file
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+require '../pages/_dbconn.php'; // Your database connection file
+date_default_timezone_set('Asia/Manila');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $token = $_POST['token'];
     $newPassword = password_hash($_POST['password'], PASSWORD_BCRYPT);
     
     // Check if the token is valid and not expired
-    $query = "SELECT email FROM password_resets WHERE token = ? AND expiry > NOW()";
+    $query = "SELECT user_id FROM password_resets WHERE token = ? AND expiry > NOW()";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $token);
     $stmt->execute();
@@ -14,18 +18,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        $email = $row['email'];
+        $userId = $row['user_id'];
         
         // Update the user's password
-        $query = "UPDATE users SET password = ? WHERE email = ?";
+        $query = "UPDATE users SET password = ? WHERE ID = ?";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("ss", $newPassword, $email);
+        $stmt->bind_param("si", $newPassword, $userId);
         $stmt->execute();
         
         // Delete the token so it can't be used again
-        $query = "DELETE FROM password_resets WHERE email = ?";
+        $query = "DELETE FROM password_resets WHERE user_id = ?";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("s", $email);
+        $stmt->bind_param("i", $userId);
         $stmt->execute();
 
         echo 'Your password has been reset successfully.';
@@ -33,4 +37,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo 'Invalid or expired token.';
     }
 }
-?>
+

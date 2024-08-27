@@ -52,7 +52,7 @@ if (isset($_SESSION['user_id'])) {
                         <input type="password" id="password" name="password" class="input" required>
                         <label for="password" class="labelline">Password</label>
                     </div>
-                    <a href="forgotpass.php">Forgot Password?</a>
+                    <a href="../forgotpassword/forgotpass.php">Forgot Password?</a>
                     <button type="submit">LOGIN</button>
                 </form>
             </div>
