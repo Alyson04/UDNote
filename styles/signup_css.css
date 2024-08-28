@@ -228,11 +228,9 @@ button:hover {
         padding: 0;
     }
     .container{
-        border: 1px solid red;
         align-items: center;
     }
     .form-control{
-        border: 1px solid green;
         width: 90%;
     }
     .form-control h2{

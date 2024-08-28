@@ -205,7 +205,6 @@ button:hover {
         padding: 0;
     }
     .container{
-        border: 1px solid blue;
         padding: 0 2.5%;
     }
     .left-column{
@@ -261,7 +260,6 @@ button:hover {
         padding: 0;
     }
     .container{
-        border: 1px solid red;
         padding: 0 2.5%;
     }
     .left-column{
