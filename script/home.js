@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <span>${filterDesc}</span>
                                 </div>
                                 <div class="bottom-content">
-                                    <p>Last Updated: </p>
+                                    <p>Last Updated: ${note.date}</p>
                                     <div class="settings">
                                         <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
                                         <ul class="menu">
