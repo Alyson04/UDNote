@@ -41,6 +41,7 @@ header {
     cursor: default; /* Default cursor */
 }
 
+<<<<<<< HEAD
 /* For changing the profile */
 
 #camera-icon{
@@ -58,6 +59,8 @@ header {
 }
 
 
+=======
+>>>>>>> e6bf14b60560a2b5fee447578107de79501761ce
 /* Container for the main content */
 .container {
     height: 100%;
@@ -332,6 +335,7 @@ header {
     color: black;
     text-decoration: none;
     cursor: pointer;
+<<<<<<< HEAD
 }
 
 /* This is for toast notification */
@@ -366,4 +370,6 @@ header {
     margin: auto;
     padding: 0 10px;
     z-index: 1000;
+=======
+>>>>>>> e6bf14b60560a2b5fee447578107de79501761ce
 }

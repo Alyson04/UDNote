@@ -29,7 +29,11 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <span>${filterDesc}</span>
                                 </div>
                                 <div class="bottom-content">
+<<<<<<< HEAD
                                     <p>Last Updated: </p>
+=======
+                                    <span>${note.date}</span>
+>>>>>>> e6bf14b60560a2b5fee447578107de79501761ce
                                     <div class="settings">
                                         <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
                                         <ul class="menu">
@@ -48,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+<<<<<<< HEAD
     //Toast notification
 setTimeout(function() {
     var toast = document.querySelector('.toast-container');
@@ -56,6 +61,8 @@ setTimeout(function() {
     }
 }, 2000); // 3 seconds
 
+=======
+>>>>>>> e6bf14b60560a2b5fee447578107de79501761ce
     // Initial call to display notes
     showNotes();
 

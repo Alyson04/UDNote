@@ -21,13 +21,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profile</title>
     <link rel="stylesheet" href="../styles/editprofile.css">
+<<<<<<< HEAD
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+=======
+>>>>>>> e6bf14b60560a2b5fee447578107de79501761ce
 </head>
 <body>
     <div class="container">
         <header>
             <h1>EDIT PROFILE</h1>
         </header>
+<<<<<<< HEAD
 
         <?php
             if (isset($_SESSION['error'])) {
@@ -47,6 +51,8 @@
                 unset($_SESSION['success']);
             }
         ?>
+=======
+>>>>>>> e6bf14b60560a2b5fee447578107de79501761ce
         
         <div class="form-control">
             <!-- Section for updating profile photo -->
@@ -57,8 +63,12 @@
                     <?php else: ?>
                         <img src="../assets/profile-icon.jpg" alt="Profile Picture" class="profile-pic" width="150px" height="150px">
                     <?php endif; ?>
+<<<<<<< HEAD
                     <i class="uil uil-camera" id="camera-icon"></i>
                     <input type="file" name="profile_picture" id="upload-photo" style="display: none;">
+=======
+                    <input type="file" name="profile_picture" id="upload-photo">
+>>>>>>> e6bf14b60560a2b5fee447578107de79501761ce
                     <button type="submit" class="update-photo-btn">Update Photo</button>
                 </form>
             </div>
@@ -115,12 +125,21 @@
 
 <!-- Confirmation Modal -->
         <div id="confirmationModal" class="modal">
+<<<<<<< HEAD
             <div class="confirmmodal-content">
                 <span class="close-confirmation">&times;</span>
                 <h3>Confirm Changes?</h3>
                 <div class="confirmation-buttons">
                     <button id="cancelSave" class="cancel-btn" onclick="goToHomePage()">CANCEL</button>
                     <button id="confirmSave" class="confirm-btn">ACCEPT</button>
+=======
+            <div class="modal-content">
+                <span class="close-confirmation">&times;</span>
+                <h3>Confirm Changes?</h3>
+                <div class="confirmation-buttons">
+                    <button id="confirmSave" class="confirm-btn">ACCEPT</button>
+                    <button id="cancelSave" class="cancel-btn">CANCEL</button>
+>>>>>>> e6bf14b60560a2b5fee447578107de79501761ce
                 </div>
             </div>
         </div>

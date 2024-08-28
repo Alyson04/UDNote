@@ -1,6 +1,10 @@
 <?php
 session_start();
+<<<<<<< HEAD
 include './_greet.php';
+=======
+include './_greet.php'; 
+>>>>>>> e6bf14b60560a2b5fee447578107de79501761ce
 
 // Redirect to login if user is not logged in
 if (!isset($_SESSION['user_id'])) {

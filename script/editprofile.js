@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //Toast notification
 setTimeout(function() {
     var toast = document.querySelector('.toast-container');
@@ -6,6 +7,8 @@ setTimeout(function() {
     }
 }, 2000); // 3 seconds
 
+=======
+>>>>>>> e6bf14b60560a2b5fee447578107de79501761ce
 // Get the modal
 var modal = document.getElementById("changePasswordModal");
 
@@ -73,6 +76,7 @@ window.onclick = function(event) {
 
 function goToHomePage() {
             window.location.href = '../pages/home.php'; 
+<<<<<<< HEAD
         }
 
 document.getElementById('camera-icon').addEventListener('click', function () {
@@ -86,3 +90,6 @@ document.getElementById('upload-photo').addEventListener('change', function (eve
     };
     reader.readAsDataURL(event.target.files[0]);
 });
+=======
+        }
+>>>>>>> e6bf14b60560a2b5fee447578107de79501761ce

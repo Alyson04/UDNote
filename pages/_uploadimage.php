@@ -46,11 +46,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $stmt->bind_param("si", $dest_path, $user_id);
 
                 if ($stmt->execute()) {
+<<<<<<< HEAD
                     $_SESSION['success'] = "Profile picture updated successfully";
+=======
+>>>>>>> e6bf14b60560a2b5fee447578107de79501761ce
                     echo "Profile picture updated successfully.";
                     header("Location: home.php");
                     exit;
                 } else {
+<<<<<<< HEAD
                     $_SESSION['error'] = "Error updating profile picture: " . $stmt->error;
                     echo "Error updating profile picture: " . $stmt->error;
                 }
@@ -73,4 +77,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 header("Location: editprofile.php");
 exit;
 
+=======
+                    echo "Error updating profile picture: " . $stmt->error;
+                }
+            } else {
+                echo "Error moving the file.";
+            }
+        } else {
+            echo "Invalid file type.";
+        }
+    } else {
+        echo "No file uploaded or upload error.";
+    }
+} else {
+    echo "Invalid request.";
+}
+
+$stmt->close();
+$conn->close();
+>>>>>>> e6bf14b60560a2b5fee447578107de79501761ce
 

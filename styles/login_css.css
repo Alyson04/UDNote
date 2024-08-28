@@ -30,7 +30,11 @@ body {
     justify-content: start;
     align-items: center;
     flex-direction: column;
+<<<<<<< HEAD
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+=======
+    border: 1px solid red;
+>>>>>>> e6bf14b60560a2b5fee447578107de79501761ce
 }
 
 .left-column h1 {
@@ -197,4 +201,8 @@ button:hover {
     margin: auto;
     padding: 0 10px;
     z-index: 1000;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> e6bf14b60560a2b5fee447578107de79501761ce
