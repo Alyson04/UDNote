@@ -251,6 +251,12 @@ button:hover {
         font-size: .8rem;
         opacity: .9;
     }
+    .toast-container .success{
+        height: 45px;
+    }
+    .toast-container .error{
+        height: 45px;
+    }
 }
 
 @media only screen and (max-width: 600px){
@@ -308,5 +314,11 @@ button:hover {
         height: 25px;
         font-size: .7rem;
         opacity: .9;
+    }
+    .toast-container .success{
+        height: 40px;
+    }
+    .toast-container .error{
+        height: 40px;
     }
 }
