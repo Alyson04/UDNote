@@ -98,7 +98,7 @@ img {
     opacity: 0.9;
     padding: 15px 0;
     border-bottom: 2px solid silver;
-    font-size: 15px;
+    font-size: 1rem;
 }
 
 .input-data {
@@ -194,6 +194,70 @@ button:hover {
 }
 
 @media only screen and (max-width: 1024px) and (min-width: 601px){
-    
+    body{
+        margin: 0;
+        padding: 0;
+    }
+    .form-control h2{
+        font-size: 2.5rem;
+        padding: 2.5%;
+        margin-bottom: 2.5%;
+    }
+    .form-control h3{
+        font-size: .9rem;
+    }
+    .form-control label{
+        font-size: .9rem;
+    }
+    .form-control input{
+        font-size: .9rem;
+    }
+    button{
+        margin: 4% 0;
+        font-size: .9rem;
+        height: 35px;
+    }
+    .toast-container{
+        height: 40px;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    body{
+        margin: 0;
+        padding: 0;
+    }
+    .container{
+        border: 1px solid red;
+        align-items: center;
+    }
+    .form-control{
+        border: 1px solid green;
+        width: 90%;
+    }
+    .form-control h2{
+        font-size: 1.5rem;
+        padding: 1.5%;
+        margin-bottom: 2.5%;
+    }
+    .form-control h3{
+        font-size: .7rem;
+        color: #f2f2f2;
+        margin-top: 10px;
+    }
+    .form-control label{
+        font-size: .8rem;
+    }
+    .form-control input{
+        font-size: .8rem;
+    }
+    button{
+        margin: 2% 0;
+        font-size: .8rem;
+        height: 30px;
+    }
+    .toast-container{
+        height: 35px;
+    }
 }
 
