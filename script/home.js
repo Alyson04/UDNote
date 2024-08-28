@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
           searchBox = document.querySelector("#search"),
           profilePic = document.querySelector('.profile-pic'),
           dropdownMenu = document.getElementById('dropdown-menu'),
-          sidebar = document.getElementById('sidebar'),
-          hamburgerIcon = document.getElementById('hamburger-icon');
+          hamburgerIcon = document.querySelector('.hamburger-icon'),
+          sidebar = document.getElementById('sidebar');
 
     // Function to show notes
     function showNotes(query = "") {
@@ -146,7 +146,7 @@ setTimeout(function() {
         }
     });
 
-    // Define the toggleDropdown function
+// Define the toggleDropdown function
     function toggleDropdown() {
         console.log('Profile picture clicked.');
         if (dropdownMenu) {
@@ -159,29 +159,42 @@ setTimeout(function() {
         profilePic.addEventListener('click', toggleDropdown);
     }
 
-     // Close dropdown menu if clicking outside
-     window.addEventListener('click', (event) => {
+    // Close dropdown menu if clicking outside
+    window.addEventListener('click', (event) => {
         if (dropdownMenu && profilePic && !profilePic.contains(event.target) && !dropdownMenu.contains(event.target)) {
             console.log('Clicked outside dropdown menu.');
             dropdownMenu.classList.remove('show');
         }
     });
 
+    // Function to close the sidebar with sliding effect
+    function closeSidebar() {
+        sidebar.classList.add('closing');
+        document.body.style.overflow = 'auto';
+        setTimeout(() => {
+            sidebar.classList.remove('show', 'closing');
+        }, 500); // Match this duration with the CSS transition duration
+    }
+
     // Toggle sidebar visibility when hamburger menu is clicked
     hamburgerIcon.addEventListener('click', () => {
         console.log('Hamburger icon clicked.');
-        sidebar.classList.toggle('show');
-        document.body.style.overflow = sidebar.classList.contains('show') ? 'hidden' : 'auto';
+        if (sidebar.classList.contains('show')) {
+            closeSidebar();
+        } else {
+            sidebar.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
     });
 
     // Close sidebar if clicking outside
     window.addEventListener('click', (event) => {
         if (sidebar && !sidebar.contains(event.target) && !hamburgerIcon.contains(event.target) && sidebar.classList.contains('show')) {
             console.log('Clicked outside sidebar.');
-            sidebar.classList.remove('show');
-            document.body.style.overflow = 'auto';
+            closeSidebar();
         }
     });
+
     // Make the `showMenu`, `deleteNote`, and `updateNote` functions globally accessible
     window.showMenu = function(elem) {
         console.log('Show menu for element:', elem);

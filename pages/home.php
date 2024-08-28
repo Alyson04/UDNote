@@ -21,6 +21,9 @@ if (!isset($_SESSION['user_id'])) {
 <body>
 <header>
     <div class="header-content">
+        <div class="hamburger-container">
+            <div class="hamburger-icon"><i class="uil uil-bars"></i></div>
+        </div>
         <div class="header-title">
             <h1>U'D NOTE</h1>
         </div>
@@ -49,20 +52,24 @@ if (!isset($_SESSION['user_id'])) {
             </nav>
         </div>  
     </div>
-    <div class="hamburger-icon" id="hamburger-icon">&#9776;</div>
+    <!-- <div class="hamburger-icon" id="hamburger-icon">&#9776;</div> -->
 </header>
 
 <div class="sidebar" id="sidebar">
     <nav class="sidebar-menu">
-        <div class="sidebar-item">
+        <div class="sidebar-item profile">
             <img src="<?php echo htmlspecialchars($profile_picture); ?>" alt="Profile Picture" class="sidebar-profile-pic">
             <p>Hello, <?php echo htmlspecialchars($username); ?></p>
+        </div>
+        <div class="sidebar-item  active">
+            <i class="uil uil-home"></i>
+            <a href="./home.php" class="sidebar-nav-item"> Home</a>
         </div>
         <div class="sidebar-item">
             <i class="uil uil-pen"></i>
             <a href="./editprofile.php" class="sidebar-nav-item"> Edit Profile</a>
         </div>
-        <div class="sidebar-item">
+        <div class="sidebar-item logout">
             <i class="uil uil-signout"></i>
             <a href="./logout.php" class="sidebar-nav-item"> Log Out</a>
         </div>

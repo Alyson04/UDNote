@@ -32,13 +32,28 @@ header {
     align-items: center; /* Center items vertically */
 }
 
+.hamburger-container {
+    display: none; /* Hidden by default */
+}
+
+/* For hamburger menu */
 .hamburger-icon {
+    font-size: 30px;
+    cursor: pointer;
+    color: rgb(49, 47, 47);
+}
+/* Move hamburger to the left */
+.hamburger-container {
+    position: absolute;
+    left: 10px;
+}
+/* .hamburger-icon {
     display: none;
     font-size: 30px;
     cursor: pointer;
     color: rgb(49, 47, 47);
     margin-right: 10px;
-}
+} */
 
 /* Styling for the pp*/
 .profile-pic {
@@ -104,7 +119,7 @@ header {
 
 /* Sidebar styling */
 .sidebar {
-    display: none;
+    /* display: none; */
     position: fixed;
     top: 0;
     left: 0;
@@ -113,19 +128,25 @@ header {
     background-color: #DAD6CD;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    transition: transform 0.3s ease;
+    padding: 20px;
+    overflow-y: auto;
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out, visibility 1s ease-in-out;
     transform: translateX(-100%);
-}
-
-.sidebar.show {
-    display: block;
-    transform: translateX(0);
+    opacity: 0;
+    visibility: hidden;
 }
 
 .sidebar-menu {
     display: flex;
     flex-direction: column;
     padding: 20px;
+    height: inherit;
+}
+
+.sidebar-profile-pic{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
 }
 
 .sidebar-item {
@@ -138,23 +159,12 @@ header {
     transition: background-color 0.3s, color 0.3s;
 }
 
-.sidebar-profile-pic {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
 .sidebar-nav-item {
     color: inherit;
     text-decoration: none;
 }
 
-.sidebar-item:hover {
-    background-color: #f0f0f0;
-}
-
-.sidebar-item:active {
+.active {
     background-color: #e0e0e0;
 }
 
@@ -549,6 +559,53 @@ form button {
 }
 
 @media only screen and (max-width: 600px){
+    .header-content{
+        margin: 0;
+        display: sticky;
+    } 
+    .search-box,
+    .profile-container {
+        display: none;
+    }
+    .hamburger-container {
+        display: flex;
+    }
+    .sidebar.show {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    .sidebar.closing {
+        transform: translateX(-100%);
+        opacity: 0;
+        visibility: hidden;
+    }
+    .sidebar{
+        height: 100%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    .sidebar-menu{
+        flex: 1;
+        padding: 20px 0;
+    }
+    .sidebar-item{
+        font-size: 1.2rem;
+        padding: 15px 20px;
+    }
+    .profile{
+        display: flex;
+        flex-direction: column;
+    }
+    .profile p{
+        margin-top: 10px;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+    .logout{
+        margin-top: auto;
+    }
     /* This is for the main content */
     .wrapper{
         display: flex;
@@ -559,47 +616,8 @@ form button {
         height: 300px;
         width: 80%;
     }
-    /* #search{
-        display: none;
-    }
-    .profile-container{
-        display: none;
-    }*/
-    .header-content{
-        margin: 0;
-    } 
-
-    .search-box {
-        display: none;
+    .menu li{
+        width: 100%;
     }
     
-    .profile-container {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-    }
-    
-    .profile-pic {
-        display: none;
-    }
-    
-    .dropdown-menu {
-        display: none;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-color: #f2f2f2;
-        min-width: 50dvw;
-        min-height: 100dvh;
-        text-align: right;
-        border: 1px solid red;
-    }
-
-    .dropdown-menu.active {
-        display: flex;
-    }
-
-    .hamburger-icon {
-        display: block;
-    }
 }
