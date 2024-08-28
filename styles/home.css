@@ -32,6 +32,14 @@ header {
     align-items: center; /* Center items vertically */
 }
 
+.hamburger-icon {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: rgb(49, 47, 47);
+    margin-right: 10px;
+}
+
 /* Styling for the pp*/
 .profile-pic {
     width: 60px; /* Set width of the profile picture */
@@ -94,6 +102,61 @@ header {
     display: block; /* Show the dropdown menu */
 }
 
+/* Sidebar styling */
+.sidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #DAD6CD;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
+}
+
+.sidebar.show {
+    display: block;
+    transform: translateX(0);
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar-profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.sidebar-nav-item {
+    color: inherit;
+    text-decoration: none;
+}
+
+.sidebar-item:hover {
+    background-color: #f0f0f0;
+}
+
+.sidebar-item:active {
+    background-color: #e0e0e0;
+}
 
 /* Header content styling */
 .header-content {
@@ -486,5 +549,57 @@ form button {
 }
 
 @media only screen and (max-width: 600px){
+    /* This is for the main content */
+    .wrapper{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .wrapper li{
+        height: 300px;
+        width: 80%;
+    }
+    /* #search{
+        display: none;
+    }
+    .profile-container{
+        display: none;
+    }*/
+    .header-content{
+        margin: 0;
+    } 
+
+    .search-box {
+        display: none;
+    }
     
+    .profile-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    
+    .profile-pic {
+        display: none;
+    }
+    
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #f2f2f2;
+        min-width: 50dvw;
+        min-height: 100dvh;
+        text-align: right;
+        border: 1px solid red;
+    }
+
+    .dropdown-menu.active {
+        display: flex;
+    }
+
+    .hamburger-icon {
+        display: block;
+    }
 }

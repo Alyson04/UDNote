@@ -8,7 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
           addBtn = popupBox.querySelector("#addNoteBtn"),
           searchBox = document.querySelector("#search"),
           profilePic = document.querySelector('.profile-pic'),
-          dropdownMenu = document.getElementById('dropdown-menu');
+          dropdownMenu = document.getElementById('dropdown-menu'),
+          sidebar = document.getElementById('sidebar'),
+          hamburgerIcon = document.getElementById('hamburger-icon');
 
     // Function to show notes
     function showNotes(query = "") {
@@ -157,14 +159,29 @@ setTimeout(function() {
         profilePic.addEventListener('click', toggleDropdown);
     }
 
-    // Close dropdown menu if clicking outside
-    window.addEventListener('click', (event) => {
+     // Close dropdown menu if clicking outside
+     window.addEventListener('click', (event) => {
         if (dropdownMenu && profilePic && !profilePic.contains(event.target) && !dropdownMenu.contains(event.target)) {
             console.log('Clicked outside dropdown menu.');
             dropdownMenu.classList.remove('show');
         }
     });
 
+    // Toggle sidebar visibility when hamburger menu is clicked
+    hamburgerIcon.addEventListener('click', () => {
+        console.log('Hamburger icon clicked.');
+        sidebar.classList.toggle('show');
+        document.body.style.overflow = sidebar.classList.contains('show') ? 'hidden' : 'auto';
+    });
+
+    // Close sidebar if clicking outside
+    window.addEventListener('click', (event) => {
+        if (sidebar && !sidebar.contains(event.target) && !hamburgerIcon.contains(event.target) && sidebar.classList.contains('show')) {
+            console.log('Clicked outside sidebar.');
+            sidebar.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+    });
     // Make the `showMenu`, `deleteNote`, and `updateNote` functions globally accessible
     window.showMenu = function(elem) {
         console.log('Show menu for element:', elem);
@@ -223,3 +240,4 @@ setTimeout(function() {
         showNotes(searchBox.value);
     });
 });
+

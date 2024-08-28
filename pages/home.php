@@ -49,7 +49,26 @@ if (!isset($_SESSION['user_id'])) {
             </nav>
         </div>  
     </div>
+    <div class="hamburger-icon" id="hamburger-icon">&#9776;</div>
 </header>
+
+<div class="sidebar" id="sidebar">
+    <nav class="sidebar-menu">
+        <div class="sidebar-item">
+            <img src="<?php echo htmlspecialchars($profile_picture); ?>" alt="Profile Picture" class="sidebar-profile-pic">
+            <p>Hello, <?php echo htmlspecialchars($username); ?></p>
+        </div>
+        <div class="sidebar-item">
+            <i class="uil uil-pen"></i>
+            <a href="./editprofile.php" class="sidebar-nav-item"> Edit Profile</a>
+        </div>
+        <div class="sidebar-item">
+            <i class="uil uil-signout"></i>
+            <a href="./logout.php" class="sidebar-nav-item"> Log Out</a>
+        </div>
+    </nav>
+</div>
+
 <?php
             if (isset($_SESSION['error'])) {
                 echo '
