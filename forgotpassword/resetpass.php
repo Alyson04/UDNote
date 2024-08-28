@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/resetpass.css">
-    <title>Document</title>
+    <title>Reset Password</title>
 </head>
 <body>
 <img src="../assets/hehe.jfif" alt="background pic">
