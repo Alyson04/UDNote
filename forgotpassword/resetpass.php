@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/resetpass.css">
     <title>Document</title>
 </head>
 <body>
+<img src="../assets/hehe.jfif" alt="background pic">
     <!-- reset_password.html -->
 <form action="_resetpass.php" method="post">
     <input type="hidden" name="token" value="<?php echo $_GET['token']; ?>">
