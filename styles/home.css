@@ -109,7 +109,7 @@ header {
 /* Styling for the body */
 body {
     font-family: 'Helvetica', Arial, sans-serif; /* Set default font */
-    background: url(../assets/bg.jpg) no-repeat; /* Background image */
+    background: url(../assets/aa.jpg) no-repeat; /* Background image */
     background-size: cover; /* Cover entire body with background image */
     background-position: center; /* Center the background image */
 }
@@ -264,11 +264,7 @@ body {
 }   
 
 /* Bottom content span styling */
-<<<<<<< HEAD
 .bottom-content p {
-=======
-.bottom-content span {
->>>>>>> e6bf14b60560a2b5fee447578107de79501761ce
     color: #6D6D6D; /* Text color */
     font-size: 14px; /* Font size */
 }
@@ -450,7 +446,6 @@ form button {
     border-radius: 4px; /* Rounded corners */
     background: #B66F30; /* Background color */
 }
-<<<<<<< HEAD
 
 /* This is for toast notification */
 .toast-container .error{
@@ -485,5 +480,3 @@ form button {
     padding: 0 10px;
     z-index: 1000;
 }
-=======
->>>>>>> e6bf14b60560a2b5fee447578107de79501761ce
