@@ -227,14 +227,18 @@ body {
 /* Wrapper for grid layout */
 .wrapper {
     margin: 50px; /* Margin around the grid */
-    display: grid; /* Use grid layout */
     gap: 25px; /* Space between grid items */
-    grid-template-columns: repeat(auto-fill, 265px); /* Automatically fill columns */
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 /* Styling for list items in the grid */
 .wrapper li {
-    height: 250px; /* Set height of list items */
+    width: calc(33.3% - 20px);
+    height: 300px; /* Set height of list items */
     list-style: none; /* Remove default list styling */
     border-radius: 5px; /* Rounded corners */
     padding: 15px 20px 20px; /* Padding inside list items */
@@ -339,7 +343,7 @@ body {
 /* Bottom content span styling */
 .bottom-content p {
     color: #6D6D6D; /* Text color */
-    font-size: 14px; /* Font size */
+    font-size: .7rem; /* Font size */
 }
 
 /* Settings menu styling */
@@ -555,13 +559,36 @@ form button {
 }
 
 @media only screen and (max-width: 1024px) and (min-width: 601px){
+    .wrapper {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between; /* Space between items */
+    }
+    .wrapper li {
+        width: calc(50% - 20px); /* Two per row with gap */
+        margin-bottom: 10px; /* Space between rows */
+    }
+    .menu li{
+        width: 100%;
+    }
+    .bottom-content p{
+        font-size: .8rem;
+    }
     
 }
 
 @media only screen and (max-width: 600px){
+    header{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+    }
     .header-content{
         margin: 0;
-        display: sticky;
     } 
     .search-box,
     .profile-container {
@@ -611,13 +638,15 @@ form button {
         display: flex;
         align-items: center;
         flex-direction: column;
+        margin-top: 70px;
     }
     .wrapper li{
-        height: 300px;
         width: 80%;
     }
     .menu li{
         width: 100%;
     }
-    
+    .bottom-content p{
+        font-size: 1.2rem;
+    }
 }
