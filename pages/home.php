@@ -7,6 +7,12 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit;
 }
+
+// Define the path to a default profile picture
+$default_profile_picture = '../assets/profile-icon.jpg'; // Update this path as needed
+
+// Use the default profile picture if $profile_picture is empty
+$profile_picture_src = !empty($profile_picture) ? htmlspecialchars($profile_picture) : $default_profile_picture;
 ?>
 
 <!DOCTYPE html>
@@ -32,11 +38,7 @@ if (!isset($_SESSION['user_id'])) {
             <input type="text" id="search" placeholder="Search">
         </div>
         <div class="profile-container">
-            <?php if (!empty($profile_picture)): ?>
-                <img src="<?php echo htmlspecialchars($profile_picture); ?>?v=<?php echo time(); ?>" alt="Profile Picture" class="profile-pic" width="150px" height="150px">
-            <?php else: ?>
-                <img src="../assets/profile-icon.jpg" alt="Profile Picture" class="profile-pic" width="150px" height="150px">
-            <?php endif; ?>
+            <img src="<?php echo $profile_picture_src; ?>?v=<?php echo time(); ?>" alt="Profile Picture" class="profile-pic" width="150px" height="150px">
             <nav class="dropdown-menu" id="dropdown-menu">
                 <div class="dropdown-item">
                     <p class="nav-item">Hello, <?php echo htmlspecialchars($username); ?></p>
@@ -58,10 +60,10 @@ if (!isset($_SESSION['user_id'])) {
 <div class="sidebar" id="sidebar">
     <nav class="sidebar-menu">
         <div class="sidebar-item profile">
-            <img src="<?php echo htmlspecialchars($profile_picture); ?>" alt="Profile Picture" class="sidebar-profile-pic">
+            <img src="<?php echo $profile_picture_src; ?>" alt="Profile Picture" class="sidebar-profile-pic">
             <p>Hello, <?php echo htmlspecialchars($username); ?></p>
         </div>
-        <div class="sidebar-item  active">
+        <div class="sidebar-item active">
             <i class="uil uil-home"></i>
             <a href="./home.php" class="sidebar-nav-item"> Home</a>
         </div>
@@ -77,51 +79,51 @@ if (!isset($_SESSION['user_id'])) {
 </div>
 
 <?php
-            if (isset($_SESSION['error'])) {
-                echo '
-                <div class="toast-container">
-                    <p class="error">' . $_SESSION['error'] . '</p>
-                </div>';
-                unset($_SESSION['error']);
-            }
+if (isset($_SESSION['error'])) {
+    echo '
+    <div class="toast-container">
+        <p class="error">' . $_SESSION['error'] . '</p>
+    </div>';
+    unset($_SESSION['error']);
+}
 
-            if (isset($_SESSION['success'])) {
-                echo '
-                <div class="toast-container">
-                    <p class="success">' . $_SESSION['success'] . '</p>
-                </div>';
+if (isset($_SESSION['success'])) {
+    echo '
+    <div class="toast-container">
+        <p class="success">' . $_SESSION['success'] . '</p>
+    </div>';
 
-                unset($_SESSION['success']);
-            }
-        ?>
-    <div class="popup-box">
-        <div class="popup">
-            <div class="content">
-                <header>
-                    <p></p>
-                    <i class="uil uil-times"></i>
-                </header>
-                <form id="noteForm">
-                    <div class="row title">
-                        <label>Title</label>
-                        <input type="text" id="noteTitle" spellcheck="false">
-                    </div>
-                    <div class="row description">
-                        <label>Description</label>
-                        <textarea id="noteDesc" spellcheck="false"></textarea>
-                    </div>
-                    <button type="submit" id="addNoteBtn">Add Note</button>
-                </form>
-            </div>  
-        </div>
+    unset($_SESSION['success']);
+}
+?>
+<div class="popup-box">
+    <div class="popup">
+        <div class="content">
+            <header>
+                <p></p>
+                <i class="uil uil-times"></i>
+            </header>
+            <form id="noteForm">
+                <div class="row title">
+                    <label>Title</label>
+                    <input type="text" id="noteTitle" spellcheck="false">
+                </div>
+                <div class="row description">
+                    <label>Description</label>
+                    <textarea id="noteDesc" spellcheck="false"></textarea>
+                </div>
+                <button type="submit" id="addNoteBtn">Add Note</button>
+            </form>
+        </div>  
     </div>
+</div>
 
-    <div class="wrapper">
-        <li class="add-box">
-            <div class="icon"><i class="uil uil-plus"></i></div>
-            <p>Add new note</p>
-        </li>
-    </div>
+<div class="wrapper">
+    <li class="add-box">
+        <div class="icon"><i class="uil uil-plus"></i></div>
+        <p>Add new note</p>
+    </li>
+</div>
 
 <script src="../script/home.js"></script>
 
