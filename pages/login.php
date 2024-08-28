@@ -18,8 +18,6 @@ if (isset($_SESSION['user_id'])) {
     <title>Login</title>
 </head>
 <body>
-<<<<<<< HEAD
-
         <div class="container">
         <?php
             if (isset($_SESSION['error'])) {
@@ -65,7 +63,6 @@ if (isset($_SESSION['user_id'])) {
             
         </div>
 
-=======
     <div class="container">
         <?php
             if (isset($_SESSION['error'])) {
@@ -109,7 +106,6 @@ if (isset($_SESSION['user_id'])) {
         </div>
     </div>
 
->>>>>>> e6bf14b60560a2b5fee447578107de79501761ce
     <script src="../script/login.js"></script>
 </body>
 </html>
