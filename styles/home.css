@@ -559,8 +559,62 @@ form button {
 }
 
 @media only screen and (max-width: 1024px) and (min-width: 601px){
+    header{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+    }
+    .header-content{
+        margin: 0;
+    } 
+    .search-box,
+    .profile-container {
+        display: none;
+    }
+    .hamburger-container {
+        display: flex;
+    }
+    .sidebar.show {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    .sidebar.closing {
+        transform: translateX(-100%);
+        opacity: 0;
+        visibility: hidden;
+    }
+    .sidebar{
+        height: 100%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    .sidebar-menu{
+        flex: 1;
+        padding: 20px 0;
+    }
+    .sidebar-item{
+        font-size: 1.2rem;
+        padding: 15px 20px;
+    }
+    .profile{
+        display: flex;
+        flex-direction: column;
+    }
+    .profile p{
+        margin-top: 10px;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+    .logout{
+        margin-top: auto;
+    }
+    /* For main content */
     .wrapper {
-        margin-top: 20px;
+        margin-top: 70px;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -575,6 +629,11 @@ form button {
     }
     .bottom-content p{
         font-size: .8rem;
+    }
+    .toast-container .error,
+    .toast-container .success{
+        height: 45px;
+        top: 15%;
     }
     
 }
@@ -648,5 +707,10 @@ form button {
     }
     .bottom-content p{
         font-size: 1.2rem;
+    }
+    .toast-container .error,
+    .toast-container .success{
+        height: 40px;
+        top: 15%;
     }
 }

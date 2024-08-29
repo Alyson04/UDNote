@@ -253,11 +253,10 @@ button:hover {
         font-size: .8rem;
         opacity: .9;
     }
+    .toast-container .error,
     .toast-container .success{
-        height: 45px;
-    }
-    .toast-container .error{
-        height: 45px;
+        height: 40px;
+        top: 15%;
     }
 }
 
@@ -317,10 +316,9 @@ button:hover {
         font-size: .7rem;
         opacity: .9;
     }
+    .toast-container .error,
     .toast-container .success{
         height: 40px;
-    }
-    .toast-container .error{
-        height: 40px;
+        top: 15%;
     }
 }

@@ -227,6 +227,7 @@ button:hover {
     }
     .toast-container{
         height: 45px;
+        top: 15%;
     }
 }
 
@@ -264,6 +265,7 @@ button:hover {
     }
     .toast-container{
         height: 40px;
+        top: 15%;
     }
 }
 
