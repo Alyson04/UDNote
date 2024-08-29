@@ -1,3 +1,13 @@
+<?php
+include '_validatetoken.php';
+
+// Check if the token is set in the session
+if (!isset($_SESSION['token']) || empty($_SESSION['token'])) {
+    $_SESSION['error'] = "Access denied.";
+    header("Location: forgotpass.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,16 +19,7 @@
 <body>
 <img src="../assets/hehe.jfif" alt="background pic">
     <form action="_resetpass.php" method="post">
-        <?php
-        session_start();
-        if (isset($_SESSION['token'])) {
-            echo '<input type="hidden" name="token" value="' . htmlspecialchars($_SESSION['token']) . '">';
-        } else {
-            // If token is missing, redirect to an error page
-            header("Location: forgotpass.php");
-            exit();
-        }
-        ?>
+        <input type="hidden" name="token" value="<?php echo htmlspecialchars($_SESSION['token']); ?>">
         <label for="password">Enter a new password:</label>
         <input type="password" id="password" name="password" required>
         <button type="submit">Reset Password</button>

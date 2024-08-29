@@ -1,10 +1,11 @@
 <?php
+session_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require '../vendor/autoload.php'; // Load PHPMailer and Dotenv
-require '../pages/_dbconn.php'; // Your database connection file
+include '../vendor/autoload.php'; // Load PHPMailer and Dotenv
+include '../pages/_dbconn.php'; // Your database connection file
 $config = include '../config.php';
 
 // Set timezone
@@ -37,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute();
 
         // Prepare the reset link
-        $resetLink = "http://localhost/UDNote/forgotpassword/resetpass.php?token=" . $token;
+        $resetLink = "http://localhost/UDNote/forgotpassword/_validatetoken.php?token=" . urlencode($token);
 
         // Configure PHPMailer
         $mail = new PHPMailer\PHPMailer\PHPMailer();
@@ -58,12 +59,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Send email and handle errors
         if ($mail->send()) {
-            echo 'A password reset link has been sent to your email.';
+            $_SESSION['error'] = "A password reset link has been sent to your email.";
+            header("Location: forgotpass.php");
+            exit;
         } else {
-            echo 'Mailer Error: ' . $mail->ErrorInfo;
+            $_SESSION['error'] = "Mailer Error: " . $mail->ErrorInfo;
+            header("Location: forgotpass.php");
+            exit;
         }
     } else {
-        echo 'No account found with that email address.';
+        $_SESSION['error'] = "No account found with that email address.";
+        header("Location: forgotpass.php");
+        exit;
     }
 }
 
