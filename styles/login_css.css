@@ -227,6 +227,10 @@ button:hover {
     .left-column label{
         font-size: 1rem;
     }
+    .input:focus + .labelline,
+    .input:valid + .labelline {
+        font-size: 2vh;
+    }
     .left-column form input{
         height: 35px;
         padding: 15px 15px;
@@ -289,6 +293,10 @@ button:hover {
     }
     .left-column label{
         font-size: 1rem;
+    }
+    .input:focus + .labelline,
+    .input:valid + .labelline {
+        font-size: 1.5vh;
     }
     .left-column form input{
         height: 35px;
