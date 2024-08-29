@@ -111,3 +111,37 @@ button:hover {
     cursor: pointer;
     font-size: .9rem;
 }
+
+.toast-container .error {
+    position: absolute;
+    top: 2%;
+    color: #f2f2f2;
+    background-color: #ff4545;
+    width: fit-content;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 0 10px;
+    z-index: 1000;
+}
+
+.toast-container .success {
+    position: absolute;
+    top: 2%;
+    color: #f2f2f2;
+    background-color: #4caf50;
+    width: fit-content;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 0 10px;
+    z-index: 1000;
+}
