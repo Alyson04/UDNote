@@ -145,3 +145,13 @@ button:hover {
     padding: 0 10px;
     z-index: 1000;
 }
+@media only screen and (max-width: 1024px) and (min-width: 601px){
+    .container{
+        width: 70%;
+    }
+}
+@media only screen and (max-width: 600px){
+    .container{
+        width: 90%;
+    }
+}

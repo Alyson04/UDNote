@@ -77,3 +77,9 @@ button:hover {
     color: #0e0e0e;
     cursor: pointer;
 }
+@media only screen and (max-width: 1024px) and (min-width: 601px){
+
+}
+@media only screen and (max-width: 600px){
+    
+}
