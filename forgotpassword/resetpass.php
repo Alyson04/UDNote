@@ -1,3 +1,32 @@
+<?php
+session_start();
+include '../pages/_dbconn.php'; // Your database connection file
+date_default_timezone_set('Asia/Manila');
+
+if (isset($_GET['token'])) {
+    $token = $_GET['token'];
+    
+    // Validate the token
+    $query = "SELECT user_id FROM password_resets WHERE token = ? AND expiry > NOW()";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $token);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $_SESSION['token'] = $token;
+        $isValidToken = true;
+    } else {
+        $_SESSION['error'] = 'Invalid or expired token.';
+        header('Location: forgotpass.php');
+        exit();
+    }
+} else {
+    $_SESSION['error'] = 'No token provided.';
+    header('Location: forgotpass.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,20 +37,13 @@
 </head>
 <body>
 <img src="../assets/hehe.jfif" alt="background pic">
-    <form action="_resetpass.php" method="post">
-        <?php
-        session_start();
-        if (isset($_SESSION['token'])) {
-            echo '<input type="hidden" name="token" value="' . htmlspecialchars($_SESSION['token']) . '">';
-        } else {
-            // If token is missing, redirect to an error page
-            header("Location: forgotpass.php");
-            exit();
-        }
-        ?>
-        <label for="password">Enter a new password:</label>
-        <input type="password" id="password" name="password" required>
-        <button type="submit">Reset Password</button>
-    </form>
+    <?php if ($isValidToken): ?>
+        <form action="_resetpass.php" method="post">
+            <input type="hidden" name="token" value="<?php echo htmlspecialchars($_SESSION['token']); ?>">
+            <label for="password">Enter a new password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Reset Password</button>
+        </form>
+    <?php endif; ?>
 </body>
 </html>

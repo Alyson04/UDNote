@@ -1,3 +1,6 @@
+<?php
+include '_sendresetlink.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,10 +12,27 @@
 <body>
 <img src="../assets/hehe.jfif" alt="background pic">
     <div class = "container">
+    <?php
+            if (isset($_SESSION['error'])) {
+                echo '
+                <div class="toast-container">
+                    <p class="error">' . $_SESSION['error'] . '</p>
+                </div>';
+                unset($_SESSION['error']);
+            }
+
+            if (isset($_SESSION['success'])) {
+                echo '
+                <div class="toast-container">
+                    <p class="success">' . $_SESSION['success'] . '</p>
+                </div>';
+
+                unset($_SESSION['success']);
+            }
+        ?>
     <h2> Forget Your Password?</h2>
     <p> Enter the Email associated with your account and we’ll <br> send you a link to reset your password </p>
 
->>>>>>> 4ce01f4836141f1e4793060c4861101c167b819c
 <form action="_sendresetlink.php" method="post">
     <label for="email">EMAIL</label>
     <input type="email" id="email" name="email" required>
@@ -24,6 +44,6 @@
             <a href="../pages/signup.php"> SIGN UP </a>
         </div>
     </div>
-
+        <script src="../script/forgotpass.js"></script>
 </body>
 </html>

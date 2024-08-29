@@ -182,7 +182,7 @@ header {
 /* Styling for the body */
 body {
     font-family: 'Helvetica', Arial, sans-serif; /* Set default font */
-    background: url(../assets/aa.jpg) no-repeat; /* Background image */
+    background: url(../assets/bg.jpg) no-repeat; /* Background image */
     background-size: cover; /* Cover entire body with background image */
     background-position: center; /* Center the background image */
 }
@@ -635,7 +635,9 @@ form button {
         height: 45px;
         top: 15%;
     }
-    
+    .content form{
+        margin-top: 20%;
+    }
 }
 
 @media only screen and (max-width: 600px){
@@ -712,5 +714,8 @@ form button {
     .toast-container .success{
         height: 40px;
         top: 15%;
+    }
+    .content form{
+        margin-top: 20%;
     }
 }
