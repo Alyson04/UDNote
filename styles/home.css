@@ -635,7 +635,9 @@ form button {
         height: 45px;
         top: 15%;
     }
-    
+    .content form{
+        margin-top: 20%;
+    }
 }
 
 @media only screen and (max-width: 600px){
@@ -712,5 +714,8 @@ form button {
     .toast-container .success{
         height: 40px;
         top: 15%;
+    }
+    .content form{
+        margin-top: 20%;
     }
 }

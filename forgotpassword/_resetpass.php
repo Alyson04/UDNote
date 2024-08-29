@@ -32,9 +32,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bind_param("i", $userId);
         $stmt->execute();
 
-        echo 'Your password has been reset successfully.';
+        session_start();
+        session_unset();
+        session_destroy();
+        
+        session_start();
+        $_SESSION['success'] = "Your password has been reset successfully.";
+        header("Location: ../pages/login.php");
+        exit;
     } else {
-        echo 'Invalid or expired token.';
+        $_SESSION['error'] = "Invalid or expired token.";
+        header("Location: forgotpass.php");
+        exit;
     }
 } else {
     // Redirect or show an error if the form is accessed incorrectly

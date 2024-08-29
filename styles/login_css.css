@@ -234,9 +234,6 @@ button:hover {
         font-size: .8rem;
         width: 80%;
     }
-    button:hover{
-        display: none;
-    }
     .right-column{
         width: 40%;
     }
@@ -256,7 +253,7 @@ button:hover {
     .toast-container .error,
     .toast-container .success{
         height: 40px;
-        top: 15%;
+        top: 5%;
     }
 }
 
@@ -297,9 +294,6 @@ button:hover {
         height: 30px;
         width: 80%;
     }
-    button:hover{
-        display: none;
-    }
     .right-column{
         width: 45%;
     }
@@ -319,6 +313,6 @@ button:hover {
     .toast-container .error,
     .toast-container .success{
         height: 40px;
-        top: 15%;
+        top: 5%;
     }
 }
