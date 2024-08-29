@@ -8,13 +8,20 @@
 </head>
 <body>
 <img src="../assets/hehe.jfif" alt="background pic">
-    <!-- reset_password.html -->
-<form action="_resetpass.php" method="post">
-    <input type="hidden" name="token" value="<?php echo $_GET['token']; ?>">
-    <label for="password">Enter a new password:</label>
-    <input type="password" id="password" name="password" required>
-    <button type="submit">Reset Password</button>
-</form>
-
+    <form action="_resetpass.php" method="post">
+        <?php
+        session_start();
+        if (isset($_SESSION['token'])) {
+            echo '<input type="hidden" name="token" value="' . htmlspecialchars($_SESSION['token']) . '">';
+        } else {
+            // If token is missing, redirect to an error page
+            header("Location: forgotpass.php");
+            exit();
+        }
+        ?>
+        <label for="password">Enter a new password:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Reset Password</button>
+    </form>
 </body>
 </html>
