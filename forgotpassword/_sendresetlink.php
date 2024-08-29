@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute();
 
         // Prepare the reset link
-        $resetLink = "http://localhost/UDNote/forgotpassword/_validatetoken.php?token=" . urlencode($token);
+        $resetLink = "http://localhost/UDNote/forgotpassword/resetpass.php?token=" . urlencode($token);
 
         // Configure PHPMailer
         $mail = new PHPMailer\PHPMailer\PHPMailer();

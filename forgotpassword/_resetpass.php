@@ -5,11 +5,10 @@ error_reporting(E_ALL);
 include '../pages/_dbconn.php'; // Your database connection file
 date_default_timezone_set('Asia/Manila');
 
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $token = $_POST['token'];
     $newPassword = password_hash($_POST['password'], PASSWORD_BCRYPT);
-    
+
     // Check if the token is valid and not expired
     $query = "SELECT user_id FROM password_resets WHERE token = ? AND expiry > NOW()";
     $stmt = $conn->prepare($query);
@@ -37,4 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         echo 'Invalid or expired token.';
     }
+} else {
+    // Redirect or show an error if the form is accessed incorrectly
+    header('Location: resetpass.php');
+    exit();
 }
