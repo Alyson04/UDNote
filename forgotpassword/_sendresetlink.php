@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Send email and handle errors
         if ($mail->send()) {
-            $_SESSION['error'] = "A password reset link has been sent to your email.";
+            $_SESSION['success'] = "A password reset link has been sent to your email.";
             header("Location: forgotpass.php");
             exit;
         } else {
