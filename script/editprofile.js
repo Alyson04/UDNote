@@ -6,6 +6,41 @@ setTimeout(function() {
     }
 }, 2000); // 3 seconds
 
+// Variables for the hamburger icon and sidebar
+var hamburgerIcon = document.querySelector('.hamburger-icon');
+var sidebar = document.getElementById('sidebar');
+
+// Function to close the sidebar with a sliding effect
+function closeSidebar() {
+    sidebar.classList.add('closing');
+    document.body.style.overflow = 'auto';
+    setTimeout(function () {
+        sidebar.classList.remove('show', 'closing');
+    }, 500); // Match this duration with the CSS transition duration
+}
+
+// Toggle sidebar visibility when the hamburger menu is clicked
+if (hamburgerIcon) {
+    hamburgerIcon.addEventListener('click', function () {
+        console.log('Hamburger icon clicked.');
+        if (sidebar.classList.contains('show')) {
+            closeSidebar();
+        } else {
+            sidebar.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+    });
+}
+
+// Close sidebar if clicking outside
+window.addEventListener('click', function (event) {
+    if (sidebar && !sidebar.contains(event.target) && !hamburgerIcon.contains(event.target) && sidebar.classList.contains('show')) {
+        console.log('Clicked outside sidebar.');
+        closeSidebar();
+    }
+});
+
+
 // Get the modal
 var modal = document.getElementById("changePasswordModal");
 
@@ -17,7 +52,7 @@ var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
-    modal.style.display = "block";
+    modal.style.display = "flex";
 }
 
 // When the user clicks on <span> (x), close the modal
@@ -51,7 +86,7 @@ var closeConfirmation = document.getElementsByClassName("close-confirmation")[0]
 // When the user clicks the save button, open the confirmation modal
 saveButton.onclick = function(event) {
     event.preventDefault(); // Prevent form submission
-    confirmationModal.style.display = "block";
+    confirmationModal.style.display = "flex";
 }
 
 // When the user clicks confirm, submit the profile form
@@ -86,3 +121,4 @@ document.getElementById('upload-photo').addEventListener('change', function (eve
     };
     reader.readAsDataURL(event.target.files[0]);
 });
+
