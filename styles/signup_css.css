@@ -198,13 +198,21 @@ button:hover {
         margin: 0;
         padding: 0;
     }
+    .container{
+        align-items: center;
+    }
+    .form-control{
+        width: 90%;
+    }
     .form-control h2{
-        font-size: 2.5rem;
-        padding: 2.5%;
+        font-size: 1.7rem;
+        padding: 2%;
         margin-bottom: 2.5%;
     }
     .form-control h3{
         font-size: .9rem;
+        color: #f2f2f2;
+        margin-top: 10px;
     }
     .form-control label{
         font-size: .9rem;

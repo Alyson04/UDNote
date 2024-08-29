@@ -27,7 +27,7 @@ body {
     width: 45%;
     height: 70%;
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -212,20 +212,22 @@ button:hover {
         width: 50%;
     }
     .left-column h1{
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
     .left-column h3{
-        font-size: 1.3rem;
+        font-size: 1rem;
     }
     .left-column label{
-        font-size: 1.3rem;
+        font-size: 1rem;
     }
     .left-column form input{
+        height: 35px;
         padding: 15px 15px;
+        font-size: small;
     }
     .left-column form a{
         padding: 4%;
-        font-size: 1rem;
+        font-size: .8rem;
     }
     button{
         margin-top: 4%;
@@ -237,10 +239,10 @@ button:hover {
     }
     .right-column{
         width: 40%;
-        justify-content: center;
     }
     .right-column h2{
         margin: 0;
+        margin-top: 10%;
     }
     .right-column h3{
         margin: 1% 0;
@@ -301,10 +303,10 @@ button:hover {
     }
     .right-column{
         width: 45%;
-        justify-content: center;
     }
     .right-column h2{
         margin: 0;
+        margin-top: 10%;
     }
     .right-column h3{
         margin: 1% 0;
