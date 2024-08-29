@@ -13,6 +13,11 @@
 //     header("Location: login.php");
 //     exit;
 // }
+// Define the path to a default profile picture
+//$default_profile_picture = '../assets/profile-icon.jpg'; // Update this path as needed
+
+// Use the default profile picture if $profile_picture is empty
+//$profile_picture_src = !empty($profile_picture) ? htmlspecialchars($profile_picture) : $default_profile_picture;
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +32,12 @@
 <body>
     <div class="container">
         <header>
+        <div class="hamburger-container">
+            <div class="hamburger-icon"><i class="uil uil-bars"></i></div>
+        </div>
+        <div class="header-title">
             <h1>EDIT PROFILE</h1>
+        </div>
         </header>
 
         <?php
@@ -86,8 +96,9 @@
         </form>
             <!-- Change Password Modal -->
         <div id="changePasswordModal" class="modal">
+        
             <div class="modal-content">
-                <span class="close">&times;</span>
+            <span class="close">&times;</span>
                 <h2>Change Password</h2>
                 <form action="_changepassword.php" method="post">
                     <div>
@@ -109,7 +120,7 @@
             </div>
         </div>
 
-<!-- Confirmation Modal -->
+        <!-- Confirmation Modal -->
         <div id="confirmationModal" class="modal">
             <div class="confirmmodal-content">
                 <span class="close-confirmation">&times;</span>
@@ -121,14 +132,36 @@
             </div>
         </div>
     </div>
+<!--This is for the sidebar that will only appear in 600px max width-->
+    <div class="sidebar" id="sidebar">
+        <nav class="sidebar-menu">
+            <div class="sidebar-item profile">
+                <?php if (!empty($user['profile_picture'])): ?>
+                    <img src="<?php echo htmlspecialchars($user['profile_picture']); ?>?v=<?php echo time(); ?>" alt="Profile Picture" class="sidebar-profile-pic">
+                <?php else: ?>
+                    <img src="../assets/profile-icon.jpg" alt="Profile Picture" class="sidebar-profile-pic">
+                <?php endif; ?>
+                    <p>Hello, <?php echo htmlspecialchars($username); ?></p>
+            </div>
+            <div class="sidebar-item">
+                <i class="uil uil-home"></i>
+                <a href="./home.php" class="sidebar-nav-item"> Home</a>
+            </div>
+            <div class="sidebar-item active">
+                <i class="uil uil-pen"></i>
+                <a href="./editprofile.php" class="sidebar-nav-item"> Edit Profile</a>
+            </div>
+            <div class="sidebar-item logout">
+                <i class="uil uil-signout"></i>
+                <a href="./logout.php" class="sidebar-nav-item"> Log Out</a>
+            </div>
+        </nav>
+    </div>
     <!-- Link to external JavaScript file for interactive functionality -->
     <script src="../script/editprofile.js"></script>
-
 <?php 
 $stmt->close();
 $conn->close();
-
 ?>
-
 </body>
 </html>
