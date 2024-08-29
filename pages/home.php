@@ -56,7 +56,7 @@ $profile_picture_src = !empty($profile_picture) ? htmlspecialchars($profile_pict
     </div>
     <!-- <div class="hamburger-icon" id="hamburger-icon">&#9776;</div> -->
 </header>
-
+<!--This is for the sidebar that will only appear in 600px max width-->
 <div class="sidebar" id="sidebar">
     <nav class="sidebar-menu">
         <div class="sidebar-item profile">
