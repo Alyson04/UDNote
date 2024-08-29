@@ -267,5 +267,6 @@ button:hover {
         height: 40px;
         top: 15%;
     }
+    /* fix the media query for the labels and such its too big */
 }
 
