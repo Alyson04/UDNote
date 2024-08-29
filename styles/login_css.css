@@ -12,8 +12,6 @@ body {
     width: 100vw;
     height: 100vh;
     background: #DAD6CD;
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 .container {
@@ -24,10 +22,10 @@ body {
 }
 
 .left-column {
-    width: 40%;
+    width: 45%;
     height: 70%;
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -129,7 +127,7 @@ button:hover {
 }
 
 .right-column {
-    width: 30%;
+    width: 35%;
     height: 70%;
     background-image: url(../assets/LOGINN.jpg);
     background-size: cover;
@@ -197,4 +195,128 @@ button:hover {
     margin: auto;
     padding: 0 10px;
     z-index: 1000;
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 601px){
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    .container{
+        padding: 0 2.5%;
+    }
+    .left-column{
+        justify-content: center;
+        width: 50%;
+    }
+    .left-column h1{
+        font-size: 2rem;
+    }
+    .left-column h3{
+        font-size: 1rem;
+    }
+    .left-column label{
+        font-size: 1rem;
+    }
+    .left-column form input{
+        height: 35px;
+        padding: 15px 15px;
+        font-size: small;
+    }
+    .left-column form a{
+        padding: 4%;
+        font-size: .8rem;
+    }
+    button{
+        margin-top: 4%;
+        font-size: .8rem;
+        width: 80%;
+    }
+    button:hover{
+        display: none;
+    }
+    .right-column{
+        width: 40%;
+    }
+    .right-column h2{
+        margin: 0;
+        margin-top: 10%;
+    }
+    .right-column h3{
+        margin: 1% 0;
+        color: rgb(49, 47, 47);
+    }
+    .right-column a{
+        height: 30px;
+        font-size: .8rem;
+        opacity: .9;
+    }
+    .toast-container .error,
+    .toast-container .success{
+        height: 40px;
+        top: 15%;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    body {
+        width: 100dvw;
+        margin: 0;
+        padding: 0;
+    }
+    .container{
+        padding: 0 2.5%;
+    }
+    .left-column{
+        justify-content: center;
+        width: 55%;
+    }
+    .left-column h1{
+        font-size: 2rem;
+    }
+    .left-column h3{
+        font-size: 1rem;
+    }
+    .left-column label{
+        font-size: 1rem;
+    }
+    .left-column form input{
+        height: 35px;
+        padding: 10px 10px;
+        font-size: medium;
+    }
+    .left-column form a{
+        padding: 2%;
+        font-size: .7rem;
+    }
+    button{
+        margin-top: 3%;
+        font-size: .7rem;
+        height: 30px;
+        width: 80%;
+    }
+    button:hover{
+        display: none;
+    }
+    .right-column{
+        width: 45%;
+    }
+    .right-column h2{
+        margin: 0;
+        margin-top: 10%;
+    }
+    .right-column h3{
+        margin: 1% 0;
+        color: rgb(49, 47, 47);
+    }
+    .right-column a{
+        height: 25px;
+        font-size: .7rem;
+        opacity: .9;
+    }
+    .toast-container .error,
+    .toast-container .success{
+        height: 40px;
+        top: 15%;
+    }
 }

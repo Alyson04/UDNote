@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    transition: 0.2s linear; /* Smooth transition for state changes */
+}
+
+/* Style for the body, including background and font settings */
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-size: cover; /* Adjusts the image to cover the entire body */
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    width: 500px;
+    height: 300px;
+}
+
+label {
+    margin-bottom: 1%;
+    font-size: 1.2rem;
+}
+
+input {
+    width: 60%; 
+    height: 40px;
+    font-size: 1rem;
+    margin: 3%;
+    border: none;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+    border: 1px solid #7b7272;
+}
+
+input:focus {
+    border-color: #B66F30;
+}
+
+button {
+    width: 40%; 
+    height: 40px;
+    font-size: 1rem;
+    background-color: #B66F30; 
+    color: #f2f2f2; 
+    border-radius: 50px;
+    border: none;
+    cursor: pointer; 
+    margin: 3%;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #a55d28;
+    color: #0e0e0e;
+    cursor: pointer;
+}

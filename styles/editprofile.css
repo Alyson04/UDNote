@@ -28,8 +28,84 @@ header {
     height: 12%;
     font-size: .9rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    background-color: #DAD6CD; /* Background color for the header */
+    background-color: #DAD6CD;
 }   
+
+.header-title {
+    flex: 1; /* Allow the title section to grow */
+    text-align: center; /* Center-aligns text horizontally */
+}
+
+.header-title h1{
+    margin: 0;
+    color: #333; /* Change the text color */
+    font-weight: bold; /* Make the font bold */
+}
+.hamburger-container {
+    display: none; /* Hidden by default */
+}
+
+/* For hamburger menu */
+.hamburger-icon {
+    font-size: 30px;
+    cursor: pointer;
+    color: rgb(49, 47, 47);
+}
+/* Move hamburger to the left */
+.hamburger-container {
+    position: absolute;
+    left: 10px;
+}
+/* Sidebar styling */
+.sidebar {
+    /* display: none; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #DAD6CD;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 20px;
+    overflow-y: auto;
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out, visibility 1s ease-in-out;
+    transform: translateX(-100%);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    height: inherit;
+}
+
+.sidebar-profile-pic{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar-nav-item {
+    color: inherit;
+    text-decoration: none;
+}
+
+.active {
+    background-color: #e0e0e0;
+}
 
 /* Style for the profile picture */
 .profile-pic {
@@ -41,7 +117,6 @@ header {
     cursor: default; /* Default cursor */
 }
 
-<<<<<<< HEAD
 /* For changing the profile */
 
 #camera-icon{
@@ -49,7 +124,7 @@ header {
     border: 1px solid black;
     width: 30px;
     height: 30px;
-    font-size: 20px;
+    font-size: 1.4rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,8 +134,6 @@ header {
 }
 
 
-=======
->>>>>>> e6bf14b60560a2b5fee447578107de79501761ce
 /* Container for the main content */
 .container {
     height: 100%;
@@ -70,76 +143,58 @@ header {
 }
 
 /* Style for the form control section */
-.form-control {
+#profile-form {
     height: 80%;
     width: 90%;
     margin-top: 2%;
     display: flex;
     justify-content: center;
-    flex-direction: row;
+}
+
+.form-control {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 /* Style for the photo frame section */
-.photo-frame {
-    width: 30%;
-}
-
-/* Style for the form within the photo frame */
-.photo-frame form {
+.photo-frame{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    width: 30%;
 }
 
-/* Style for the update photo button */
-.update-photo-btn {
-    background-color: #B66F30; /* Button background color */
-    color: #000; /* Button text color */
-    border: none;
-    border-radius: 10px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    margin-top: 10px;
-    cursor: pointer; /* Pointer cursor for button */
-}
-
-/* Hover effect for the update photo button */
-.update-photo-btn:hover {
-    background-color: #a55d28; /* Darker background on hover */
+.photo-frame img {
+    border: 1px solid #0e0e0e;
 }
 
 /* Style for the profile details section */
 .profile-details {
-    width: 65%;
-    height: 80%;
-    background: #DAD6CD; /*add */
-    margin-top:2%; /*add */
-}
-
-/* Style for the form within the profile details section */
-.profile-details form {
-    margin-top: 2%;
+    background: #DAD6CD;
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
-    width: 100%;
+    justify-content: center;
+    width: 70%;
 }
 
 /* Style for labels in the profile details form */
-.profile-details label {
-    font-size: 1rem;
+#profile-form label {
+    font-size: 1.3rem;
     padding: 1%;
 }
 
 /* Style for input fields in the profile details form */
-.profile-details form input {
+#profile-form input {
     width: 70%; /*CHANGE 60*/
     height: 35px; /*CHANGE 30*/
-    font-size: .9rem;
+    font-size: 1.2rem;
     border: none;
     background-color: #f2f2f2;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 /* Container for buttons */
@@ -201,6 +256,10 @@ header {
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+
+    
+    align-items: center;
+    justify-content: center;
 }
 
 /* Modal Content/Box */
@@ -275,7 +334,6 @@ header {
     cursor: pointer;
 }
 
-
 /* CONFIRMATION MODAL */
 
 /* Modal Content/Box */
@@ -335,7 +393,6 @@ header {
     color: black;
     text-decoration: none;
     cursor: pointer;
-<<<<<<< HEAD
 }
 
 /* This is for toast notification */
@@ -370,6 +427,233 @@ header {
     margin: auto;
     padding: 0 10px;
     z-index: 1000;
-=======
->>>>>>> e6bf14b60560a2b5fee447578107de79501761ce
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 601px){
+    /* For the change profile pic section*/
+    .form-control{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .profile-pic{
+        margin-bottom: 10px;
+        margin-top: 10px;
+        width: 150px;
+        height: 150px;
+    }
+    #camera-icon{
+        margin-bottom: 5px;
+    }
+    /* This is for the sidebar */
+    .hamburger-container {
+        display: flex;
+    }
+    .sidebar.show {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    .sidebar.closing {
+        transform: translateX(-100%);
+        opacity: 0;
+        visibility: hidden;
+    }
+    .sidebar{
+        height: 100%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    .sidebar-menu{
+        flex: 1;
+        padding: 20px 0;
+    }
+    .sidebar-item{
+        font-size: 1.5rem;
+        padding: 15px 20px;
+    }
+    .profile{
+        display: flex;
+        flex-direction: column;
+    }
+    .profile p{
+        margin-top: 10px;
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+    .logout{
+        margin-top: auto;
+    }
+    /* This is for the edit info section */
+    #profile-form label{
+        font-size: 1.5rem;
+    }
+    #profile-form input{
+        font-size: 1.5rem;
+        height: 30px;
+    }
+    .button-container button{
+        width: 150px;
+        height: 30px;
+        margin-bottom: 2%;
+    }
+    .button-container1 button{
+        height: 30px;
+        margin-bottom: 2%;
+    }
+    /* This is for the change password modal */
+    .modal-content form div{
+        flex-direction: column;
+        width: 100%;
+    }
+    .modal-content h2{
+        font-size: 1.5rem;
+    }
+    .modal-content label{
+        font-size: 1rem;
+        width: 100%;
+    }
+    .modal-content form input{
+        width: 100%;
+    }
+    .modal-content button{
+        left: 0;
+        height: 35px;
+        width: 100%;
+    }
+    /* This is for the confirmation modal */
+    .confirmmodal-content div{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        width: 100%;
+        margin: 0;
+        height: 70%;
+    }
+    .confirm-btn, .cancel-btn{
+        width: 45%;
+        height: 35px;
+    }
+    /* For Toast notif */
+    .toast-container .error,
+    .toast-container .success{
+        height: 45px;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    /* For the change profile pic section*/
+    .form-control{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .profile-pic{
+        margin-top: 10px;
+        width: 150px;
+        height: 150px;
+    }
+    #camera-icon{
+        margin-bottom: 15px;
+    }
+    /* This is for the sidebar */
+    .hamburger-container {
+        display: flex;
+    }
+    .sidebar.show {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    .sidebar.closing {
+        transform: translateX(-100%);
+        opacity: 0;
+        visibility: hidden;
+    }
+    .sidebar{
+        height: 100%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    .sidebar-menu{
+        flex: 1;
+        padding: 20px 0;
+    }
+    .sidebar-item{
+        font-size: 1.2rem;
+        padding: 15px 20px;
+    }
+    .profile{
+        display: flex;
+        flex-direction: column;
+    }
+    .profile p{
+        margin-top: 10px;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+    .logout{
+        margin-top: auto;
+    }
+    /* This is for the edit info section */
+    #profile-form label{
+        margin-top: 2%;
+        font-size: 1rem;
+    }
+    #profile-form input{
+        font-size: 1rem;
+        height: 30px;
+    }
+    .button-container button{
+        width: 150px;
+        height: 30px;
+        margin-bottom: 2%;
+    }
+    .button-container1 button{
+        height: 30px;
+        margin-bottom: 2%;
+    }
+    /* This is for the change password modal */
+    .modal-content form div{
+        flex-direction: column;
+        width: 100%;
+    }
+    .modal-content h2{
+        font-size: 1.5rem;
+    }
+    .modal-content label{
+        font-size: 1rem;
+        width: 100%;
+    }
+    .modal-content form input{
+        width: 100%;
+    }
+    .modal-content button{
+        left: 0;
+        height: 30px;
+        width: 100%;
+    }
+    /* This is for the confirmation modal */
+    .confirmmodal-content div{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        width: 100%;
+        margin: 0;
+        height: 60%;
+    }
+    .confirm-btn, .cancel-btn{
+        width: 45%;
+        height: 30px;
+    }
+    /* For Toast notif */
+    .toast-container .error,
+    .toast-container .success{
+        height: 40px;
+        top: 15%;
+    }
 }

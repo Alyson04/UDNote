@@ -8,7 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
           addBtn = popupBox.querySelector("#addNoteBtn"),
           searchBox = document.querySelector("#search"),
           profilePic = document.querySelector('.profile-pic'),
-          dropdownMenu = document.getElementById('dropdown-menu');
+          dropdownMenu = document.getElementById('dropdown-menu'),
+          hamburgerIcon = document.querySelector('.hamburger-icon'),
+          sidebar = document.getElementById('sidebar');
 
     // Function to show notes
     function showNotes(query = "") {
@@ -29,11 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <span>${filterDesc}</span>
                                 </div>
                                 <div class="bottom-content">
-<<<<<<< HEAD
-                                    <p>Last Updated: </p>
-=======
-                                    <span>${note.date}</span>
->>>>>>> e6bf14b60560a2b5fee447578107de79501761ce
+                                    <p>Last Updated: ${note.date}</p>
                                     <div class="settings">
                                         <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
                                         <ul class="menu">
@@ -52,7 +50,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-<<<<<<< HEAD
     //Toast notification
 setTimeout(function() {
     var toast = document.querySelector('.toast-container');
@@ -61,8 +58,6 @@ setTimeout(function() {
     }
 }, 2000); // 3 seconds
 
-=======
->>>>>>> e6bf14b60560a2b5fee447578107de79501761ce
     // Initial call to display notes
     showNotes();
 
@@ -151,7 +146,7 @@ setTimeout(function() {
         }
     });
 
-    // Define the toggleDropdown function
+// Define the toggleDropdown function
     function toggleDropdown() {
         console.log('Profile picture clicked.');
         if (dropdownMenu) {
@@ -169,6 +164,34 @@ setTimeout(function() {
         if (dropdownMenu && profilePic && !profilePic.contains(event.target) && !dropdownMenu.contains(event.target)) {
             console.log('Clicked outside dropdown menu.');
             dropdownMenu.classList.remove('show');
+        }
+    });
+
+    // Function to close the sidebar with sliding effect
+    function closeSidebar() {
+        sidebar.classList.add('closing');
+        document.body.style.overflow = 'auto';
+        setTimeout(() => {
+            sidebar.classList.remove('show', 'closing');
+        }, 500); // Match this duration with the CSS transition duration
+    }
+
+    // Toggle sidebar visibility when hamburger menu is clicked
+    hamburgerIcon.addEventListener('click', () => {
+        console.log('Hamburger icon clicked.');
+        if (sidebar.classList.contains('show')) {
+            closeSidebar();
+        } else {
+            sidebar.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+    });
+
+    // Close sidebar if clicking outside
+    window.addEventListener('click', (event) => {
+        if (sidebar && !sidebar.contains(event.target) && !hamburgerIcon.contains(event.target) && sidebar.classList.contains('show')) {
+            console.log('Clicked outside sidebar.');
+            closeSidebar();
         }
     });
 
@@ -230,3 +253,4 @@ setTimeout(function() {
         showNotes(searchBox.value);
     });
 });
+
