@@ -31,7 +31,7 @@ $profile_picture_src = !empty($profile_picture) ? htmlspecialchars($profile_pict
             <div class="hamburger-icon"><i class="uil uil-bars"></i></div>
         </div>
         <div class="header-title">
-            <h1>U'D NOTE</h1>
+        <h1 class="nav-item">Hello, <?php echo htmlspecialchars($username);?> !</h1>
         </div>
         <div class="search-box">
             <div class="icon"><i class="uil uil-search"></i></div>
@@ -40,9 +40,6 @@ $profile_picture_src = !empty($profile_picture) ? htmlspecialchars($profile_pict
         <div class="profile-container">
             <img src="<?php echo $profile_picture_src; ?>?v=<?php echo time(); ?>" alt="Profile Picture" class="profile-pic" width="150px" height="150px">
             <nav class="dropdown-menu" id="dropdown-menu">
-                <div class="dropdown-item">
-                    <p class="nav-item">Hello, <?php echo htmlspecialchars($username); ?></p>
-                </div>
                 <div class="dropdown-item">
                     <i class="uil uil-pen"></i>
                     <a href="./editprofile.php" class="nav-item"> Edit Profile</a>
