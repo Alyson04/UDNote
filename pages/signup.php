@@ -66,7 +66,7 @@ if (isset($_SESSION['user_id'])) {
                     <label>CONFIRM PASSWORD</label>
                 </div>
                 <button type="submit">CREATE ACCOUNT</button>
-                <h3>Already have an account? <a href="login.php">Sign In</a></h3>
+                <h3>Already have an account? <a href="index.php">Sign In</a></h3>
             </form>
         </div>
     </div>

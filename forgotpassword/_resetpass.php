@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         session_start();
         $_SESSION['success'] = "Your password has been reset successfully.";
-        header("Location: ../pages/login.php");
+        header("Location: ../pages/index.php");
         exit;
     } else {
         $_SESSION['error'] = "Invalid or expired token.";
