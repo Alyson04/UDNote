@@ -207,7 +207,7 @@ body {
 /* Styling for the search box */
 .search-box {
     position: relative; /* Position relative to allow absolute positioning of child elements */
-    margin-bottom: 6px; /* Margin at the bottom */
+    margin-bottom: 6px; /* Margin at the bottom */  
 }
 
 /* Search box icon styling */
@@ -381,7 +381,6 @@ body {
     right: -5px; /* Position slightly off the right edge */
     padding: 5px 0; /* Padding inside the menu */
     position: absolute; /* Absolute positioning */
-    border-radius: 4px; /* Rounded corners */
     transform: scale(0); /* Initially hidden */
     transform-origin: bottom right; /* Scale transformation origin */
     transition: transform 0.2s ease; /* Smooth transition for scaling */
@@ -399,7 +398,7 @@ body {
     cursor: pointer; /* Pointer cursor on hover */
     border-radius: 0; /* No border-radius */
     justify-content: flex-start; /* Align items to the start */
-    width: 10vw;
+    width: 8vw;
 }
 
 .menu li:hover {
@@ -644,6 +643,9 @@ form button {
     }
     .content form{
         margin-top: 20%;
+    }
+    .settings .menu li {
+        width: 18vw;
     }
 }
 
