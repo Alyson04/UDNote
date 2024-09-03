@@ -302,7 +302,7 @@ body {
 
 /* Details section of note with scroll handling */
 .note .details {
-    max-height: 165px; /* Maximum height for scrolling */
+    max-height: 220px; /* Maximum height for scrolling */
     overflow-y: auto; /* Enable vertical scrolling */
 }
 
@@ -420,6 +420,7 @@ body {
     background: rgba(0,0,0,0.4); /* Semi-transparent background */
 }
 
+
 /* Popup styling */
 .popup-box .popup {
     position: absolute; /* Absolute positioning inside the popup box */
@@ -427,7 +428,7 @@ body {
     left: 50%; /* Center horizontally */
     z-index: 3; /* Ensure it is above popup box */
     width: 100%; /* Full width */
-    max-width: 400px; /* Maximum width */
+    max-width: 90vw; /* Maximum width */
     justify-content: center; /* Center content */
     transform: translate(-50%, -50%) scale(0.95); /* Center and scale down */
 }
@@ -460,14 +461,16 @@ body {
 
 /* Header inside popup content */
 .content header {
+    display: flex; /* Use flexbox for layout */
+    justify-content: flex-end; /* Align items to the end (right) */
+    align-items: center; /* Center items vertically */
     padding: 15px 25px; /* Padding inside header */
     border-bottom: 1px solid #ccc; /* Bottom border */
 }
 
 /* Header text styling */
 .content header p {
-    font-size: 20px; /* Font size */
-    font-weight: 500; /* Medium font weight */
+   display: none;
 }
 
 /* Close icon styling inside header */
@@ -512,7 +515,7 @@ form :where(input, textarea):focus {
 
 /* Styling for textarea inside form */
 form .row textarea {
-    height: 150px; /* Height */
+    height: 250px; /* Height */
     resize: none; /* Disable resizing */
     padding: 8px 15px; /* Padding inside */
 }
