@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function showNotes(query = "") {
         console.log('Showing notes with query:', query);
         document.querySelectorAll(".note").forEach(li => li.remove());
-
+    
         fetch(`../notes/getnotes.php?query=${query}`, {
             method: 'GET'
         })
@@ -24,23 +24,28 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(notes => {
             console.log('Fetched notes:', notes);
             notes.forEach(note => {
-                let filterDesc = note.description.replace(/\n/g, '<br/>');
-                let liTag = `<li class="note">
-                                <div class="details">
-                                    <p>${note.title}</p>
-                                    <span>${filterDesc}</span>
-                                </div>
-                                <div class="bottom-content">
-                                    <p>Last Updated: ${note.date}</p>
-                                    <div class="settings">
-                                        <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
-                                        <ul class="menu">
-                                            <li onclick="updateNote(${note.id}, '${note.title}', '${filterDesc}')"><i class="uil uil-pen"></i>Edit</li>
-                                            <li onclick="deleteNote(${note.id})"><i class="uil uil-trash"></i>Delete</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>`;
+                // Replace \n with <br/> in the description
+                let filterDesc = note.description.replace(/\\n/g, '<br/>');
+                
+                // Use template literals and escape necessary characters
+                let liTag = `
+                    <li class="note">
+                        <div class="details">
+                            <p>${note.title}</p>
+                            <span>${filterDesc}</span>
+                        </div>
+                        <div class="bottom-content">
+                            <p>Last Updated: ${note.date}</p>
+                            <div class="settings">
+                                <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
+                                <ul class="menu">
+                                    <li onclick="updateNote(${note.id}, \`${note.title.replace(/'/g, "\\'")}\`, \`${filterDesc.replace(/'/g, "\\'")}\`)"><i class="uil uil-pen"></i>Edit</li>
+                                    <li onclick="deleteNote(${note.id})"><i class="uil uil-trash"></i>Delete</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>`;
+                
                 document.querySelector(".wrapper").insertAdjacentHTML("beforeend", liTag);
             });
         })
@@ -49,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
             logError(error); // Log error details if needed
         });
     }
+    
 
     //Toast notification
 setTimeout(function() {
