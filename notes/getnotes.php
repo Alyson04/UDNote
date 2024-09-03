@@ -11,9 +11,9 @@ $query = isset($_GET['query']) ? filter_var($_GET['query'], FILTER_SANITIZE_SPEC
 
 $sql = "SELECT * FROM notes WHERE user_id = ?";
 if (!empty($query)) {
-    $sql .= " AND (title LIKE CONCAT('%', ?, '%') OR description LIKE CONCAT('%', ?, '%'))";
+    $sql .= " AND title LIKE CONCAT('%', ?, '%')";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param('iss', $user_id, $query, $query);
+    $stmt->bind_param('is', $user_id, $query);
 } else {
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('i', $user_id);
