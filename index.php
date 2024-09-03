@@ -14,7 +14,7 @@ if (isset($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/login_css.css">
+    <link rel="stylesheet" href="./styles/login_css.css">
     <title>Login</title>
 </head>
 <body>
@@ -43,7 +43,7 @@ if (isset($_SESSION['user_id'])) {
                 <h1> WELCOME </h1>
                 <h3>Capture, organize, and access your <br> ideas effortlessly.</h3>
 
-                <form action="./_login.php" method="POST">
+                <form action="./pages/_login.php" method="POST">
                     <div class="input-group">
                         <input type="text" id="email" name="user_input" class="input" required>
                         <label for="email" class="labelline">Email or Username</label>
@@ -64,6 +64,6 @@ if (isset($_SESSION['user_id'])) {
             
         </div>
 
-    <script src="../script/login.js"></script>
+    <script src="./script/login.js"></script>
 </body>
 </html>

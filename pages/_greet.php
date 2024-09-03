@@ -1,4 +1,5 @@
 <?php
+ini_set('display_errors', 1);
 // Include your database connection file
 include './_dbconn.php';
 
@@ -21,7 +22,12 @@ if (isset($_SESSION['user_id'])) {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $username = ucwords(strtolower(htmlspecialchars($row['username'])));
-        $profile_picture = htmlspecialchars($row['profile_picture']);
+        $profile_picture = $row['profile_picture'];
+        $default_profile_picture = '../assets/profile-icon.jpg';// Update this path as needed
+
+        // Use the default profile picture if $profile_picture is empty
+        $profile_picture_src = !empty($profile_picture) ? $profile_picture : $default_profile_picture;
+        $profile_picture = htmlspecialchars($profile_picture_src);
     }
 
     $stmt->close();

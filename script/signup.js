@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const params = new URLSearchParams(window.location.search);
     if (params.has('redirect')) {
         setTimeout(function() {
-            window.location.href = 'index.php';
+            window.location.href = '../index.php';
         }, 4000); // Redirect after 5 seconds
     }
 });

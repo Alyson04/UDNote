@@ -232,7 +232,7 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 /* Styling for list items in the grid */
@@ -246,6 +246,10 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border: black groove; /* Border styling */
     margin-top: 10px; /* Margin at the top */
+}
+
+.menu li {
+    width: 100%;
 }
 
 /* Flexbox styling for various elements */

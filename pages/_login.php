@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if (empty($user_input) || empty($password)) {
         $_SESSION['error'] = "Both fields are required.";
-        header("Location: index.php");
+        header("Location: ../index.php");
         exit();
     }
     
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['username'] = $row['username'];
             $_SESSION['success'] = "Login successful!";
             // Redirect to a protected page or dashboard
-            header("Location: index.php?redirect=true");
+            header("Location: ../index.php?redirect=true");
             exit();
         } else {
             $_SESSION['error'] = "Invalid password";
@@ -38,6 +38,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $_SESSION['error'] = "No user found with that username or email";
     }
-    header("Location: index.php");
+    header("Location: ../index.php");
     exit();
 }

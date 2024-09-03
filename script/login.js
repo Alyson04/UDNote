@@ -32,6 +32,6 @@ setTimeout(function() {
 //for logging in
 if (isLoggedIn) {
     setTimeout(function() {
-        window.location.href = 'home.php'; // Redirect to index or dashboard
+        window.location.href = './pages/home.php'; // Redirect to index or dashboard
     }, 2000); // Redirect after 3 seconds to allow the toast message to be displayed
 }
