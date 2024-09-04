@@ -441,7 +441,7 @@ body {
     box-shadow: none; /* Remove box-shadow */
     border-radius: 0; /* No border-radius */
     justify-content: flex-start; /* Align items to the start */
-    width: 8vw;
+    width: 100%;
 }
 
 /* Hover effect for menu items */
@@ -758,7 +758,9 @@ form button {
     }
     .menu li{
         width: 100%;
+        font-size: .7rem;
     }
+    
     .bottom-content p{
         font-size: .8rem;
     }

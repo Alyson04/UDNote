@@ -39,7 +39,9 @@
         <div class="hamburger-container">
             <div class="hamburger-icon"><i class="uil uil-bars"></i></div>
         </div>
+        <div class="back" onclick="goToHomePage()"><i class="uil uil-previous"></i></div>
         <div class="header-title">
+            
             <h1>EDIT PROFILE</h1>
         </div>
         </header>

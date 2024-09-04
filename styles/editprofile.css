@@ -40,7 +40,21 @@ header {
     margin: 0;
     color: #333; /* Change the text color */
     font-weight: bold; /* Make the font bold */
+    padding-right: 58px;
 }
+
+.back{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.back i {
+    padding-left: 10px;
+    font-size: 3rem;
+}
+
 .hamburger-container {
     display: none; /* Hidden by default */
 }
@@ -453,6 +467,9 @@ header {
     #camera-icon{
         margin-bottom: 5px;
     }
+    .back {
+        display: none;
+    }
     /* This is for the sidebar */
     .hamburger-container {
         display: flex;
@@ -565,6 +582,9 @@ header {
     }
     #camera-icon{
         margin-bottom: 15px;
+    }
+    .back {
+        display: none;
     }
     /* This is for the sidebar */
     .hamburger-container {
