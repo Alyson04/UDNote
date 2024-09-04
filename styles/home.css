@@ -579,6 +579,83 @@ form button {
     background: #B66F30; /* Background color */
 }
 
+/* This is for the delete confirmation modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #DAD6CD;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 70%;
+    max-width: 300px;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content span {
+    width: 100%;
+}
+
+.modal-content p {
+    height: 70%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close {
+    color: #aaa;
+    float: left;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn {
+    width: 40%;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 50px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+    background-color: #B66F30;
+    color: #f2f2f2;
+}
+
+.btn:hover {
+    background-color: #a55d28;
+}
+
 /* This is for toast notification */
 .toast-container .error{
     position: absolute;

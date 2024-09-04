@@ -10,7 +10,11 @@ document.addEventListener('DOMContentLoaded', function() {
           profilePic = document.querySelector('.profile-pic'),
           dropdownMenu = document.getElementById('dropdown-menu'),
           hamburgerIcon = document.querySelector('.hamburger-icon'),
-          sidebar = document.getElementById('sidebar');
+          sidebar = document.getElementById('sidebar'),
+          modal = document.getElementById('deleteModal'),
+          confirmDeleteButton = document.getElementById('confirmDelete'),
+          cancelDeleteButton = document.getElementById('cancelDelete'),
+          closeButton = document.querySelector('.modal .close');
 
     // Function to show notes
     function showNotes(query = "") {
@@ -214,29 +218,50 @@ setTimeout(function() {
     };
 
     window.deleteNote = function(noteId) {
-        if (confirm("Are you sure you want to delete this note?")) {
-            console.log('Delete note with ID:', noteId);
-            fetch('../notes/deletenotes.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: new URLSearchParams({
-                    note_id: noteId
-                })
+        modal.style.display = 'flex';
+
+        closeButton.onclick = function() {
+            modal.style.display = 'none';
+        };
+
+        cancelDeleteButton.onclick = function() {
+            modal.style.display = 'none';
+        };
+
+        // Handle confirm delete button click
+    confirmDeleteButton.onclick = function() {
+        console.log('Delete note with ID:', noteId);
+        fetch('../notes/deletenotes.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams({
+                note_id: noteId
             })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Delete response:', data);
-                if (data.message) {
-                    showNotes(searchBox.value); // Refresh notes
-                }
-            })
-            .catch(error => {
-                console.error('Error deleting note:', error);
-                logError(error); // Log error details if needed
-            });
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Delete response:', data);
+            if (data.message) {
+                showNotes(searchBox.value); // Refresh notes
+            }
+            modal.style.display = 'none'; // Hide modal after deletion
+        })
+        .catch(error => {
+            console.error('Error deleting note:', error);
+            logError(error); // Log error details if needed
+            modal.style.display = 'none'; // Hide modal on error
+        });
+    };
+
+    // Hide the modal if the user clicks outside of it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
         }
+    };
+        
     };
 
     window.updateNote = function(noteId, title, filterDesc) {

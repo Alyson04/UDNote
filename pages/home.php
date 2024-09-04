@@ -122,6 +122,18 @@ if (isset($_SESSION['success'])) {
     </li>
 </div>
 
+<!-- Delete Confirmation Modal -->
+<div id="deleteModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Are you sure you want to delete this note?</p>
+        <div class="buttons">
+            <button id="confirmDelete" class="btn">Yes</button>
+            <button id="cancelDelete" class="btn">No</button>
+        </div>
+    </div>
+</div>
+
 <script src="../script/home.js"></script>
 
 </body>

@@ -271,6 +271,10 @@ header {
     height: 50%;
     width: 70%; /* Could be more or less, depending on screen size */
 }
+
+.modal span {
+    width: 100%;
+}
              
 .modal-content form div{
     display: flex;
@@ -305,13 +309,13 @@ header {
 .modal-content button {
     position: relative;
     width: 20%; /*CHANGE 120PX*/
-    height: 40px;
+    padding: 10px 20px;
+    margin: 5px;
     background-color: #B66F30; /* Button background color */
     color: #f2f2f2; /* Button text color */
     border-radius: 50px;
     border: none;
     cursor: pointer; /* Pointer cursor for button */
-    left: 20%;
 }
 
 .modal-content button:hover {
@@ -344,26 +348,33 @@ header {
     border: 1px solid #888;
     height: 25%;
     width: 30%; /* Could be more or less, depending on screen size */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .confirmmodal-content h3{
+    height: 40%;
     font-size: 1.5rem;
     text-align: center;
-    padding-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
 /* Button Container */
 .confirmation-buttons {
     display: flex;
-    justify-content: space-between;
-    margin: 5%;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Buttons */
 .confirm-btn, .cancel-btn {
     width: 40%;
-    height: 40px;
+    padding: 10px 20px;
+    margin: 5px;
     border-radius: 50px;
     cursor: pointer;
     border: none;
@@ -372,10 +383,7 @@ header {
     color: #f2f2f2;
 }
 
-.confirm-btn:hover {
-    background-color: #a55d28;
-}
-
+.confirm-btn:hover,
 .cancel-btn:hover {
     background-color: #a55d28;
 }
