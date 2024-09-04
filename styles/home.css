@@ -24,6 +24,16 @@ header {
     font-weight: bold; /* Make the font bold */
 }
 
+/* Header content styling */
+.header-content {
+    margin-left: 80px; /* Adjust margin to accommodate the profile picture */
+    flex: 1; /* Allow header content to grow and fill available space */
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Distribute items evenly */
+    padding: 10px; /* Padding around content */
+}
+
 /* Container for the pp*/
 .profile-container {
     position: absolute; /* Position relative to the header */
@@ -167,17 +177,6 @@ header {
 .active {
     background-color: #e0e0e0;
 }
-
-/* Header content styling */
-.header-content {
-    margin-left: 80px; /* Adjust margin to accommodate the profile picture */
-    flex: 1; /* Allow header content to grow and fill available space */
-    display: flex; /* Use flexbox for layout */
-    align-items: center; /* Center items vertically */
-    justify-content: space-between; /* Distribute items evenly */
-    padding: 10px; /* Padding around content */
-}
-
 
 /* Styling for the body */
 body {
@@ -388,6 +387,10 @@ body {
 }
 
 /* Settings menu styling */
+.settings {
+    position: relative; /* Position relative for absolute positioning of the menu */
+}
+
 .settings .menu {
     z-index: 1; /* Ensure it is above other content */
     bottom: 0; /* Position at the bottom */
@@ -415,11 +418,7 @@ body {
     box-shadow: none; /* Remove box-shadow */
     border-radius: 0; /* No border-radius */
     justify-content: flex-start; /* Align items to the start */
-}
-
-/* Remove bottom margin from last menu item */
-.menu li:last-child {
-    margin-bottom: 0;
+    width: 8vw;
 }
 
 /* Hover effect for menu items */
@@ -450,7 +449,7 @@ body {
     left: 50%; /* Center horizontally */
     z-index: 3; /* Ensure it is above popup box */
     width: 100%; /* Full width */
-    max-width: 400px; /* Maximum width */
+    max-width: 90vw; /* Maximum width */
     justify-content: center; /* Center content */
     transform: translate(-50%, -50%) scale(0.95); /* Center and scale down */
 }
@@ -483,14 +482,18 @@ body {
 
 /* Header inside popup content */
 .content header {
+    display: flex; /* Use flexbox for layout */
+    justify-content: flex-end; /* Align items to the end (right) */
+    align-items: center; /* Center items vertically */
     padding: 15px 25px; /* Padding inside header */
     border-bottom: 1px solid #ccc; /* Bottom border */
 }
 
 /* Header text styling */
 .content header p {
-    font-size: 20px; /* Font size */
-    font-weight: 500; /* Medium font weight */
+    display: none;
+    /* font-size: 20px; Font size */
+    /* font-weight: 500; Medium font weight */
 }
 
 /* Close icon styling inside header */
@@ -535,7 +538,7 @@ form :where(input, textarea):focus {
 
 /* Styling for textarea inside form */
 form .row textarea {
-    height: 150px; /* Height */
+    height: 250px; /* Height */
     resize: none; /* Disable resizing */
     padding: 8px 15px; /* Padding inside */
 }
