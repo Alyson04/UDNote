@@ -107,7 +107,7 @@ if (isset($_SESSION['success'])) {
                 </div>
                 <div class="row description">
                     <label>Description</label>
-                    <textarea id="noteDesc" spellcheck="false"></textarea>
+                    <textarea id="noteDesc" spellcheck="false" maxlength="1000"></textarea>
                 </div>
                 <button type="submit" id="addNoteBtn">Add Note</button>
             </form>
