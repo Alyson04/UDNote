@@ -73,6 +73,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         if ($stmt->execute()) {
             $_SESSION['success'] = "Profile updated successfully!";
+            header("Location: home.php");
+            exit();
         } else {
             $_SESSION['error'] = "Error updating profile: " . $stmt->error;
         }
