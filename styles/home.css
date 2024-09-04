@@ -325,8 +325,31 @@ body {
 
 /* Note paragraph styling */
 .note p {
+    display: -webkit-box; /* Flexbox for text truncation */
+    display: -moz-box; /* Mozilla-based browsers */
+    display: -ms-flexbox; /* IE10+ */
+    display: -o-box; /* Opera */
+    display: box; /* Standard */
+
+    -webkit-box-orient: vertical; /* Vertical orientation */
+    -moz-box-orient: vertical; /* Mozilla */
+    -ms-flexbox-orient: vertical; /* IE10+ */
+    -o-box-orient: vertical; /* Opera */
+    box-orient: vertical; /* Standard */
+
     font-size: 22px; /* Font size */
     font-weight: 500; /* Medium font weight */
+
+    word-break: break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+
+    -webkit-line-clamp: 1;
+    -moz-line-clamp: 1; /* Mozilla-based browsers */
+    -ms-line-clamp: 1; /* IE10+ */
+    -o-line-clamp: 1; /* Opera */
+    line-clamp: 1; /* Standard */
 }
 
 /* Note span styling */
@@ -347,7 +370,7 @@ body {
     font-size: 16px; /* Font size */
     margin-top: 5px; /* Margin at the top */
 
-    
+    word-break: break-all;
     overflow: hidden; /* Hide overflowing text */
     text-overflow: ellipsis; /* Show ellipsis when text overflows */
     white-space: normal; /* Allow text to wrap to the next line */
