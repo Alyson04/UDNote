@@ -286,6 +286,7 @@ body {
 
 /* Note component styling */
 .note {
+    cursor: pointer;
     display: flex; /* Use flexbox for layout */
     flex-direction: column; /* Stack children vertically */
     justify-content: space-between; /* Space between children */
