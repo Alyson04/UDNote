@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Use template literals and escape necessary characters
                 let liTag = `
-                    <li class="note">
+                    <li class="note" data-id="${note.id}">
                         <div class="details">
                             <p>${note.title}</p>
                             <span>${filterDesc}</span>
@@ -41,10 +41,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="bottom-content">
                             <p>Last Updated: ${note.date}</p>
                             <div class="settings">
-                                <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
+                                <i onclick="showMenu(this, event)" class="uil uil-ellipsis-h"></i>
                                 <ul class="menu">
-                                    <li onclick="updateNote(${note.id}, \`${note.title.replace(/'/g, "\\'")}\`, \`${filterDesc.replace(/'/g, "\\'")}\`)"><i class="uil uil-pen"></i>Edit</li>
-                                    <li onclick="deleteNote(${note.id})"><i class="uil uil-trash"></i>Delete</li>
+                                    <li onclick="updateNote(${note.id}, \`${note.title.replace(/'/g, "\\'")}\`, \`${filterDesc.replace(/'/g, "\\'")}\`); event.stopPropagation();"><i class="uil uil-pen"></i>Edit</li>
+                                    <li onclick="deleteNote(${note.id}); event.stopPropagation();"><i class="uil uil-trash"></i>Delete</li>
                                 </ul>
                             </div>
                         </div>
@@ -52,13 +52,39 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 document.querySelector(".wrapper").insertAdjacentHTML("beforeend", liTag);
             });
+            // Attach event listeners after rendering notes
+        document.querySelectorAll('.note').forEach(note => {
+            console.log('Attaching event listener to note:', note);
+            note.addEventListener("click", () => {
+                console.log('Note clicked:', note);
+
+                // Extract note details and show the popup
+                const noteId = note.getAttribute('data-id');
+                const noteTitle = note.querySelector('p').innerText;
+                const noteDescription = note.querySelector('span').innerHTML.replace(/<br\/>/g, "\n");
+
+               // Reset fields and remove readonly attribute
+               titleTag.removeAttribute('readonly');
+               descTag.removeAttribute('readonly');
+               titleTag.value = '';
+               descTag.value = '';
+
+               // Set popup fields to show note details
+               popupTitle.innerText = "View Note";
+               titleTag.value = noteTitle;
+               descTag.value = noteDescription;
+               addBtn.style.display = "none";
+
+               popupBox.classList.add("show");
+               document.body.style.overflow = "hidden";
+            });
+        });
         })
         .catch(error => {
             console.error('Error fetching notes:', error);
             logError(error); // Log error details if needed
         });
     }
-    
 
     //Toast notification
 setTimeout(function() {
@@ -77,6 +103,7 @@ setTimeout(function() {
         popupTitle.innerText = "Add a new Note";
         addBtn.innerText = "Add Note";
         popupBox.classList.add("show");
+        addBtn.style.display = "block";
         document.body.style.overflow = "hidden";
         if (window.innerWidth > 660) titleTag.focus();
     });
@@ -97,7 +124,7 @@ setTimeout(function() {
         let title = titleTag.value.trim();
         let description = descTag.value.trim();
         let noteId = noteForm.getAttribute('data-id'); // Get note ID from data attribute
-
+        
         console.log('Form submitted. Title:', title, 'Description:', description, 'Note ID:', noteId);
 
         if (title || description) {
@@ -206,15 +233,23 @@ setTimeout(function() {
     });
 
     // Make the `showMenu`, `deleteNote`, and `updateNote` functions globally accessible
-    window.showMenu = function(elem) {
+    window.showMenu = function(elem, event) {
+        if (event) {
+            event.stopPropagation(); // Prevent click event from bubbling up
+        }
         console.log('Show menu for element:', elem);
         elem.parentElement.classList.add("show");
-        document.addEventListener("click", function handler(e) {
-            if (e.target.tagName !== "I" || e.target !== elem) {
-                elem.parentElement.classList.remove("show");
-                document.removeEventListener("click", handler);
-            }
-        });
+
+       // Close the menu if clicking outside
+        const menu = elem.parentElement;
+        const handler = function(e) {
+        // Check if the click was inside the menu or the ellipsis icon
+        if (!menu.contains(e.target)) {
+            menu.classList.remove("show");
+            document.removeEventListener("click", handler);
+        }
+    };
+    document.addEventListener("click", handler);
     };
 
     window.deleteNote = function(noteId) {
@@ -271,6 +306,7 @@ setTimeout(function() {
         descTag.value = description;
         popupTitle.innerText = "Update a Note";
         addBtn.innerText = "Update Note";
+        addBtn.style.display = "block";
         popupBox.classList.add("show");
         document.body.style.overflow = "hidden";
 
