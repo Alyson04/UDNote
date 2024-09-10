@@ -14,7 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
           modal = document.getElementById('deleteModal'),
           confirmDeleteButton = document.getElementById('confirmDelete'),
           cancelDeleteButton = document.getElementById('cancelDelete'),
-          closeButton = document.querySelector('.modal .close');
+          closeButton = document.querySelector('.modal .close'),
+          searchInput = document.getElementById('search');
 
     // Function to handle form submission for adding or updating notes
     function handleNoteSubmission(event) {
@@ -238,12 +239,29 @@ document.addEventListener('DOMContentLoaded', function() {
             const noteId = note.getAttribute('data-id');
             const noteTitle = note.querySelector('p').innerText;
             let noteDescription = note.querySelector('span').innerHTML;
-            
+
             // Convert <br> tags to newlines for viewing mode
             noteDescription = noteDescription.replace(/<br\s*\/?>/gi, '');
     
             openPopupBox('view', noteId, noteTitle, noteDescription);
         });
     });
+
+    // Function to filter notes based on search input
+    function filterNotes() {
+        const searchQuery = searchInput.value.toLowerCase();
+        document.querySelectorAll('.note').forEach(note => {
+            const title = note.querySelector('p').innerText.toLowerCase();
+            
+            if (title.includes(searchQuery)) {
+                note.style.display = 'block';
+            } else {
+                note.style.display = 'none';
+            }
+        });
+    }
+
+    // Add event listener to search input
+    searchInput.addEventListener('input', filterNotes);
     
 });

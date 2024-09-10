@@ -294,7 +294,8 @@ body {
 
 /* Details section of note with scroll handling */
 .note .details {
-    max-height: 200px; /* Maximum height for scrolling */
+    max-height: 230px; /* Maximum height for scrolling */
+    height: 230px;
     /*overflow-y: auto;  Enable vertical scrolling */
 }
 
@@ -383,6 +384,8 @@ body {
     -ms-line-clamp: 10; /* IE10+ */
     -o-line-clamp: 10; /* Opera */
     line-clamp: 10; /* Standard */
+
+    height: inherit;
 }
     
 
