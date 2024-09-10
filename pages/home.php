@@ -13,6 +13,12 @@ $default_profile_picture = '../assets/profile-icon.jpg'; // Update this path as 
 
 // Use the default profile picture if $profile_picture is empty
 $profile_picture_src = !empty($profile_picture) ? htmlspecialchars($profile_picture) : $default_profile_picture;
+
+// Fetch notes from the database
+include '../pages/_dbconn.php';
+$user_id = $_SESSION['user_id'];
+$sql = "SELECT id, title, description, date FROM notes WHERE user_id = $user_id ORDER BY date DESC";
+$result = mysqli_query($conn, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -51,9 +57,8 @@ $profile_picture_src = !empty($profile_picture) ? htmlspecialchars($profile_pict
             </nav>
         </div>  
     </div>
-    <!-- <div class="hamburger-icon" id="hamburger-icon">&#9776;</div> -->
 </header>
-<!--This is for the sidebar that will only appear in 600px max width-->
+
 <div class="sidebar" id="sidebar">
     <nav class="sidebar-menu">
         <div class="sidebar-item profile">
@@ -93,6 +98,9 @@ if (isset($_SESSION['success'])) {
     unset($_SESSION['success']);
 }
 ?>
+
+
+
 <div class="popup-box">
     <div class="popup">
         <div class="content">
@@ -100,16 +108,18 @@ if (isset($_SESSION['success'])) {
                 <p></p>
                 <i class="uil uil-times"></i>
             </header>
-            <form id="noteForm">
+            <form id="NoteForm">
                 <div class="row title">
                     <label>Title</label>
-                    <input type="text" id="noteTitle" spellcheck="false">
+                    <input type="text" name="title" placeholder="Note Title" id="noteTitle" spellcheck="false" required>
                 </div>
                 <div class="row description">
                     <label>Description</label>
-                    <textarea id="noteDesc" spellcheck="false" maxlength="1000"></textarea>
+                    <textarea name="description" id="noteDesc" spellcheck="false" maxlength="1000" placeholder="Note Description" required></textarea>
+                    <!-- Hidden input field for storing the note ID -->
+                    <input type="hidden" id="updateNoteIdField">
                 </div>
-                <button type="submit" id="addNoteBtn">Add Note</button>
+                <button type="submit" id="updateNoteBtn">Add Note</button>
             </form>
         </div>  
     </div>
@@ -120,7 +130,39 @@ if (isset($_SESSION['success'])) {
         <div class="icon"><i class="uil uil-plus"></i></div>
         <p>Add new note</p>
     </li>
+    <?php while ($row = mysqli_fetch_assoc($result)): 
+        // Encode the ID normally since it's a number
+        $noteId = htmlspecialchars($row['id'], ENT_QUOTES, 'UTF-8');
+        // Use json_encode to safely escape title and description for JavaScript
+        $noteTitle = json_encode($row['title'], JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP);
+        $noteDescription = json_encode($row['description'], JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP);
+    ?>
+        <li class='note' data-id="<?php echo $noteId; ?>">
+            <div class='details'>
+                <p><?php echo htmlspecialchars($row['title'], ENT_QUOTES); ?></p>
+                <span><?php echo nl2br(htmlspecialchars($row['description'], ENT_QUOTES)); ?></span>
+            </div>
+            
+            <div class="bottom-content">
+                <p>Last Updated: <?php echo htmlspecialchars($row['date'], ENT_QUOTES); ?></p>
+                <div class="settings">
+                    <i onclick="showMenu(this, event)" class="uil uil-ellipsis-h"></i>
+                    <ul class="menu">
+                        <!-- Pass the title and description using json_encode to ensure valid JS strings -->
+                        <li onclick='editNote(event, <?php echo $noteId; ?>, <?php echo $noteTitle; ?>, <?php echo $noteDescription; ?>)'>
+                            <i class="uil uil-pen"></i>Edit
+                        </li>
+                        <li onclick="deleteNote(<?php echo $noteId; ?>); event.stopPropagation();">
+                            <i class="uil uil-trash"></i>Delete
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    <?php endwhile; ?>
 </div>
+
+
 
 <!-- Delete Confirmation Modal -->
 <div id="deleteModal" class="modal">

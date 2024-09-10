@@ -1,44 +1,43 @@
 <?php
-session_start();
+// Enable error reporting
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// Include database connection
 include '../pages/_dbconn.php';
 
+// Start the session to get the logged-in user ID
+session_start();
+
 // Check if the user is logged in
-if (!isset($_SESSION['user_id'])) {
-    header('Content-Type: application/json');
-    echo json_encode(['message' => 'User not logged in']);
-    exit();
-}
-
-// Get request body
-$input = json_decode(file_get_contents('php://input'), true);
-$title = isset($input['note']['title']) ? $conn->real_escape_string($input['note']['title']) : '';
-$description = isset($input['note']['description']) ? $conn->real_escape_string($input['note']['description']) : '';
-
-// Check if title and description are not empty
-if (empty($title) || empty($description)) {
-    header('Content-Type: application/json');
-    echo json_encode(['message' => 'Title and description cannot be empty']);
-    exit();
-}
-
-// Insert new note
-$user_id = $_SESSION['user_id'];
-$sql = "INSERT INTO notes (user_id, title, description, date) VALUES (?, ?, ?, NOW())";
-$stmt = $conn->prepare($sql);
-if ($stmt === false) {
-    header('Content-Type: application/json');
-    echo json_encode(['message' => 'Failed to prepare statement', 'error' => $conn->error]);
-    exit();
-}
-
-$stmt->bind_param("sss", $user_id, $title, $description);
-if ($stmt->execute()) {
-    header('Content-Type: application/json');
-    echo json_encode(['message' => 'Note added successfully']);
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
 } else {
-    header('Content-Type: application/json');
-    echo json_encode(['message' => 'Error adding note', 'error' => $stmt->error]);
+    // Redirect to login if user is not logged in
+    header('Location: ../login.php');
+    exit;
 }
 
-$stmt->close();
-$conn->close();
+// Check if form data has been submitted
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $title = $_POST['title'];
+    $description = $_POST['description'];
+
+    // Sanitize input
+    $title = htmlspecialchars($title, ENT_QUOTES);
+    $description = htmlspecialchars($description, ENT_QUOTES);
+
+    // Insert note into the database with the user_id
+    $sql = "INSERT INTO notes (title, description, date, user_id) VALUES ('$title', '$description', NOW(), '$user_id')";
+
+    if ($conn->query($sql) === TRUE) {
+        // Redirect to the main page after adding the note
+        $_SESSION['success'] = "Notes added successfully!";
+    } else {
+        $_SESSION['error'] = "Error: " . $conn->error;
+    }
+} else {
+    $_SESSION['error'] = "Invalid Request!";
+    
+}

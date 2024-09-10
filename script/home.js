@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
           closeIcon = popupBox.querySelector("header i"),
           titleTag = popupBox.querySelector("#noteTitle"),
           descTag = popupBox.querySelector("#noteDesc"),
-          addBtn = popupBox.querySelector("#addNoteBtn"),
-          searchBox = document.querySelector("#search"),
+          updateNoteBtn = popupBox.querySelector("#updateNoteBtn"),
+          updateNoteIdField = popupBox.querySelector("#updateNoteIdField"),
           profilePic = document.querySelector('.profile-pic'),
           dropdownMenu = document.getElementById('dropdown-menu'),
           hamburgerIcon = document.querySelector('.hamburger-icon'),
@@ -16,94 +16,91 @@ document.addEventListener('DOMContentLoaded', function() {
           cancelDeleteButton = document.getElementById('cancelDelete'),
           closeButton = document.querySelector('.modal .close');
 
-    // Function to show notes
-    function showNotes(query = "") {
-        console.log('Showing notes with query:', query);
-        document.querySelectorAll(".note").forEach(li => li.remove());
-    
-        fetch(`../notes/getnotes.php?query=${query}`, {
-            method: 'GET'
-        })
-        .then(response => response.json())
-        .then(notes => {
-            console.log('Fetched notes:', notes);
-            notes.forEach(note => {
-                // Replace \n with <br/> in the description
-                let filterDesc = note.description.replace(/\\n/g, '<br/>');
-                
-                // Use template literals and escape necessary characters
-                let liTag = `
-                    <li class="note" data-id="${note.id}">
-                        <div class="details">
-                            <p>${note.title}</p>
-                            <span>${filterDesc}</span>
-                        </div>
-                        <div class="bottom-content">
-                            <p>Last Updated: ${note.date}</p>
-                            <div class="settings">
-                                <i onclick="showMenu(this, event)" class="uil uil-ellipsis-h"></i>
-                                <ul class="menu">
-                                    <li onclick="updateNote(${note.id}, \`${note.title.replace(/'/g, "\\'")}\`, \`${filterDesc.replace(/'/g, "\\'")}\`); event.stopPropagation();"><i class="uil uil-pen"></i>Edit</li>
-                                    <li onclick="deleteNote(${note.id}); event.stopPropagation();"><i class="uil uil-trash"></i>Delete</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>`;
-                
-                document.querySelector(".wrapper").insertAdjacentHTML("beforeend", liTag);
-            });
-            // Attach event listeners after rendering notes
-        document.querySelectorAll('.note').forEach(note => {
-            console.log('Attaching event listener to note:', note);
-            note.addEventListener("click", () => {
-                console.log('Note clicked:', note);
+    // Function to handle form submission for adding or updating notes
+    function handleNoteSubmission(event) {
+        event.preventDefault(); // Prevent default form submission
 
-                // Extract note details and show the popup
-                const noteId = note.getAttribute('data-id');
-                const noteTitle = note.querySelector('p').innerText;
-                const noteDescription = note.querySelector('span').innerHTML.replace(/<br\/>/g, "\n");
+        const noteId = updateNoteIdField.value;
+        const title = titleTag.value;
+        const description = descTag.value;
 
-               // Reset fields and remove readonly attribute
-               titleTag.removeAttribute('readonly');
-               descTag.removeAttribute('readonly');
-               titleTag.value = '';
-               descTag.value = '';
+        const url = noteId ? '../notes/updatenotes.php' : '../notes/addnotes.php';
 
-               // Set popup fields to show note details
-               popupTitle.innerText = "View Note";
-               titleTag.value = noteTitle;
-               descTag.value = noteDescription;
-               addBtn.style.display = "none";
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-               popupBox.classList.add("show");
-               document.body.style.overflow = "hidden";
-            });
-        });
-        })
-        .catch(error => {
-            console.error('Error fetching notes:', error);
-            logError(error); // Log error details if needed
-        });
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    location.reload(); // Reload the page to reflect changes
+                } else {
+                    showToast("Error: " + xhr.statusText, 'error');
+                }
+            }
+        };
+
+        const data = `note_id=${encodeURIComponent(noteId)}&title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`;
+        console.log('Data to be sent:', data); // Debugging
+        xhr.send(data);
     }
 
-    //Toast notification
-setTimeout(function() {
-    var toast = document.querySelector('.toast-container');
-    if (toast) {
-        toast.style.display = 'none';
-    }
-}, 2000); // 3 seconds
+    // Show or hide toast notifications
+    setTimeout(function() {
+        var toast = document.querySelector('.toast-container');
+        if (toast) {
+            toast.style.display = 'none';
+        }
+    }, 3000); // Toasts disappear after 3 seconds
 
-    // Initial call to display notes
-    showNotes();
+    // Define the editNote function
+    function editNote(event, noteId, title, description) {
+        // Open the popup box for updating a note
+        event.stopPropagation();
+        openPopupBox('update', noteId, title, description);
+        updateNoteBtn.style.display = "block";
+    }
+
+    function openPopupBox(action, noteId = null, title = '', description = '') {
+        if (action === 'add' || action === 'update') {
+            titleTag.removeAttribute('readonly');
+            descTag.removeAttribute('readonly');
+            titleTag.value = title || '';
+            descTag.value = description || '';
+            updateNoteIdField.value = noteId || '';
+            updateNoteBtn.style.display = "block"; // Ensure button is visible
+            if (action === 'add') {
+                popupTitle.innerText = "Add a new Note";
+                updateNoteBtn.innerText = "Add Note";
+            } else {
+                popupTitle.innerText = "Update Note";
+                updateNoteBtn.innerText = "Update Note";
+            }
+        } else if (action === 'view') {
+            titleTag.setAttribute('readonly', true);
+            descTag.setAttribute('readonly', true);
+            popupTitle.innerText = "View Note";
+            titleTag.value = title;
+            descTag.value = description;
+            updateNoteBtn.style.display = "none"; // Hide button in view mode
+        }
+        popupBox.classList.add("show");
+        document.body.style.overflow = "hidden";
+        if (window.innerWidth > 660) titleTag.focus();
+    }    
+
+    // Attach function to window object
+    window.openPopupBox = openPopupBox;
+
+    // Attach the editNote function to the global object
+    window.editNote = editNote;
 
     // Add note event
     addBox.addEventListener("click", () => {
         console.log('Add note button clicked.');
         popupTitle.innerText = "Add a new Note";
-        addBtn.innerText = "Add Note";
         popupBox.classList.add("show");
-        addBtn.style.display = "block";
+        updateNoteBtn.innerText = "Add Note";
         document.body.style.overflow = "hidden";
         if (window.innerWidth > 660) titleTag.focus();
     });
@@ -116,74 +113,10 @@ setTimeout(function() {
         document.body.style.overflow = "auto";
     });
 
-    // Add or update note event
-    const noteForm = document.querySelector("#noteForm");
-    noteForm.addEventListener("submit", (e) => {
-        e.preventDefault();
+    // Attach the form submission handler
+    updateNoteBtn.addEventListener("click", handleNoteSubmission);
 
-        let title = titleTag.value.trim();
-        let description = descTag.value.trim();
-        let noteId = noteForm.getAttribute('data-id'); // Get note ID from data attribute
-        
-        console.log('Form submitted. Title:', title, 'Description:', description, 'Note ID:', noteId);
-
-        if (title || description) {
-            let requestBody = {
-                note: {
-                    title: title,
-                    description: description
-                }
-            };
-
-            if (noteId) {
-                // Update existing note
-                requestBody.note.id = noteId;
-                fetch('../notes/updatenotes.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(requestBody)
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Update response:', data);
-                    if (data.message) {
-                        showNotes(searchBox.value); // Refresh notes
-                        closeIcon.click(); // Close the popup
-                        noteForm.removeAttribute('data-id'); // Clear ID attribute
-                    }
-                })
-                .catch(error => {
-                    console.error('Error updating note:', error);
-                    logError(error); // Log error details if needed
-                });
-            } else {
-                // Add new note
-                fetch('../notes/addnotes.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(requestBody)
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Add response:', data);
-                    if (data.message) {
-                        showNotes(searchBox.value); // Refresh notes
-                        closeIcon.click(); // Close the popup
-                    }
-                })
-                .catch(error => {
-                    console.error('Error adding note:', error);
-                    logError(error); // Log error details if needed
-                });
-            }
-        }
-    });
-
-// Define the toggleDropdown function
+    // Define the toggleDropdown function
     function toggleDropdown() {
         console.log('Profile picture clicked.');
         if (dropdownMenu) {
@@ -232,7 +165,7 @@ setTimeout(function() {
         }
     });
 
-    // Make the `showMenu`, `deleteNote`, and `updateNote` functions globally accessible
+    // Make the showMenu, deleteNote, and updateNote functions globally accessible
     window.showMenu = function(elem, event) {
         if (event) {
             event.stopPropagation(); // Prevent click event from bubbling up
@@ -240,84 +173,70 @@ setTimeout(function() {
         console.log('Show menu for element:', elem);
         elem.parentElement.classList.add("show");
 
-       // Close the menu if clicking outside
+        // Close the menu if clicking outside
         const menu = elem.parentElement;
         const handler = function(e) {
-        // Check if the click was inside the menu or the ellipsis icon
-        if (!menu.contains(e.target)) {
-            menu.classList.remove("show");
-            document.removeEventListener("click", handler);
-        }
-    };
-    document.addEventListener("click", handler);
-    };
-
-    window.deleteNote = function(noteId) {
-        modal.style.display = 'flex';
-
-        closeButton.onclick = function() {
-            modal.style.display = 'none';
-        };
-
-        cancelDeleteButton.onclick = function() {
-            modal.style.display = 'none';
-        };
-
-        // Handle confirm delete button click
-    confirmDeleteButton.onclick = function() {
-        console.log('Delete note with ID:', noteId);
-        fetch('../notes/deletenotes.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: new URLSearchParams({
-                note_id: noteId
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Delete response:', data);
-            if (data.message) {
-                showNotes(searchBox.value); // Refresh notes
+            // Check if the click was inside the menu or the ellipsis icon
+            if (!menu.contains(e.target)) {
+                menu.classList.remove("show");
+                document.removeEventListener("click", handler);
             }
-            modal.style.display = 'none'; // Hide modal after deletion
-        })
-        .catch(error => {
-            console.error('Error deleting note:', error);
-            logError(error); // Log error details if needed
-            modal.style.display = 'none'; // Hide modal on error
-        });
+        };
+        document.addEventListener("click", handler);
     };
 
-    // Hide the modal if the user clicks outside of it
+    // Function to open delete modal
+    let noteIdToDelete = null;
+    window.deleteNote = function(noteId) {
+        noteIdToDelete = noteId;
+        modal.style.display = 'flex';
+    };
+
+    confirmDeleteButton.onclick = function() {
+        if (noteIdToDelete !== null) {
+            // Create and send a POST request to delete the note
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '../notes/deletenotes.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    // Reload the page to reflect changes
+                    window.location.reload();
+                } else {
+                    console.error('Failed to delete note.');
+                }
+            };
+            xhr.send('note_id=' + encodeURIComponent(noteIdToDelete));
+        }
+        modal.style.display = 'none';
+    };
+
+    cancelDeleteButton.onclick = function() {
+        modal.style.display = 'none';
+    };
+
+    closeButton.onclick = function() {
+        modal.style.display = 'none';
+    };
+
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = 'none';
         }
     };
-        
-    };
 
-    window.updateNote = function(noteId, title, filterDesc) {
-        console.log('Update note with ID:', noteId, 'Title:', title, 'Description:', filterDesc);
-        let description = filterDesc.replace(/<br\/>/g, '\n');
-        titleTag.value = title;
-        descTag.value = description;
-        popupTitle.innerText = "Update a Note";
-        addBtn.innerText = "Update Note";
-        addBtn.style.display = "block";
-        popupBox.classList.add("show");
-        document.body.style.overflow = "hidden";
-
-        // Set note ID on form
-        noteForm.setAttribute('data-id', noteId);
-    };
-
-    // Search functionality
-    searchBox.addEventListener("input", function() {
-        console.log('Search input changed:', searchBox.value);
-        showNotes(searchBox.value);
+    document.querySelectorAll('.note').forEach(note => {
+        console.log('Attaching event listener to note:', note);
+        note.addEventListener("click", () => {
+            console.log('Note clicked:', note);
+            const noteId = note.getAttribute('data-id');
+            const noteTitle = note.querySelector('p').innerText;
+            let noteDescription = note.querySelector('span').innerHTML;
+            noteDescription = noteDescription.replace(/<br\s*\/?>/gi, "\n");
+    
+            openPopupBox('view', noteId, noteTitle, noteDescription);
+        });
     });
-});
+    
 
+});

@@ -1,41 +1,36 @@
 <?php
-session_start();
+// Enable error reporting
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// Include database connection
 include '../pages/_dbconn.php';
 
-// Ensure the content type is set before any output
-header('Content-Type: application/json');
+// Start the session to get the logged-in user ID
+session_start();
 
 // Check if the user is logged in
-if (!isset($_SESSION['user_id'])) {
-    echo json_encode(['message' => 'User not logged in']);
-    exit();
-}
-
-// Get request body
-parse_str(file_get_contents('php://input'), $data);
-$note_id = intval($data['note_id']);
-
-// Validate note ID
-if (empty($note_id)) {
-    echo json_encode(['message' => 'Invalid note ID']);
-    exit();
-}
-
-// Delete note
-$user_id = $_SESSION['user_id'];
-$sql = "DELETE FROM notes WHERE id = ? AND user_id = ?";
-$stmt = $conn->prepare($sql);
-if ($stmt === false) {
-    echo json_encode(['message' => 'Failed to prepare statement', 'error' => $conn->error]);
-    exit();
-}
-
-$stmt->bind_param("ii", $note_id, $user_id);
-if ($stmt->execute()) {
-    echo json_encode(['message' => 'Note deleted successfully']);
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
 } else {
-    echo json_encode(['message' => 'Error deleting note', 'error' => $stmt->error]);
+    // Redirect to login if user is not logged in
+    header('Location: ../login.php');
+    exit;
 }
 
-$stmt->close();
-$conn->close();
+// Check if note ID is provided
+if (isset($_POST['note_id'])) {
+    $note_id = intval($_POST['note_id']);
+
+    // Delete note from the database
+    $sql = "DELETE FROM notes WHERE id = $note_id AND user_id = $user_id";
+
+    if ($conn->query($sql) === TRUE) {
+        $_SESSION['success'] = "Note deleted successfully";
+    } else {
+        echo "Error: " . $conn->error;
+    }
+} else {
+    echo "Note ID not provided.";
+}

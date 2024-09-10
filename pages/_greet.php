@@ -1,5 +1,4 @@
 <?php
-ini_set('display_errors', 1);
 // Include your database connection file
 include './_dbconn.php';
 
