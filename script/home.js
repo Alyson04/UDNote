@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
             descTag.removeAttribute('readonly');
             titleTag.value = title || '';
             descTag.value = description || '';
+            console.log(description);
             updateNoteIdField.value = noteId || '';
             updateNoteBtn.style.display = "block"; // Ensure button is visible
             if (action === 'add') {
@@ -77,11 +78,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 updateNoteBtn.innerText = "Update Note";
             }
         } else if (action === 'view') {
-            titleTag.setAttribute('readonly', true);
-            descTag.setAttribute('readonly', true);
+            titleTag.removeAttribute('readonly', true);
+            descTag.removeAttribute('readonly', true);
             popupTitle.innerText = "View Note";
             titleTag.value = title;
+
+            // Replace <br> tags with newline characters for the description
+            
             descTag.value = description;
+            
+
             updateNoteBtn.style.display = "none"; // Hide button in view mode
         }
         popupBox.classList.add("show");
@@ -232,11 +238,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const noteId = note.getAttribute('data-id');
             const noteTitle = note.querySelector('p').innerText;
             let noteDescription = note.querySelector('span').innerHTML;
-            noteDescription = noteDescription.replace(/<br\s*\/?>/gi, "\n");
+            
+            // Convert <br> tags to newlines for viewing mode
+            noteDescription = noteDescription.replace(/<br\s*\/?>/gi, '');
     
             openPopupBox('view', noteId, noteTitle, noteDescription);
         });
     });
     
-
 });
