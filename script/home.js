@@ -79,8 +79,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 updateNoteBtn.innerText = "Update Note";
             }
         } else if (action === 'view') {
-            titleTag.removeAttribute('readonly', true);
-            descTag.removeAttribute('readonly', true);
+            titleTag.setAttribute('readonly', true);
+            descTag.setAttribute('readonly', true);
             popupTitle.innerText = "View Note";
             titleTag.value = title;
 
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
             descTag.value = description;
             
 
-            updateNoteBtn.style.display = "none"; // Hide button in view mode
+            
         }
         popupBox.classList.add("show");
         document.body.style.overflow = "hidden";
@@ -108,6 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
         popupTitle.innerText = "Add a new Note";
         popupBox.classList.add("show");
         updateNoteBtn.innerText = "Add Note";
+        updateNoteBtn.style.display = "block";
         document.body.style.overflow = "hidden";
         if (window.innerWidth > 660) titleTag.focus();
     });
@@ -242,7 +243,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Convert <br> tags to newlines for viewing mode
             noteDescription = noteDescription.replace(/<br\s*\/?>/gi, '');
-    
+            
+            updateNoteBtn.style.display = "none"; // Hide button in view mode
             openPopupBox('view', noteId, noteTitle, noteDescription);
         });
     });
